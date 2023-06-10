@@ -17,7 +17,7 @@ const Home = () => {
         <div>
 
             {/****Section 1******** */}
-            <section className='relative mx-auto items-center w-10/12 flex flex-col text-white justify-between gap-5 max-w-maxContent'>
+            <section className='relative mx-auto items-center px-2 mb-10 md:w-10/12 flex flex-col text-white justify-between gap-5 max-w-maxContent'>
 
                 <Link to={"/signup"}>
                     <div
@@ -36,8 +36,8 @@ const Home = () => {
 
                 </div>
 
-                <div className='mb-2 text-richblack-300 text-sm text-center opacity-80 tracking-normal '>
-                    StudyNotion: Personalized, adaptive learning. Innovative tools, interactive classrooms. <br /> Empower yourself with dynamic lessons. Join our global community for education anytime, anywhere.
+                <div className='mb-2  text-sm  text-richblack-500   text-justify'>
+                    StudyNotion: Personalized, adaptive learning. Innovative tools, interactive classrooms. Empower yourself with dynamic lessons. Join our global community for education anytime, anywhere.
                 </div>
 
                 <div className='flex gap-4 flex-row'>
@@ -145,14 +145,14 @@ const Home = () => {
                 </div>
 
 
-                <div className='w-10/12 mx-auto'>
+                <div className='w-full mx-auto '>
                     <ExploreMore />
                 </div>
 
             </section>
 
             {/****Section 2******** */}
-            <section className='bg-pure-greys-5 text-richblack-700 flex flex-col gap-6 '>
+            <section className='bg-pure-greys-5 text-richblack-700 flex flex-col gap-6'>
 
                 <div className='homepage_bg h-[200px] md:h-[300px]  flex  items-center '>
 

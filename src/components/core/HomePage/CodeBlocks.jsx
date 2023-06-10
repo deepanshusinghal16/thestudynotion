@@ -50,7 +50,9 @@ const CodeBlocks = ({
 
     const section2 = () => {
         return (
-            <section className='  flex flex-row  text-md w-full  bg-transparent  my-5  lg:mx-10 '>
+            <section className='  flex flex-row  text-md w-full    my-5  lg:mx-10  '>
+
+
 
                 {/*Gradient Lagana h iske niche*/}
                 <div className='text-center flex flex-col  text-richblack-400   font-inter font-bold '>
@@ -130,10 +132,13 @@ const CodeBlocks = ({
             </section>
 
 
-            <section className={`order-2 ${reverse ? "md:order-1" : "md:order-2"}   flex flex-row  text-md w-full  bg-transparent  my-5  lg:mx-10 `}>
+            <section className={`relative order-2 ${reverse ? "md:order-1" : "md:order-2"}   flex flex-row  text-md w-full  bg-transparent my-5  lg:mx-10 `}>
+
+                <div className="absolute w-[40%] h-[40%] top-[25%] left-[15%] rounded-full  bg-gradient-to-br from-pink-500 to-richblack-900  border-none shadow-pink-500 shadow-2xl"></div>
+
 
                 {/*Gradient Lagana h iske niche*/}
-                <div className='text-center flex flex-col  text-richblack-400   font-inter font-bold '>
+                <div className='text-center flex flex-col  text-richblack-400   font-inter font-bold backdrop-blur-3xl border-none'>
                     <p className='text-richblack-200 opacity-65 px-2 text-md '>1</p>
                     <p className='text-richblack-200 opacity-65 px-2 text-md '>2</p>
                     <p className='text-richblack-200 opacity-65 px-2 text-md '>3</p>
@@ -147,7 +152,7 @@ const CodeBlocks = ({
                     <p className='text-richblack-200 opacity-65 px-2 text-md '>11</p>
                 </div>
 
-                <div className={`w-[100%] flex flex-col gap-2 font-bold font-mono ${codeColor} lg:pr-2 `}>
+                <div className={`w-[100%] flex flex-col gap-2 font-bold font-mono ${codeColor} lg:pr-2   backdrop-blur-3xl border-none`}>
                     <div className='w-[100%] '>
                         <TypeAnimation
                             sequence={[codeblock, 1000, ""]}

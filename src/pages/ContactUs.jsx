@@ -10,11 +10,11 @@ const ContactUs = () => {
     return (
         <div className='w-full'>
 
-            <section className=' lg:w-11/12'>
+            <section className=''>
                 <div className='text-white w-full'>
-                    <div className='w-11/12 grid grid-cols-1 lg:grid-cols-2 gap-10 mx-auto my-10  '>
+                    <div className='md:w-10/12 px-2 grid grid-cols-1 md:grid-cols-2 gap-10 mx-auto my-10  '>
 
-                        <div className='flex flex-col gap-8 bg-richblack-700 py-10 px-10 md:pl-20  md:pr-40  lg:pr-40  mx-auto  rounded-2xl w-fit  h-fit'>
+                        <div className='flex flex-col gap-8 bg-richblack-700 py-10 px-10 md:pl-20  md:pr-40  lg:pr-40  mx-auto  rounded-2xl   h-fit w-full  '>
 
                             <div className='flex flex-col gap-2'>
                                 <div className='font-semibold flex gap-2 items-center'>
@@ -48,9 +48,9 @@ const ContactUs = () => {
                         {/* Form for Reaching out    */}
                         <div className='rounded-2xl border-2 border-richblack-5 '>
 
-                            <div className='grid grid-cols-1 gap-6 place-items-center  pl-4 pt-6 '>
-                                <h2 className='text-4xl font-bold leading-10  lg:pr-40'>Got a idea? We've got the skills. <br />   Let's team up </h2>
-                                <p className='text-md '>Tell us more about yourself and what you are got in mind</p>
+                            <div className='grid grid-cols-1 gap-6 place-items-center  px-2 pt-6 '>
+                                <h2 className='text-2xl font-bold leading-10 text-center  '>Got a idea? We've got the skills.   Let's team up </h2>
+                                <p className='text-sm '>Tell us more about yourself and what you are got in mind</p>
                                 <ContactUsForm />
                             </div>
                         </div>

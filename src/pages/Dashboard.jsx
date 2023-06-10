@@ -22,7 +22,7 @@ const Dashboard = () => {
             </div>
 
             <div className='max-h-[calc(100vh-3.5rem)]  overflow-auto w-full overflow-y-scroll '>
-                <div className='mx-auto w-10/12'>
+                <div className='mx-auto '>
                     <Outlet />
 
                 </div>

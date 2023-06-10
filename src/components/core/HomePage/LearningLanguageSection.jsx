@@ -7,7 +7,7 @@ import planYourLessons from '../../../assets/Images/Plan_your_lessons.svg';
 
 const LearningLanguageSection = () => {
     return (
-        <div className='w-10/12 mx-auto max-w-maxContent my-20 '>
+        <div className='md:w-10/12 mx-auto max-w-maxContent my-20 '>
             <div className='flex flex-col gap-4 mx-auto justify-center items-center px-2'>
 
                 <h2 className='text-3xl font-semibold text-center '>
@@ -20,12 +20,12 @@ const LearningLanguageSection = () => {
                 </p>
 
 
-                <div className='flex flex-col md:flex-row  items-center '>
-                    <img src={knowYourProgress} alt="knowYourProgress" className='object-contain mb md:-mr-16 translate-y-8 md:translate-y-0 w-[100%] md:w-[45%] z-[1] 
+                <div className='flex flex-row justify-around  items-center '>
+                    <img src={knowYourProgress} alt="knowYourProgress" className='object-contain  -mr-16  translate-y-0 w-[45%] z-[1] 
                         hover:scale-95  transition-all duration-200' />
-                    <img src={compareWithOthers} alt="compareWithOthers" className='object-contain md:-mr-16 -translate-y-8 md:translate-y-0 md:-ml-16 w-[100%] md:w-[45%] z-[2]
+                    <img src={compareWithOthers} alt="compareWithOthers" className='object-contain -mr-16 translate-y-0 -ml-16 w-[45%] z-[2]
                         hover:scale-95  transition-all duration-200' />
-                    <img src={planYourLessons} alt="planYourLessons" className='object-contain md:-ml-16 w-1060%] -translate-y-24 md:translate-y-0 md:w-[50%] z-[3] 
+                    <img src={planYourLessons} alt="planYourLessons" className='object-contain -ml-16 translate-y-0 w-[50%] z-[3] 
                         hover:scale-95  transition-all duration-200' />
                 </div>
 
@@ -42,3 +42,14 @@ const LearningLanguageSection = () => {
 }
 
 export default LearningLanguageSection
+
+
+
+{/* <div className='flex flex-col md:flex-row  items-center '>
+<img src={knowYourProgress} alt="knowYourProgress" className='object-contain mb md:-mr-16 translate-y-8 md:translate-y-0 w-[100%] md:w-[45%] z-[1] 
+    hover:scale-95  transition-all duration-200' />
+<img src={compareWithOthers} alt="compareWithOthers" className='object-contain md:-mr-16 -translate-y-8 md:translate-y-0 md:-ml-16 w-[100%] md:w-[45%] z-[2]
+    hover:scale-95  transition-all duration-200' />
+<img src={planYourLessons} alt="planYourLessons" className='object-contain md:-ml-16 w-1060%] -translate-y-24 md:translate-y-0 md:w-[50%] z-[3] 
+    hover:scale-95  transition-all duration-200' />
+</div> */}

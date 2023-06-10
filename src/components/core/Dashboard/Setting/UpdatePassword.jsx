@@ -38,8 +38,8 @@ const UpdatePassword = () => {
 
     return (
 
-        <section className='my-4 flex flex-col gap-y-4  w-full bg-richblack-800 py-4 px-10 rounded-lg'>
-            <h2 className='text-sm'>Password</h2>
+        <section className='my-4 flex flex-col gap-y-4  w-full bg-richblack-800 py-4 px-4 md:px-10 rounded-lg'>
+            <h2 className='text-sm px-2'>Password</h2>
 
             <div className=' grid grid-cols-1 gap-4'>
 

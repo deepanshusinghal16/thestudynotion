@@ -56,8 +56,8 @@ export default function ChangeProfilePicture() {
     }, [imageFile])
     return (
         <>
-            <div className="flex items-center justify-center md:justify-between rounded-md border-[1px]  border-richblack-700 bg-richblack-800 py-8 px-4   md:px-12 text-richblack-5">
-                <div className="flex flex-col md:flex-row  items-center gap-4">
+            <div className="flex items-center justify-between rounded-md border-[1px]  border-richblack-700 bg-richblack-800 py-8 px-4   md:px-12 text-richblack-5">
+                <div className="flex  items-center gap-4">
                     <img
                         src={previewSource || user?.image}
                         alt={`profile-${user?.firstName}`}

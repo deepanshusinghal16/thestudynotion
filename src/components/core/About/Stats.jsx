@@ -10,7 +10,7 @@ const stats = [
 const Stats = () => {
 
     return (
-        <div className='grid  grid-cols-2 md:grid-cols-4  py-10  mx-auto '>
+        <div className='grid   grid-cols-2 md:grid-cols-4  py-10  mx-auto '>
             {
                 stats.map((data, index) => {
                     return (

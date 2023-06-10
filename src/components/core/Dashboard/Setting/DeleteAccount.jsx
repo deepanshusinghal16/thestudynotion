@@ -19,15 +19,15 @@ export default function DeleteAccount() {
 
     return (
         <>
-            <div className=" my-2 md:my-10 flex flex-col md:flex-row   gap-x-5 rounded-md border-[1px] border-pink-700 bg-pink-900 p-8 px-2 md:px-12 items-center">
+            <div className=" my-2  flex flex-row   gap-x-5 rounded-md border-[1px] border-pink-700 bg-pink-900 p-8 px-4 md:px-10 items-center">
                 <div className="flex aspect-square h-14 w-14 items-center justify-center rounded-full bg-pink-700">
                     <FiTrash2 className="text-3xl text-pink-200" />
                 </div>
-                <div className="flex flex-col space-y-2 items-center md:items-start py-3">
+                <div className="flex flex-col space-y-2  py-3">
                     <h2 className="text-lg font-semibold text-richblack-5">
                         Delete Account
                     </h2>
-                    <div className="text-center md:text-left md:w-10/12 text-pink-25">
+                    <div className=" md:w-10/12 text-pink-25">
                         <p>Would you like to delete account?</p>
                         <p>
                             This account may contain Paid Courses. Deleting your account is
