@@ -13,7 +13,7 @@ exports.sendOTP = async (req, res) => {
     try {
 
         const { email } = req.body;
-        
+
         const checkUserPresent = await User.findOne({ email });
         if (checkUserPresent) {
             console.log("Email already registered");
@@ -155,7 +155,7 @@ exports.login = async (req, res) => {
             })
         }
 
-        const user = await User.findOne({ email });
+        const user = await User.findOne({ email }).populate("additionalDetails");
         if (!user) {
             return res.status(401).json({
                 success: false,
@@ -191,7 +191,7 @@ exports.login = async (req, res) => {
         } else {
             res.status(401).json({
                 success: false,
-                message: "Incorrect Password",
+                message: "Invalid credentials",
             })
         }
 
@@ -208,7 +208,7 @@ exports.changePassword = async (req, res) => {
 
         const userDetails = await User.findById(req.user.id);
         const { oldPassword, newPassword, confirmNewPassword } = req.body;
-        if (!oldPassword || !newPassword || !confirmNewPassword) {
+        if (!newPassword || !confirmNewPassword) {
             return res.status(403).json({
                 success: false,
                 message: "Please fill all the fileds",
@@ -218,7 +218,7 @@ exports.changePassword = async (req, res) => {
         if (newPassword !== confirmNewPassword) {
             return res.status(400).json({
                 success: false,
-                message: 'NewPassword and Confirm New Password are not matching',
+                message: 'New Passwords not matching',
             })
         }
 
@@ -233,6 +233,7 @@ exports.changePassword = async (req, res) => {
             //mail sending
             const emailResponse = await mailSender(
                 updatedUserDetails.email,
+                "Password Updated",
                 passwordUpdated(
                     updatedUserDetails.email,
                     `Password updated successfully for ${updatedUserDetails.firstName} ${updatedUserDetails.lastName}`
@@ -254,7 +255,7 @@ exports.changePassword = async (req, res) => {
     } catch (e) {
         return res.status(500).json({
             success: false,
-            message: "Unable to change password , PLease try again later",
+            message: "Unable to change password , Please try again later",
         })
     }
 };

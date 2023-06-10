@@ -29,7 +29,7 @@ function SignupForm() {
 
   const { firstName, lastName, email, password, confirmPassword } = formData
 
- 
+
   const handleOnChange = (e) => {
     setFormData((prevData) => ({
       ...prevData,
@@ -37,7 +37,7 @@ function SignupForm() {
     }))
   }
 
- 
+
   const handleOnSubmit = (e) => {
     e.preventDefault()
 
@@ -50,12 +50,12 @@ function SignupForm() {
       accountType,
     }
 
-    
+
     dispatch(setSignupData(signupData))
     // console.log(signupData)
     dispatch(sendOtp(formData.email, navigate))
 
-   
+
     setFormData({
       firstName: "",
       lastName: "",
@@ -66,7 +66,7 @@ function SignupForm() {
     setAccountType(ACCOUNT_TYPE.STUDENT)
   }
 
- 
+
   const tabData = [
     {
       id: 1,
@@ -82,10 +82,10 @@ function SignupForm() {
 
   return (
     <div>
-    
+
 
       <Tab tabData={tabData} field={accountType} setField={setAccountType} />
-    
+
 
       <form onSubmit={handleOnSubmit} className="flex w-full flex-col gap-y-4">
         <div className="flex gap-x-4">

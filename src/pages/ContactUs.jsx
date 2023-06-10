@@ -10,7 +10,7 @@ const ContactUs = () => {
     return (
         <div className='w-full'>
 
-            <section className='w-full'>
+            <section className=' lg:w-11/12'>
                 <div className='text-white w-full'>
                     <div className='w-11/12 grid grid-cols-1 lg:grid-cols-2 gap-10 mx-auto my-10  '>
 

@@ -17,8 +17,8 @@ const Navbar = () => {
     const { user } = useSelector((state) => state.profile);
     const { totalItems } = useSelector((state) => state.cart);
 
-    const profile = useSelector((state) => state.profile);
-    console.log("Profile is " ,profile);
+
+
 
     const [subLinks, setSubLinks] = useState([]);
     const fetchSubLinks = async () => {
@@ -27,13 +27,12 @@ const Navbar = () => {
             setSubLinks(result.data.data);
         }
         catch (error) {
-            console.log("Cant fetch the categories at this moment", error);
+            console.log("Can't fetch the categories at this moment", error);
         }
     }
 
     useEffect(() => {
         fetchSubLinks();
-        console.log(subLinks);
     }, []);
 
 
@@ -59,34 +58,27 @@ const Navbar = () => {
                                     className=''>
                                     {
                                         link.title === "Catalog" ? (
-                                            <div key={index} className='text-richblack-25 text-lg font-semibold flex items-center gap-1 hover relative group'>
+                                            <div key={index} className='text-richblack-25 text-lg font-semibold flex items-center gap-1 hover relative group z-[10]'>
                                                 <p>{link.title}</p>
                                                 <IoIosArrowDown />
 
-                                                <div className='invisible absolute left-[50%] top-[120%] flex flex-row rounded-md  bg-richblack-5 text-richblack-900  opacity-0 transition-all duration-200 group-hover:visible
-                                                group-hover:opacity-100 lg:w-[300%] h-[50px] -translate-x-[50%] '>
 
-                                                    <div className='invisible absolute left-[70%] top-0 h-10 w-10 rounded-sm  rotate-45  bg-richblack-5 opacity-0 transition-all duration-200 group-hover:visible
-                                                group-hover:opacity-100  -translate-x-[100%] '>
+
+                                                <div className='invisible absolute left-[50%] translate-x-[-50%] translate-y-[30%] top-[50%] flex flex-col rounded-md bg-richblack-5 p-4 text-richblack-900 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 lg:w-[200px]'>
+                                                    <div className='absolute left-[50%] top-0  translate-x-[80%] translate-y-[-45%] h-6 w-6  rotate-45 rounded bg-richblack-5'>
                                                     </div>
-                                                </div>
 
-
-                                                {
-                                                    subLinks.length > 0 ? (
-                                                        subLinks.map((sublink, index) => {
-                                                            console.log(sublink.name);
-                                                            return (
-                                                                <Link to={sublink.link} key={index}>
-                                                                    <p className='text-xl hover:font-semibold text-black'>
-                                                                        {subLinks.title}
-                                                                    </p>
+                                                    {
+                                                        subLinks.length ? (
+                                                            subLinks.map((subLink, index) => (
+                                                                <Link to={`${subLink.link}`} key={index}>
+                                                                    <p className='text-center font-normal'>{subLink.name}</p>
                                                                 </Link>
-                                                            )
-                                                        })
+                                                            ))
+                                                        ) : (<div></div>)
+                                                    }
 
-                                                    ) : (<div>Hello jee  </div>)
-                                                }
+                                                </div>
 
 
 
@@ -114,7 +106,7 @@ const Navbar = () => {
                     {
                         user && user.accountType !== "Instructor" && (
                             <Link to={"/dashboard/cart"} className='relative' >
-                                <AiOutlineShoppingCart className='scale-150' />
+                                <AiOutlineShoppingCart size={26} className='text-white' />
                                 {
                                     totalItems > 0 && (
                                         <span className='absolute -top-4 -right-4  bg-richblack-500 rounded-full p-1 aspect-square h-6 flex items-center justify-center'>

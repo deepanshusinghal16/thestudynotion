@@ -3,11 +3,11 @@ const Profile = require('../models/Profile');
 const { uploadImageToCloudinary } = require('../utils/imageUploader')
 
 exports.updateProfile = async (req, res) => {
+  console.log("Inside API")
   try {
-    const { dob = "", about = "", contactNumber, gender } = req.body;
+    const { dob = null, about = null, contactNumber = null, gender = null } = req.body;
     const id = req.user.id;
-
-    if (!contactNumber || !gender || !id) {
+    if (!id) {
       return res.status(400).json({
         success: false,
         message: "Please enter all the necessary info",
@@ -23,10 +23,11 @@ exports.updateProfile = async (req, res) => {
     profileDetails.gender = gender;
     await profileDetails.save();
 
+    const updatedUserDetails = await User.findById(id).populate('additionalDetails');
     return res.status(200).json({
       success: true,
       message: 'Profile saved successfully',
-      profileDetails,
+      updatedUserDetails
     });
 
 
@@ -55,7 +56,7 @@ exports.deleteAccount = async (req, res) => {
 
     await Profile.findByIdAndDelete(userDetails.additionalDetails);
     await User.findByIdAndDelete(id);
-    
+
     return res.status(200).json({
       success: true,
       message: 'Account deleted successfully',
@@ -102,6 +103,7 @@ exports.getAllUserDetails = async (req, res) => {
 
 exports.updateDisplayPicture = async (req, res) => {
   try {
+
     const displayPicture = req.files.displayPicture
     const userId = req.user.id
 
