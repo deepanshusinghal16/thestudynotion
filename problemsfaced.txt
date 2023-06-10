@@ -1,0 +1,2 @@
+1. When i m logged in, everything was set , but as a refreshed my page , users data didnt persist in the local storage and token persisted in the local storage , then user get null and login signup button disappear bcz user was null but token was present , so in the slice i saved my user data also so in this way i solved that problem
+

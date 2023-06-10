@@ -26,7 +26,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
     cors({
-        origin: "http://localhost:3000",
+        origin: ["http://localhost:3000", "http://192.168.1.36:3000", "http://103.212.156.18:3000"],
         credentials: true,
     })
 );
@@ -54,4 +54,3 @@ app.get('/', (req, res) => {
         message: "Yourr  server is running......!!"
     })
 });
-

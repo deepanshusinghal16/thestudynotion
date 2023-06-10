@@ -5,11 +5,13 @@ const User = require('../models/User');
 
 exports.auth = async (req, res, next) => {
     try {
+
         const token = req.cookies.token
             || req.body.token
             || req.header("Authorization").replace("Bearer ", "");
 
         if (!token) {
+            console.log(error)
             return res.status(401).json({
                 success: false,
                 message: "Token is missing",
@@ -22,6 +24,7 @@ exports.auth = async (req, res, next) => {
 
 
         } catch (err) {
+            console.log(err)
             return res.status(401).json({
                 success: false,
                 message: "Token is invalid",
