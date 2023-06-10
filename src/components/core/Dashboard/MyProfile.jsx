@@ -25,17 +25,17 @@ const MyProfile = () => {
     }
 
     return (
-        <div className='text-white  flex flex-col gap-4 w-10/12 mx-auto'>
-            <div className='my-4'>
-                <h2 className='text-3xl text-center  '>My Profile</h2>
+        <div className='text-white  flex flex-col gap-4 px-2 md:w-10/12 mx-auto'>
+            <div className='my-2 md:my-4'>
+                <h2 className='text-2xl text-center  '>My Profile</h2>
             </div>
 
-            <div className='my-4 flex justify-between items-center w-full bg-richblack-800 py-4 px-10 rounded-lg'>
-                <div className='flex gap-6 w-full'>
+            <div className='my-2 md:my-4 flex justify-between items-center w-full bg-richblack-800 py-4 px-4 md:px-10 rounded-lg'>
+                <div className='flex gap-2 md:gap-6 w-full'>
                     <img src={user?.image} alt="" className='w-16 aspect-square rounded-full shadow-white shadow-md' />
                     <div className='flex flex-col gap-2'>
-                        <h2 className='text-2xl font-bold'>{user?.firstName} {" "} {user?.lastName}</h2>
-                        <p className='text-sm text-richblack-300'>{user?.email}</p>
+                        <h2 className='text-xl font-bold'>{user?.firstName} {" "} {user?.lastName}</h2>
+                        <p className='text-xs text-richblack-300'>{user?.email}</p>
                     </div>
                 </div>
                 <div>
@@ -51,8 +51,8 @@ const MyProfile = () => {
             </div>
 
 
-            <div className='my-4 flex justify-between items-center w-full bg-richblack-800 py-4 px-10 rounded-lg'>
-                <div className='flex flex-col gap-6 w-full'>
+            <div className='my-4 flex justify-between items-center w-full bg-richblack-800 py-4 px-4 md:px-10 rounded-lg'>
+                <div className='flex flex-col gap-2 md:gap-6 w-full'>
                     <p className='text-lg font-semibold'>About</p>
                     <p className='text-richblack-300 text-sm pr-6'>
                         {user?.additionalDetails?.about ?? "Write something about yourself"}
@@ -72,21 +72,23 @@ const MyProfile = () => {
             </div>
 
 
-            <div className='my-4 flex justify-between items-center w-full bg-richblack-800 py-4 px-10 rounded-lg'>
-                <div className='grid grid-cols-2 gap-y-6 place-items-between w-full'>
+            <div className='my-4 flex justify-between items-center w-full bg-richblack-800 py-4 px-4 md:px-10 rounded-lg'>
+                <div className='grid grid-cols-1 md:grid-cols-2  gap-y-4 md:gap-y-6 place-items-between  max-w-maxContent'>
 
-                    <div className='flex flex-col gap-1'>
-                        <p className='text-sm text-richblack-500'>First Name</p>
-                        <p className='text-md'>
-                            {user?.firstName}
-                        </p>
-                    </div>
+                    <div className=' grid grid-cols-2  col-span-1 md:col-span-2'>
+                        <div className='flex flex-col gap-1'>
+                            <p className='text-sm text-richblack-500'>First Name</p>
+                            <p className='text-md'>
+                                {user?.firstName}
+                            </p>
+                        </div>
 
-                    <div className='flex flex-col gap-1'>
-                        <p className='text-sm text-richblack-500'>Last Name</p>
-                        <p className='text-md'>
-                            {user?.lastName}
-                        </p>
+                        <div className='flex flex-col gap-1'>
+                            <p className='text-sm text-richblack-500'>Last Name</p>
+                            <p className='text-md'>
+                                {user?.lastName}
+                            </p>
+                        </div>
                     </div>
 
                     <div className='flex flex-col gap-1'>
@@ -118,7 +120,7 @@ const MyProfile = () => {
                     </div>
 
                 </div>
-                <div>
+                <div className=''>
                     <button
                         onClick={() => navigate("/dashboard/settings")}
                         className='bg-yellow-25 px-4 py-1 rounded-2xl text-richblack-800'>

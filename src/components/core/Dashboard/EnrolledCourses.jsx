@@ -20,8 +20,8 @@ const EnrolledCourses = () => {
         }
     }
 
-    useEffect(() =>
-        getEnrolledCourses()
+    useEffect(
+        () => { getEnrolledCourses() }
         , [])
 
     return (
@@ -30,7 +30,7 @@ const EnrolledCourses = () => {
 
 
             {
-                !enrolledCourses ? (<Spinner />) : (
+                !enrolledCourses ? (<div className='h-[calc(100vh-3.5rem)] flex items-center justify-center'><Spinner /></div>) : (
                     !enrolledCourses.length ?
                         (<div className='text-lg flex flex-col gap-4 items-center justify-center h-[50vh]'>
                             <p>You have not enrolled in any course </p>

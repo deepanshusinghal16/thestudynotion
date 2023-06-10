@@ -68,7 +68,7 @@ const UpdateProfileInfo = () => {
         <section className='my-4 flex flex-col gap-y-4  w-full bg-richblack-800 py-4 px-5 md:px-10 rounded-lg'>
             <h2 className='text-sm'>Profile Information</h2>
 
-            <form className=' grid grid-cols-2 gap-4'>
+            <form className=' grid grid-cols-1 md:grid-cols-2 gap-4'>
 
                 <label className="w-full">
                     <p className="mx-2 mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">

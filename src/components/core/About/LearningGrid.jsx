@@ -65,7 +65,7 @@ const LearningGrid = () => {
                                                 <HighlightText text={card.highlightText} />
                                             </div>
 
-                                            <p className='pr-10 text-md  '>
+                                            <p className='md:pr-10 text-sm md:text-md  '>
                                                 {card.description}
                                             </p>
 
@@ -76,7 +76,7 @@ const LearningGrid = () => {
                                         </div>
                                     ) : (
                                         <div className='mx-2 my-2 flex flex-col gap-4 md:h-[100px] lg:h-[200px] justify-around'>
-                                            <h2 className='text-2xl font-semibold'>{card.heading}</h2>
+                                            <h2 className='text-xl font-semibold'>{card.heading}</h2>
                                             <p className='text-md'>{card.description}</p>
                                         </div>
                                     )

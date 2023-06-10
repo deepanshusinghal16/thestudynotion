@@ -41,14 +41,14 @@ const ContactUsForm = () => {
         }
     }, [isSubmitSuccessful, reset])
     return (
-        <form onSubmit={handleSubmit(submitContactForm)} className='flex flex-col gap-8 my-10 mr-2 w-fit'>
+        <form onSubmit={handleSubmit(submitContactForm)} className='flex flex-col gap-8 px-2 my-10 mr-2 w-fit'>
 
             {/* name input */}
-            <div className='flex justify-between items-center gap-10'>
+            <div className='flex justify-between items-center  gap-4 md:gap-10'>
 
                 {/* firstName */}
                 <div className='relative'>
-                    <label htmlFor='firstName' >First Name*</label>
+                    <label htmlFor='firstName' >First Name<sup className='text-pink-100'>*</sup> </label>
                     <input
                         type="text"
                         name="firstName"
@@ -62,14 +62,14 @@ const ContactUsForm = () => {
                     />
                     {
                         errors.firstName && (
-                            <div className='w-full absolute bottom-0  translate-y-[100%] text-yellow-100 left-2'> Please enter your first name</div>
+                            <div className='text-xs w-full absolute bottom-0  translate-y-[120%] text-yellow-100 left-2'> Please enter your first name</div>
                         )
                     }
                 </div>
 
                 {/* lastName */}
                 <div>
-                    <label htmlFor='lastName'>Last Name*</label>
+                    <label htmlFor='lastName'>Last Name<sup className='text-pink-100'>*</sup></label>
                     <input
                         type="text"
                         name="lastName"
@@ -88,7 +88,7 @@ const ContactUsForm = () => {
 
             {/* Email Input */}
             <div className=' relative'>
-                <label htmlFor="email">Email Address*</label>
+                <label htmlFor="email">Email Address<sup className='text-pink-100'>*</sup></label>
                 <input
                     type="email"
                     id='email'
@@ -102,17 +102,17 @@ const ContactUsForm = () => {
                 />
                 {
                     errors.email && (
-                        <span className='w-full absolute bottom-0  translate-y-[100%] text-yellow-100 left-2'>Please enter your email</span>)
+                        <span className='text-xs w-full absolute bottom-0  translate-y-[120%] text-yellow-100 left-2'>Please enter your email</span>)
                 }
             </div>
 
 
             {/* Phone Input */}
-            <div className='flex flex-col gap-1'>
-                <label htmlFor="phoneNo">Phone Number</label>
+            <div className='flex flex-col gap-1 '>
+                <label htmlFor="phoneNo">Phone Number<sup className='text-pink-100'>*</sup></label>
                 <div className='flex flex-row gap-4 items-center justify-between'>
                     {/* Drop Down */}
-                    <div>
+                    <div className='max-w-[25%]'>
                         <select
                             name="dropdown"
                             id="dropdown"
@@ -158,7 +158,7 @@ const ContactUsForm = () => {
                         />
                         {
                             errors.phoneNo && (
-                                <span className='w-full absolute bottom-0  translate-y-[100%] text-yellow-100 left-2'>{errors.phoneNo.message}</span>
+                                <span className='text-xs w-full absolute bottom-0  translate-y-[120%] text-yellow-100 left-2'>{errors.phoneNo.message}</span>
                             )
                         }
                     </div>
@@ -167,7 +167,7 @@ const ContactUsForm = () => {
 
             {/* Message Input */}
             <div className=' relative'>
-                <label htmlFor="message">Enter your Message</label>
+                <label htmlFor="message">Enter your Message<sup className='text-pink-100'>*</sup></label>
                 <textarea
                     type="text"
                     name='message'
@@ -181,7 +181,7 @@ const ContactUsForm = () => {
                 />
                 {
                     errors.message && (
-                        <span className='w-full absolute bottom-0  translate-y-[100%] text-yellow-100 left-2'>Please enter your message</span>)
+                        <span className='text-xs w-full absolute bottom-0  translate-y-[100%] text-yellow-100 left-2'>Please enter your message</span>)
                 }
             </div>
 
@@ -194,7 +194,7 @@ const ContactUsForm = () => {
 
         </form>
 
-        
+
     )
 }
 
