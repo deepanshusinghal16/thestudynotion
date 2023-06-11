@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import Spinner from '../components/common/Spinner';
 import { Outlet } from 'react-router-dom';
-import Sidebar from '../components/core/Dashboard/Sidebar';
+import Sidebar from '../components/core/Dashboard/SideBar/Sidebar';
 
 const Dashboard = () => {
     const { loading: authLoading } = useSelector((state) => state.auth);
@@ -21,7 +21,7 @@ const Dashboard = () => {
                 <Sidebar />
             </div>
 
-            <div className='max-h-[calc(100vh-3.5rem)]  overflow-auto w-full overflow-y-scroll '>
+            <div className='max-h-[calc(100vh-3.5rem)]  overflow-auto w-full  '>
                 <div className='mx-auto '>
                     <Outlet />
 

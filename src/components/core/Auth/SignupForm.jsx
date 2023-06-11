@@ -2,12 +2,12 @@ import { useState } from "react"
 import { toast } from "react-hot-toast"
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"
 import { useDispatch } from "react-redux"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 import { sendOtp } from "../../../services/operations/authAPI"
 import { setSignupData } from "../../../slices/authSlice"
 import { ACCOUNT_TYPE } from "../../../utils/constants"
-import Tab from "../../common/Tab"
+import Tab from "../../common/Tab";
 
 function SignupForm() {
   const navigate = useNavigate()
@@ -141,7 +141,7 @@ function SignupForm() {
             className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5"
           />
         </label>
-        <div className="flex gap-x-4">
+        <div className="flex flex-col md:flex-row gap-4">
           <label className="relative">
             <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
               Create Password <sup className="text-pink-200">*</sup>
@@ -203,6 +203,7 @@ function SignupForm() {
         >
           Create Account
         </button>
+        <Link to="/login" className=" text-sm text-blue-100 ml-auto">Already a User ? Log In</Link>
       </form>
     </div>
   )
