@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Logo from '../../assets/Logo/Logo-Full-Light.png'
+import BigLogo from '../../assets/Logo/Logo-Full-Light.png';
 import { Link, matchPath } from 'react-router-dom';
 import { NavbarLinks } from '../.././data/navbar-links';
 import { useLocation } from 'react-router-dom';
@@ -9,7 +9,12 @@ import CTAButton from '../core/HomePage/CTAButton';
 import ProfileDropDown from '../core/Auth/ProfileDropDown';
 import { apiConnector } from '../../services/apiConnector';
 import { categories } from '../../services/api';
+import { ACCOUNT_TYPE } from '../../utils/constants';
+import Hamburger from '../core/Dashboard/SideBar/Hamburger';
+import { HiOutlineUserCircle } from "react-icons/hi";
 import { IoIosArrowDown } from "react-icons/io";
+import { Fade } from 'hamburger-react';
+
 
 const Navbar = () => {
 
@@ -17,7 +22,11 @@ const Navbar = () => {
     const { user } = useSelector((state) => state.profile);
     const { totalItems } = useSelector((state) => state.cart);
 
-
+    // This is all for the hambuger without login
+    // ********************************
+    const [showMenu, setShowMenu] = useState(false);
+    const toggleMenu = () => setShowMenu(!showMenu);
+    // ********************************
 
 
     const [subLinks, setSubLinks] = useState([]);
@@ -42,112 +51,193 @@ const Navbar = () => {
     }
 
     return (
-        <div className=' flex items-center justify-center border-b-2  border-richblack-700 '>
-            <div className='w-11/12  flex max-w-maxContent items-center justify-around mx-10 flex-row'>
+        <div className=' flex items-center justify-center border-b-2  border-richblack-700  w-full'>
+            <div className='w-full md:w-10/12 flex  items-center  justify-between   flex-row px-2'>
 
                 <Link to={"/"}  >
-                    <img src={Logo} alt="StudyNotion" className='my-2 w-[80%] mx-2' loading='lazy' />
+                    <img src={BigLogo} alt="StudyNotion" className='my-2 w-[80%] md:mx-2' loading='lazy' />
                 </Link>
 
 
-                <nav>
-                    <ul className='flex gap-4 text-richblack-25'>
-                        {
-                            NavbarLinks.map((link, index) => (
-                                <li key={index}
-                                    className=''>
-                                    {
-                                        link.title === "Catalog" ? (
-                                            <div key={index} className='text-richblack-25 text-lg font-semibold flex items-center gap-1 hover relative group z-[10]'>
-                                                <p>{link.title}</p>
-                                                <IoIosArrowDown />
 
 
 
-                                                <div className='invisible absolute left-[50%] translate-x-[-50%] translate-y-[30%] top-[50%] flex flex-col rounded-md bg-richblack-5 p-4 text-richblack-900 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 lg:w-[200px]'>
-                                                    <div className='absolute left-[50%] top-0  translate-x-[80%] translate-y-[-45%] h-6 w-6  rotate-45 rounded bg-richblack-5'>
-                                                    </div>
+                <div className='flex gap-4 flex-row-reverse md:flex-row items-center justify-between'>
 
+                    {
+                        token === null && (
+                            <nav>
+                                <div className='hidden md:block'>
+                                    <ul className='flex gap-4 text-richblack-25'>
+                                        {
+                                            NavbarLinks.map((link, index) => (
+                                                <li key={index}
+                                                    className=''>
                                                     {
-                                                        subLinks.length ? (
-                                                            subLinks.map((subLink, index) => (
-                                                                <Link to={`${subLink.link}`} key={index}>
-                                                                    <p className='text-center font-normal'>{subLink.name}</p>
-                                                                </Link>
-                                                            ))
-                                                        ) : (<div></div>)
+                                                        link.title === "Catalog" ? (
+                                                            <div key={index} className='text-richblack-25 text-lg font-semibold flex items-center gap-1 hover relative group z-[10]'>
+                                                                <p>{link.title}</p>
+                                                                <IoIosArrowDown />
+
+
+
+                                                                <div className='invisible absolute left-[50%] translate-x-[-50%] translate-y-[30%] top-[50%] flex flex-col rounded-md bg-richblack-5 p-4 text-richblack-900 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 lg:w-[200px]'>
+                                                                    <div className='absolute left-[50%] top-0  translate-x-[80%] translate-y-[-45%] h-6 w-6  rotate-45 rounded bg-richblack-5'>
+                                                                    </div>
+
+                                                                    {
+                                                                        subLinks.length ? (
+                                                                            subLinks.map((subLink, index) => (
+                                                                                <Link to={`${subLink.link}`} key={index}>
+                                                                                    <p className='text-center font-normal'>{subLink.name}</p>
+                                                                                </Link>
+                                                                            ))
+                                                                        ) : (<div></div>)
+                                                                    }
+
+                                                                </div>
+
+
+
+                                                            </div>
+                                                        ) : (
+                                                            <Link to={link.path}>
+                                                                <p className={`${matchRoute(link.path) ? `text-yellow-25` : `text-richblack-25`}
+                                                    text-lg font-semibold `} >
+                                                                    {link.title}
+                                                                </p>
+                                                            </Link>
+                                                        )
                                                     }
 
-                                                </div>
+                                                </li>
+                                            )
+                                            )
+                                        }
+
+                                    </ul>
+                                </div>
+
+                                <div className='block md:hidden'>
+                                    <Fade color="white" toggled={showMenu} onToggle={toggleMenu} />
+
+                                    <div
+                                        className={`bg-gradient-to-tr from-richblack-900 to-richblack-00 transition-all duration-200 absolute top-[3.5rem] w-screen h-[calc(100vh-3.5rem)] bg-transparent z-[1000] backdrop-blur-[10px] text-richblack-25 text-xl flex flex-col items-center gap-6 justify-center backdrop-opacity-100
+                                        ${showMenu ? ' right-0 left-0 inset-y-0' : ' -translate-y-[100%]   hidden'}
+                `}>
+
+                                        {
+                                            NavbarLinks.map((link, index) => (
+                                                <p key={index}
+                                                    onClick={toggleMenu}
+                                                    className=''>
+                                                    {
+                                                        link.title === "Catalog" ? (
+                                                            <div key={index} className='text-richblack-25 text-lg font-semibold flex items-center gap-1 hover relative group z-[10]'>
+                                                                <p>{link.title}</p>
+                                                                <IoIosArrowDown />
 
 
 
-                                            </div>
-                                        ) : (
-                                            <Link to={link.path}>
-                                                <p className={`${matchRoute(link.path) ? `text-yellow-25` : `text-richblack-25`} 
-                                                text-lg font-semibold `} >
-                                                    {link.title}
+                                                                <div className='invisible absolute left-[50%] translate-x-[-50%] translate-y-[30%] top-[50%] flex flex-col rounded-md bg-richblack-5 p-4 text-richblack-900 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 lg:w-[200px]'>
+                                                                    <div className='absolute left-[50%] top-0  translate-x-[80%] translate-y-[-45%] h-6 w-6  rotate-45 rounded bg-richblack-5'>
+                                                                    </div>
+
+                                                                    {
+                                                                        subLinks.length ? (
+                                                                            subLinks.map((subLink, index) => (
+                                                                                <Link to={`${subLink.link}`} key={index}>
+                                                                                    <p className='text-center font-normal'>{subLink.name}</p>
+                                                                                </Link>
+                                                                            ))
+                                                                        ) : (<div></div>)
+                                                                    }
+
+                                                                </div>
+
+
+
+                                                            </div>
+                                                        ) : (
+                                                            <Link to={link.path}>
+                                                                <p className={`${matchRoute(link.path) ? `text-yellow-25` : `text-richblack-25`}
+                                                    text-lg font-semibold `} >
+                                                                    {link.title}
+                                                                </p>
+                                                            </Link>
+                                                        )
+                                                    }
+
                                                 </p>
-                                            </Link>
-                                        )
-                                    }
-
-                                </li>
-                            )
-                            )
-                        }
-
-                    </ul>
-                </nav>
+                                            )
+                                            )
+                                        }
 
 
-                <div className='flex gap-4 items-center justify-between'>
-                    {
-                        user && user.accountType !== "Instructor" && (
-                            <Link to={"/dashboard/cart"} className='relative' >
-                                <AiOutlineShoppingCart size={26} className='text-white' />
-                                {
-                                    totalItems > 0 && (
-                                        <span className='absolute -top-4 -right-4  bg-richblack-500 rounded-full p-1 aspect-square h-6 flex items-center justify-center'>
-                                            <p className='text-richblack-5 font-semibold '>
-                                                {
-                                                    totalItems <= 9 ? (<span>
-                                                        {totalItems}
-                                                    </span>) : (<span>
-                                                        9+
-                                                    </span>)
-                                                }
-                                            </p>
-                                        </span>
-                                    )
-                                }
-                            </Link>
+
+                                    </div>
+
+                                </div>
+                            </nav>
                         )
                     }
+
 
                     {
                         token === null && (
                             <CTAButton active={false} linkto={"/login"} >
-                                <p className='px-6 py-1 font-edu-sa text-lg text-richblack-200 tracking-wider'>
+                                <p className='px-6 py-1 font-edu-sa text-lg text-richblack-200 tracking-wider hidden md:block'>
                                     LogIn
                                 </p>
+                                <HiOutlineUserCircle className='text-[32px] block md:hidden' />
+
                             </CTAButton>
                         )
                     }
                     {
                         token === null && (
-                            <CTAButton active={false} linkto={"/signup"} >
-                                <p className='px-6 py-1 font-edu-sa text-lg text-richblack-200 tracking-wider'>
-                                    SignUp
-                                </p>
-                            </CTAButton>
+                            <div className='hidden md:block'>
+                                <CTAButton active={false} linkto={"/signup"} >
+                                    <p className='px-6 py-1 font-edu-sa text-lg text-richblack-200 tracking-wider'>
+                                        SignUp
+                                    </p>
+                                </CTAButton>
+                            </div>
                         )
                     }
 
-                    {
-                        token !== null && <ProfileDropDown />
-                    }
+                    <div className='flex gap-4  items-center justify-between'>
+                        {
+                            user && user.accountType === ACCOUNT_TYPE.STUDENT && (
+                                <Link to={"/dashboard/cart"} className='relative' >
+                                    <AiOutlineShoppingCart size={26} className='text-white' />
+                                    {
+                                        totalItems > 0 && (
+                                            <span className='absolute -top-4 -right-4  bg-richblack-500 rounded-full p-1 aspect-square h-6 flex items-center justify-center'>
+                                                <p className='text-richblack-5 font-semibold '>
+                                                    {
+                                                        totalItems <= 9 ? (<span>
+                                                            {totalItems}
+                                                        </span>) : (<span>
+                                                            9+
+                                                        </span>)
+                                                    }
+                                                </p>
+                                            </span>
+                                        )
+                                    }
+                                </Link>
+                            )
+                        }
+                        {
+                            token !== null && <ProfileDropDown />
+                        }
+
+
+                        {
+                            token !== null && <Hamburger />
+                        }
+                    </div>
 
                 </div>
 

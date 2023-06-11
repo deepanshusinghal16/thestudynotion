@@ -89,6 +89,7 @@ function LoginForm() {
       >
         Sign In
       </button>
+      <Link to="/signup" className=" text-sm text-blue-100 ml-auto">New User ?  SignUp</Link>
     </form>
   )
 }
