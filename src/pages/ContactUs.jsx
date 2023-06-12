@@ -12,7 +12,7 @@ const ContactUs = () => {
 
             <section className=''>
                 <div className='text-white w-full'>
-                    <div className='md:w-10/12 px-2 grid grid-cols-1 md:grid-cols-2 gap-10 mx-auto my-10  '>
+                    <div className='md:w-10/12 px-2 grid grid-cols-1 lg:grid-cols-2 gap-10 mx-auto my-10  '>
 
                         <div className='flex flex-col gap-8 bg-richblack-700 py-10 px-10 md:pl-20  md:pr-40  lg:pr-40  mx-auto  rounded-2xl   h-fit w-full  '>
 

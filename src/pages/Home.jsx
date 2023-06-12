@@ -145,18 +145,18 @@ const Home = () => {
                 </div>
 
 
-                <div className='w-full mx-auto '>
-                    <ExploreMore />
-                </div>
 
             </section>
+            <div className='w-full px-2 md:px-4 lg:w-10/12 mb-20 mx-auto '>
+                    <ExploreMore />
+                </div>
 
             {/****Section 2******** */}
             <section className='bg-pure-greys-5 text-richblack-700 flex flex-col gap-6'>
 
                 <div className='homepage_bg h-[200px] md:h-[300px]  flex  items-center '>
 
-                    <div className='w-10/12  flex items-center  gap-4 mx-auto'>
+                    <div className='md:w-10/12 px-2 lg:max-w-[800px]   flex items-center  gap-4 mx-auto'>
 
                         <div className='grid grid-cols-2 gap-2  text-white my-5 mx-auto justify-between items-center w-full'>
 
@@ -178,18 +178,18 @@ const Home = () => {
                 </div>
 
 
-                <div className='w-10/12 mx-auto  flex flex-col items-center justify-center gap-6 my-5 '>
+                <div className='md:w-10/12 px-2 max-w-[1200px]   mx-auto  flex flex-col items-center justify-center gap-6 my-5 '>
 
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-6 justify-around items-center md:px-10 lg:px-20'>
 
-                        <div className='text-4xl font-semibold '>
+                        <div className='text-2xl font-semibold '>
                             Get the skills you need for a
                             <HighlightText text={" Job that is in Demand."} />
                         </div>
 
                         <div className='flex flex-col gap-4  '>
 
-                            <div className='text-md  opacity-80'>
+                            <div className='text-md md:text-lg  opacity-80'>
                                 StudyNotion, the cutting-edge edTech platform, ensures a secure future by empowering
                                 learners with essential coding skills.
                             </div>

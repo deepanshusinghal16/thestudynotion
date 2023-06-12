@@ -58,7 +58,7 @@ const ExploreMore = () => {
 
 
 
-            <div className=' flex justify-center   gap-x-[6px] md:gap-4 w-full my-10  '>
+            <div className=' flex justify-center   gap-x-[6px] md:gap-4 w-full my-10 lg:max-w-[1000px]  '>
                 {
                     courses.map((course, index) => {
                         return (
