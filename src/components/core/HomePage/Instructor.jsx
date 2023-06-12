@@ -24,7 +24,7 @@ const Instructor = () => {
 
                 <CTAButton active={true} linkto={"/"}>
                     <div className='text-md md:text-md lg:text-2xl py-2 px-6  font-semibold flex gap-2 items-center'>
-                        <h2 className='text-xl'>Start Teaching Today</h2>
+                        <h2 className='text-xl '>Start Teaching Today</h2>
                         <HiOutlineArrowNarrowRight />
                     </div>
                 </CTAButton>

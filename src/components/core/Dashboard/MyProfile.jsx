@@ -91,7 +91,7 @@ const MyProfile = () => {
                         </div>
                     </div>
 
-                    <div className='flex flex-col gap-1'>
+                    <div className='flex flex-col gap-1 col-span-2'>
                         <p className='text-sm text-richblack-500'>Email</p>
                         <p className='text-md'>
                             {user?.email}
