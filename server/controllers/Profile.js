@@ -5,14 +5,9 @@ const { uploadImageToCloudinary } = require('../utils/imageUploader')
 exports.updateProfile = async (req, res) => {
   console.log("Inside API")
   try {
-    const { dob = null, about = null, contactNumber = null, gender = null } = req.body;
+    const { dob = "", about = "", contactNumber = "**********", gender = "" } = req.body;
     const id = req.user.id;
-    if (!id) {
-      return res.status(400).json({
-        success: false,
-        message: "Please enter all the necessary info",
-      })
-    }
+
     const userDetails = await User.findById(id);
     const profileId = userDetails.additionalDetails;
     const profileDetails = await Profile.findById(profileId);
@@ -22,6 +17,7 @@ exports.updateProfile = async (req, res) => {
     profileDetails.about = about;
     profileDetails.gender = gender;
     await profileDetails.save();
+
 
     const updatedUserDetails = await User.findById(id).populate('additionalDetails');
     return res.status(200).json({
@@ -42,8 +38,6 @@ exports.updateProfile = async (req, res) => {
 //how can we sechule this delete profile  ---------   HW
 exports.deleteAccount = async (req, res) => {
   try {
-
-    console.log(req.user);
     const id = req.user.id;
     const userDetails = await User.findById(id);
     if (!userDetails) {

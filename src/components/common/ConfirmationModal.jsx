@@ -4,9 +4,13 @@ import IconBtn from './IconBtn'
 const ConfirmationModal = ({ modalData }) => {
 
     return (
-        <section className='absolute w-[100vw] mx-auto inset-y-0 left-0 right-0 h-[100%] flex justify-center items-center top-0 backdrop-blur-sm z-[10]'>
-            <div className='   shadow-lg shadow-richblack-200  bg-richblack-800 rounded-lg  text-white px-4 py-2'>
-                <div className='flex flex-col   justify-center'>
+        <section
+            data-aos="zoom-out" data-aos-duration="300"
+            className='absolute w-[100vw] mx-auto inset-y-0 left-0 right-0 h-[100%] flex justify-center items-center top-0 backdrop-blur-[4px] z-[10]'>
+            <div
+
+                className='   shadow-lg shadow-richblack-200  bg-richblack-800 rounded-lg  text-white px-4 py-2'>
+                <div className='flex flex-col   justify-center' >
 
                     <p className='px-2 py-2 text-xl font-bold'>{modalData.text1}</p>
                     <hr className='' />

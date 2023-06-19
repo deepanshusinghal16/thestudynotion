@@ -14,6 +14,7 @@ import Hamburger from '../core/Dashboard/SideBar/Hamburger';
 import { HiOutlineUserCircle } from "react-icons/hi";
 import { IoIosArrowDown } from "react-icons/io";
 import { Fade } from 'hamburger-react';
+import { fetchCourseCategories } from '../../services/operations/courseDetailsAPI';
 
 
 const Navbar = () => {
@@ -32,11 +33,11 @@ const Navbar = () => {
     const [subLinks, setSubLinks] = useState([]);
     const fetchSubLinks = async () => {
         try {
-            const result = await apiConnector("GET", categories.CATEGORIES_API);
-            setSubLinks(result.data.data);
+            const result = await fetchCourseCategories();
+            setSubLinks(result);
         }
         catch (error) {
-            console.log("Can't fetch the categories at this moment", error);
+            console.log("Can't fetch the categories at this moment");
         }
     }
 
@@ -51,8 +52,9 @@ const Navbar = () => {
     }
 
     return (
-        <div className=' flex items-center justify-center  border-b-2  border-richblack-700  w-full '>
-            <div className='w-full md:w-10/12 flex items-center   justify-between xl:justify-center    flex-row px-2 xl:grid grid-cols-3'>
+        <div
+            className=' flex items-center justify-center  border-b-2  border-richblack-700  w-full '>
+            <div className='w-full  md:w-10/12 flex items-center   justify-between xl:justify-center    flex-row px-2 xl:grid grid-cols-3'>
 
 
                 <Link to={"/"}   >
@@ -64,7 +66,7 @@ const Navbar = () => {
 
                     <div>
                         {
-                            token === null && (
+                            (
                                 <nav>
                                     <div className='hidden xl:block'>
                                         <ul className='flex gap-4 text-richblack-25'>
@@ -80,15 +82,19 @@ const Navbar = () => {
 
 
 
-                                                                    <div className='invisible absolute left-[50%] translate-x-[-50%] translate-y-[30%] top-[50%] flex flex-col rounded-md bg-richblack-5 p-4 text-richblack-900 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 lg:w-[200px]'>
-                                                                        <div className='absolute left-[50%] top-0  translate-x-[80%] translate-y-[-45%] h-6 w-6  rotate-45 rounded bg-richblack-5'>
+                                                                    <div className='invisible  absolute left-[50%] py-2 translate-x-[-50%] translate-y-[10%] top-[50%] items-center flex flex-col gap-1 rounded-md bg-richblack-5   text-richblack-900 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 lg:w-[200px]'>
+                                                                        <div className='absolute left-[50%] top-0  translate-x-[80%] translate-y-[-45%] h-6 w-6   rotate-45 rounded bg-richblack-5 z-[-1]'>
                                                                         </div>
 
                                                                         {
                                                                             subLinks.length ? (
                                                                                 subLinks.map((subLink, index) => (
-                                                                                    <Link to={`${subLink.link}`} key={index}>
-                                                                                        <p className='text-center font-normal'>{subLink.name}</p>
+                                                                                    <Link to={`${subLink.link}`} key={index} className='group/edit'>
+
+                                                                                        <p className='flex flex-col w-max  text-center font-normal text-sm    max-w-maxContent '>{subLink.name}
+                                                                                            <div className=' w-[150%]  h-[2px]    opacity-0 translate-x-[100%] group-hover/edit:opacity-100 group-hover/edit:translate-x-[-15%]  bg-pink-300 transition-all duration-500    ' > </div>
+                                                                                        </p>
+
                                                                                     </Link>
                                                                                 ))
                                                                             ) : (<div></div>)
@@ -117,7 +123,7 @@ const Navbar = () => {
                                         </ul>
                                     </div>
 
-                                    <div className='block xl:hidden'>
+                                    {token === null && <div className='block xl:hidden'>
                                         <Fade color="white" classList="hamburger-menu" toggled={showMenu} onToggle={toggleMenu} />
 
                                         <div
@@ -176,7 +182,7 @@ const Navbar = () => {
 
                                         </div>
 
-                                    </div>
+                                    </div>}
                                 </nav>
                             )
                         }

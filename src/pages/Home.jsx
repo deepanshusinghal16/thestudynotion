@@ -12,6 +12,7 @@ import ReviewSection from '../components/core/HomePage/ReviewSection';
 import Footer from '../components/common/Footer';
 import ExploreMore from '../components/core/HomePage/ExploreMore';
 
+
 const Home = () => {
     return (
         <div>
@@ -41,7 +42,8 @@ const Home = () => {
                 </div>
 
                 <div className='flex gap-4 flex-row'>
-                    <CTAButton active={true} linkto={"/signup"}>
+                    <CTAButton
+                        active={true} linkto={"/signup"}>
                         <h2 className='text-lg md:text-xl lg:text-2xl py-2 px-5  font-semibold'>
                             Learn More
 
@@ -65,7 +67,8 @@ const Home = () => {
                 </div>
 
 
-                <div className='flex justify-around items-center flex-col  '>
+                <div
+                    className='flex justify-around items-center flex-col  '>
                     {/*Code Section 1*/}
                     <div className='w-full'>
                         <CodeBlocks

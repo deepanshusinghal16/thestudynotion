@@ -20,11 +20,17 @@ import Cart from "./components/core/Dashboard/Cart";
 import { ACCOUNT_TYPE } from './utils/constants';
 import { useSelector } from "react-redux";
 import AddCourse from "./components/core/Dashboard/AddCourse";
+import MyCourses from "./components/core/Dashboard/MyCourses";
+import EditCourse from "./components/core/Dashboard/EditCourse/EditCourse";
+import { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function App() {
+  AOS.init()
   const { user } = useSelector((state) => state.profile)
   return (
-    <div className="w-screen min-h-screen bg-richblack-900 flex flex-col font-inter scroll-smooth  overflow-hidden">
+    <div className=" w-screen min-h-screen bg-richblack-900 flex flex-col font-inter scroll-smooth  overflow-hidden">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -95,6 +101,8 @@ function App() {
             user?.accountType === ACCOUNT_TYPE.INSTRUCTOR && (
               <>
                 <Route path="/dashboard/add-course" element={<AddCourse />} />
+                <Route path="/dashboard/my-courses" element={<MyCourses />} />
+                <Route path="/dashboard/edit-course/:courseId" element={<EditCourse />} />
               </>
             )
           }

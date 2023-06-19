@@ -1,79 +1,92 @@
-import React from 'react'
-import { useEffect } from 'react';
-import { useState } from 'react'
+import { useEffect, useState } from "react"
+import { useSelector } from "react-redux"
 
-const RequirementsField = ({ label, name, placeholder, register, errors, setValue, getValues }) => {
-
-    const [requirement, setRequirement] = useState("");
-    const [requirementList, setRequirementList] = useState([]);
-
-    const addRequirement = () => {
-        if (requirement) {
-            setRequirementList([...requirementList, requirement]);
-            setRequirement("")
-        }
-    }
-    const removeRequirement = (index) => {
-        const updatedRequirementList = [...requirementList];
-        updatedRequirementList.splice(index, 1);
-        setRequirementList(updatedRequirementList);
-    }
+export default function RequirementsField({
+    name,
+    label,
+    register,
+    setValue,
+    errors,
+    getValues,
+}) {
+    const { editCourse, course } = useSelector((state) => state.course)
+    const [requirement, setRequirement] = useState("")
+    const [requirementsList, setRequirementsList] = useState([])
 
     useEffect(() => {
+        if (editCourse) {
+            setRequirementsList(course?.instructions)
+        }
+        else {
+            setRequirementsList([]);
+        }
         register(name, { required: true, validate: (value) => value.length > 0 })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     useEffect(() => {
-        setValue(name, requirementList)
-    }, [requirementList])
+        setValue(name, requirementsList)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [requirementsList])
+
+    const handleAddRequirement = () => {
+        if (requirement) {
+            setRequirementsList([...requirementsList, requirement])
+            setRequirement("")
+        }
+    }
+
+    const handleRemoveRequirement = (index) => {
+        const updatedRequirements = [...requirementsList]
+        updatedRequirements.splice(index, 1)
+        setRequirementsList(updatedRequirements)
+    }
 
     return (
-
-
-
-        <div className='px-1 space-y-1 '>
-            <label htmlFor={name} > {label} <sup className='text-pink-500'>*</sup></label>
-            <input
-                type="text"
-                id={name}
-                setValue={requirement}
-                onChange={(e) => setRequirement(e.target.value)}
-                placeholder='Enter Course Requirements or Instructions'
-                style={{
-                    boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
-                }}
-                className="w-full rounded-[0.5rem] bg-richblack-800  py-2 px-2 text-richblack-5"
-            />
-            {
-                errors[name] && (
-                    <span className='text-xs '>{label} is  Required</span>
-                )
-            }
-            <button type='button' onClick={addRequirement} className='text-yellow-25 font-lg px-4 '> Add</button>
-
-            {
-                requirementList.length > 0 && (
-                    <ul className=' self-start'>
-                        {
-                            requirementList.map((req, index) => (
-                                <li key={index} className='my-1 flex items-center gap-2 text-richblack-50'>
-                                    <span className='sm'>{req}</span>
-                                    <button type='button' onClick={() => removeRequirement(index)}
-                                        className='text-xs text-richblack-300'>
-                                        Clear
-                                    </button>
-                                </li>
-                            ))
-                        }
-                    </ul>
-                )
-            }
-
-
-
+        <div className="flex flex-col space-y-2">
+            <label className="text-sm text-richblack-5" htmlFor={name}>
+                {label} <sup className="text-pink-200">*</sup>
+            </label>
+            <div className="flex flex-col items-start space-y-2">
+                <input
+                    type="text"
+                    id={name}
+                    value={requirement}
+                    onChange={(e) => setRequirement(e.target.value)}
+                    style={{
+                        boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
+                    }}
+                    className="w-full rounded-[0.5rem] bg-richblack-800  py-2 px-2 text-richblack-5"
+                />
+                <button
+                    type="button"
+                    onClick={handleAddRequirement}
+                    className="font-semibold text-yellow-50"
+                >
+                    Add
+                </button>
+            </div>
+            {requirementsList.length > 0 && (
+                <ul className="mt-2 list-inside list-disc">
+                    {requirementsList.map((requirement, index) => (
+                        <li key={index} className="flex items-center text-richblack-5">
+                            <span>{requirement}</span>
+                            <button
+                                type="button"
+                                className="ml-2 text-xs text-pure-greys-300 "
+                                onClick={() => handleRemoveRequirement(index)}
+                            >
+                                clear
+                            </button>
+                        </li>
+                    ))}
+                </ul>
+            )}
+            {errors[name] && (
+                <span className="ml-2 text-xs tracking-wide text-pink-200">
+                    {label} is required
+                </span>
+            )}
         </div>
-
     )
 }
-
-export default RequirementsField

@@ -184,7 +184,6 @@ const UpdateProfileInfo = () => {
 
             </form>
 
-
             <div className='flex gap-4 items-center justify-end'>
                 <button
                     onClick={() => resetData()}
@@ -197,6 +196,7 @@ const UpdateProfileInfo = () => {
                     Update
                 </button>
             </div>
+
         </section>
     )
 }
