@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import UpdateProfileInfo from './UpdateProfileInfo';
@@ -9,7 +9,7 @@ import DeleteAccount from './DeleteAccount';
 
 
 const Settings = () => {
-    const { user } = useSelector((state) => state.profile);
+    const [user, setUser] = useState(useSelector((state) => state.profile))
     const dispatch = useDispatch();
 
 

@@ -2,8 +2,8 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 import { FaCheck } from "react-icons/fa";
 import CourseInformationForm from './CouseInformation/CourseInformationForm';
-import CourseBuilderForm from './CourseBuilderForm';
-import PublishCourseForm from './PublishCourseForm';
+import CourseBuilderForm from './CourseBuilder/CourseBuilderForm';
+import PublishCourseForm from './PublishCourse/PublishCourseForm';
 
 const RenderSteps = () => {
     const { step } = useSelector((state) => state.course);
@@ -63,7 +63,7 @@ const RenderSteps = () => {
 
 
             {/* here start the course form */}
-            <div className='mx-auto my-4 rounded-lg bg-richblack-800 w-full'>
+            <div className='mx-auto my-4 px-3 rounded-lg bg-richblack-800 w-full'>
                 {step === 1 && <CourseInformationForm />}
                 {step === 2 && <CourseBuilderForm />}
                 {step === 3 && <PublishCourseForm />}

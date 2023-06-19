@@ -14,7 +14,7 @@ const MyProfile = () => {
             'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
         ];
 
-        const parts = dateString.split('-');
+        const parts = dateString.split('.');
         const year = parts[0];
         const month = months[parseInt(parts[1], 10) - 1];
         const day = parts[2];
@@ -31,14 +31,14 @@ const MyProfile = () => {
             </div>
 
             <div className='my-2 md:my-4 flex justify-between items-center w-full bg-richblack-800 py-4 px-4 md:px-10 rounded-lg'>
-                <div className='flex gap-2 md:gap-6 w-full'>
+                <div className='flex gap-1 md:gap-6 w-full mr-4'>
                     <img src={user?.image} alt="" className='w-16 aspect-square rounded-full shadow-white shadow-md' />
                     <div className='flex flex-col gap-2'>
-                        <h2 className='text-xl font-bold'>{user?.firstName} {" "} {user?.lastName}</h2>
-                        <p className='text-xs text-richblack-300'>{user?.email}</p>
+                        <h2 className='text-lg font-bold'>{user?.firstName} {" "} {user?.lastName}</h2>
+                        <p className='text-xs text-richblack-300 '>{user?.email}</p>
                     </div>
                 </div>
-                <div>
+                <div className='ml-2'>
                     <button
                         onClick={() => navigate("/dashboard/settings")}
                         className='bg-yellow-25 px-4 py-1 rounded-2xl text-richblack-800'>
@@ -75,7 +75,7 @@ const MyProfile = () => {
             <div className='my-4 flex justify-between items-center w-full bg-richblack-800 py-4 px-4 md:px-10 rounded-lg'>
                 <div className='grid grid-cols-1 md:grid-cols-2  gap-y-4 md:gap-y-6 place-items-between  max-w-maxContent'>
 
-                    <div className=' grid grid-cols-2  col-span-1 md:col-span-2'>
+                    <div className=' grid grid-cols-2  col-span-1 md:col-span-2 pr-6' >
                         <div className='flex flex-col gap-1'>
                             <p className='text-sm text-richblack-500'>First Name</p>
                             <p className='text-md'>
@@ -120,7 +120,7 @@ const MyProfile = () => {
                     </div>
 
                 </div>
-                <div className=''>
+                <div className='ml-2'>
                     <button
                         onClick={() => navigate("/dashboard/settings")}
                         className='bg-yellow-25 px-4 py-1 rounded-2xl text-richblack-800'>
