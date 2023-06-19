@@ -22,7 +22,7 @@ const Navbar = () => {
     const { token } = useSelector((state) => state.auth);
     const { user } = useSelector((state) => state.profile);
     const { totalItems } = useSelector((state) => state.cart);
-
+    const [loading, setLoading] = useState(false);
     // This is all for the hambuger without login
     // ********************************
     const [showMenu, setShowMenu] = useState(false);
@@ -32,6 +32,7 @@ const Navbar = () => {
 
     const [subLinks, setSubLinks] = useState([]);
     const fetchSubLinks = async () => {
+        setLoading(true);
         try {
             const result = await fetchCourseCategories();
             setSubLinks(result);
@@ -39,6 +40,7 @@ const Navbar = () => {
         catch (error) {
             console.log("Can't fetch the categories at this moment");
         }
+        setLoading(false);
     }
 
     useEffect(() => {
@@ -82,22 +84,23 @@ const Navbar = () => {
 
 
 
-                                                                    <div className='invisible  absolute left-[50%] py-2 translate-x-[-50%] translate-y-[10%] top-[50%] items-center flex flex-col gap-1 rounded-md bg-richblack-5   text-richblack-900 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 lg:w-[200px]'>
+                                                                    <div className='invisible  absolute left-[50%] py-2 translate-x-[-50%] translate-y-[20px] top-[50%] items-center flex flex-col gap-1 rounded-md bg-richblack-5   text-richblack-900 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 lg:w-[200px]'>
                                                                         <div className='absolute left-[50%] top-0  translate-x-[80%] translate-y-[-45%] h-6 w-6   rotate-45 rounded bg-richblack-5 z-[-1]'>
                                                                         </div>
 
                                                                         {
                                                                             subLinks.length ? (
                                                                                 subLinks.map((subLink, index) => (
-                                                                                    <Link to={`${subLink.link}`} key={index} className='group/edit'>
+                                                                                    <Link to={`/catalog/${subLink.name.split(" ").join("-").toLowerCase()}`} key={index} className='group/edit w-full flex items-center justify-center hover:bg-richblack-200  rounded-lg
+                                                                                     transition-all duration-300'>
 
-                                                                                        <p className='flex flex-col w-max  text-center font-normal text-sm    max-w-maxContent '>{subLink.name}
+                                                                                        <p className='pt-2 text-sm flex flex-col w-max  text-center font-normal     max-w-maxContent '>{subLink.name}
                                                                                             <div className=' w-[150%]  h-[2px]    opacity-0 translate-x-[100%] group-hover/edit:opacity-100 group-hover/edit:translate-x-[-15%]  bg-pink-300 transition-all duration-500    ' > </div>
                                                                                         </p>
 
                                                                                     </Link>
                                                                                 ))
-                                                                            ) : (<div></div>)
+                                                                            ) : (<div className='pt-2 text-sm flex flex-col w-max  text-center font-normal     max-w-maxContent'>Loading...</div>)
                                                                         }
 
                                                                     </div>
@@ -134,25 +137,25 @@ const Navbar = () => {
                                             {
                                                 NavbarLinks.map((link, index) => (
                                                     <p key={index}
-                                                        onClick={toggleMenu}
+
                                                         className=''>
                                                         {
                                                             link.title === "Catalog" ? (
-                                                                <div key={index} className='text-richblack-25 text-lg font-semibold flex items-center gap-1 hover relative group z-[10]'>
+                                                                <div key={index} className='text-richblack-25 text-lg font-semibold flex items-center gap-1 hover relative group z-[10] mx-auto'>
                                                                     <p>{link.title}</p>
                                                                     <IoIosArrowDown />
 
 
 
                                                                     <div className='invisible absolute left-[50%] translate-x-[-50%] translate-y-[30%] top-[50%] flex flex-col rounded-md bg-richblack-5 p-4 text-richblack-900 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 lg:w-[200px]'>
-                                                                        <div className='absolute left-[50%] top-0  translate-x-[80%] translate-y-[-45%] h-6 w-6  rotate-45 rounded bg-richblack-5'>
-                                                                        </div>
+
 
                                                                         {
                                                                             subLinks.length ? (
                                                                                 subLinks.map((subLink, index) => (
-                                                                                    <Link to={`${subLink.link}`} key={index}>
-                                                                                        <p className='text-center font-normal'>{subLink.name}</p>
+                                                                                    <Link to={`/catalog/${subLink.name.split(" ").join("-").toLowerCase()}`} key={index} className='group/edit w-full flex items-center justify-center hover:bg-richblack-200  rounded-lg
+                                                                                    transition-all duration-300 ' onClick={toggleMenu}>
+                                                                                        <p className='text-center font-normal text-black w-[150px] group-hover/edit'>{subLink.name}</p>
                                                                                     </Link>
                                                                                 ))
                                                                             ) : (<div></div>)
@@ -164,7 +167,7 @@ const Navbar = () => {
 
                                                                 </div>
                                                             ) : (
-                                                                <Link to={link.path}>
+                                                                    <Link to={link.path} onClick={toggleMenu}>
                                                                     <p className={`${matchRoute(link.path) ? `text-yellow-25` : `text-richblack-25`}
                                                     text-lg font-semibold `} >
                                                                         {link.title}

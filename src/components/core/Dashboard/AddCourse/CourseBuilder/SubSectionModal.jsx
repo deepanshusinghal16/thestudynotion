@@ -26,6 +26,7 @@ const SubSectionModal = ({
 
     useEffect(() => {
         if (view || edit) {
+            console.log(modalData)
             setValue("lectureTitle", modalData.title);
             setValue("lectureDesc", modalData.description);
             setValue("lectureVideo", modalData.videoUrl);
@@ -95,90 +96,95 @@ const SubSectionModal = ({
             const updatedCourseContent = course.courseContent.map((section) => section._id === modalData ? result : section);
             const updatedCourse = { ...course, courseContent: updatedCourseContent }
             dispatch(setCourse(updatedCourse));
+            console.log(course)
         }
         setModalData(null);
         setLoading(false);
     }
 
     return (
-        <div className='my-6 '>
+        <div className='absolute w-[100vw] mx-auto inset-y-0 left-0 right-0 h-[100%] flex justify-center items-center top-0 backdrop-blur-[4px] z-[10]'>
 
-            <div>
-                <header>
-                    {view && "Viewing"}
-                    {add && "Adding"}
-                    {edit && "Editing"}
-                    Lecture
-                </header>
 
-                <button
-                    onClick={() => (!loading && setModalData(null))}>
-                    <GiSplitCross />
-                </button>
+            <div className='my-6 bg-richblack-500 py-6 px-4 rounded-xl'>
+
+                <div className='flex justify-between'>
+                    <header>
+                        {view && "Viewing "}
+                        {add && "Adding "}
+                        {edit && "Editing "}
+                        Lecture
+                    </header>
+
+                    <button
+                        onClick={() => (!loading && setModalData(null))}>
+                        <GiSplitCross />
+                    </button>
+                </div>
+
+
+                <form onSubmit={handleSubmit(onSubmit)} className='my-2 flex flex-col  gap-y-4'>
+                    <Upload
+                        // disabled={view}
+                        name="lectureVideo"
+                        label="Lecture Video"
+                        register={register}
+                        setValue={setValue}
+                        errors={errors}
+                        video={true}
+                        viewData={view ? modalData.videoUrl : null}
+                        editData={edit ? modalData.videoUrl : null}
+                    />
+
+                    {/* Lecture Title */}
+                    <div>
+                        <label htmlFor="lectureTitle">Lecture Title</label>
+                        <input
+                            disabled={view}
+                            type="text"
+                            id='lectureTitle'
+                            placeholder='Enterlecture Title'
+                            {...register("lectureTitle", { required: true })}
+                            style={{
+                                boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
+                            }}
+                            className="w-full rounded-[0.5rem] bg-richblack-800  py-2 px-2 text-richblack-5"
+                        />
+                        {
+                            errors.lectureTitle && (<span className='text-xs text-pink-400'>{errors.lectureTitle}</span>)
+                        }
+                    </div>
+                    {/* Lecture Desc */}
+                    <div>
+                        <label htmlFor="lectureDesc">Lecture Description</label>
+                        <textarea
+                            disabled={view}
+                            id='lectureDesc'
+                            placeholder='Enter lecture Description'
+                            {...register("lectureDesc", { required: true })}
+                            style={{
+                                boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
+                            }}
+                            className="w-full rounded-[0.5rem] bg-richblack-800  py-2 px-2 text-richblack-5"
+                        />
+                        {
+                            errors.lectureDesc && (<span className='text-xs text-pink-400'>{errors.lectureDesc}</span>)
+                        }
+                    </div>
+
+                    {
+                        !view && (
+                            <div className='flex w-full justify-end'>
+                                <button className='py-1 px-3 bg-yellow-25 rounded-xl text-richblack-900'>
+                                    {loading ? "Loading..." : edit ? "Save Changes" : "Save"}
+                                </button>
+                            </div>
+                        )
+                    }
+
+                </form>
+
             </div>
-
-
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <Upload
-                    disabled={view}
-                    name="lectureVideo"
-                    label="lectureVideo"
-                    register={register}
-                    setValue={setValue}
-                    errors={errors}
-                    video={true}
-                    viewData={view ? modalData.videoUrl : null}
-                    editData={edit ? modalData.videoUrl : null}
-                />
-
-                {/* Lecture Title */}
-                <div>
-                    <label htmlFor="lectureTitle">Lecture Title</label>
-                    <input
-                        disabled={view}
-                        type="text"
-                        id='lectureTitle'
-                        placeholder='Enterlecture Title'
-                        {...register("lectureTitle", { required: true })}
-                        style={{
-                            boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
-                        }}
-                        className="w-full rounded-[0.5rem] bg-richblack-800  py-2 px-2 text-richblack-5"
-                    />
-                    {
-                        errors.lectureTitle && (<span className='text-xs text-pink-400'>{errors.lectureTitle}</span>)
-                    }
-                </div>
-                {/* Lecture Desc */}
-                <div>
-                    <label htmlFor="lectureDesc">Lecture Description</label>
-                    <textarea
-                        disabled={view}
-                        id='lectureDesc'
-                        placeholder='Enter lecture Description'
-                        {...register("lectureDesc", { required: true })}
-                        style={{
-                            boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
-                        }}
-                        className="w-full rounded-[0.5rem] bg-richblack-800  py-2 px-2 text-richblack-5"
-                    />
-                    {
-                        errors.lectureDesc && (<span className='text-xs text-pink-400'>{errors.lectureDesc}</span>)
-                    }
-                </div>
-
-                {
-                    !view && (
-                        <div>
-                            <button>
-                                {loading ? "Loading..." : edit ? "Save Changes" : "Save"}
-                            </button>
-                        </div>
-                    )
-                }
-
-            </form>
-
         </div>
     )
 }

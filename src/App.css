@@ -68,10 +68,174 @@ body {
 
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+        margin: 0;
 }
 
 input[type="number"] {
-  -moz-appearance: textfield; /* Firefox */
-}
+    -moz-appearance: textfield;
+        /* Firefox */
+    }
+    
+    .animate-charcter {
+        background-image: linear-gradient(-225deg,
+                #231557 0%,
+                #44107a 29%,
+                #ff1361 67%,
+                #fff800 100%);
+        background-size: auto auto;
+        background-clip: border-box;
+        background-size: 200% auto;
+        color: #fff;
+        background-clip: text;
+        text-fill-color: transparent;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: textclip 2s linear infinite;
+        display: inline-block;
+    }
+    
+    @keyframes textclip {
+        to {
+            background-position: 200% center;
+        }
+    }
+    
+    @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+    
+    .waviy {
+        position: relative;
+        -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0, 0, 0, .2));
+    }
+    
+    .waviy span {
+        font-family: 'Alfa Slab One', cursive;
+        position: relative;
+        display: inline-block;
+        color: #fff;
+        text-transform: uppercase;
+        animation: waviy 1s infinite;
+        animation-delay: calc(.1s * var(--i));
+    
+    }
+    
+    @keyframes waviy {
+    
+        0%,
+        40%,
+        100% {
+            transform: translateY(0)
+        }
+    
+        20% {
+            transform: translateY(-20px)
+        }
+    }
+    
+    /* This is will use for my Name at last */
+    @import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
+    
+    .content {
+        position: relative;
+    }
+    
+    .content h2 {
+        color: #fff;
+        /* font-size: 3rem; */
+        position: absolute;
+        /* transform: translate(-50%, -50%); */
+    }
+    
+    .content h2:nth-child(1) {
+        color: transparent;
+        -webkit-text-stroke: 2px #03a9f4;
+    }
+    
+    .content h2:nth-child(2) {
+        color: #03a9f4;
+        animation: animate 2s ease-in-out infinite;
+    }
+    
+    @keyframes animate {
+    
+        0%,
+        100% {
+            clip-path: polygon(0% 45%,
+                    16% 44%,
+                    33% 50%,
+                    54% 60%,
+                    70% 61%,
+                    84% 59%,
+                    100% 52%,
+                    100% 100%,
+                    0% 100%);
+        }
+    
+        50% {
+            clip-path: polygon(0% 60%,
+                    15% 65%,
+                    34% 66%,
+                    51% 62%,
+                    67% 50%,
+                    84% 45%,
+                    100% 46%,
+                    100% 100%,
+                    0% 100%);
+        }
+    }
+    
+    /* This is forl laoding   */
+    .loading {
+        position: relative;
+    }
+    
+    .loading span {
+        position: relative;
+        display: inline-block;
+        text-transform: uppercase;
+        animation: flip 2s infinite;
+        animation-delay: calc(.2s * var(--i))
+    }
+    
+    @keyframes flip {
+    
+        0%,
+        80% {
+            transform: rotateY(360deg)
+        }
+    }
+    
+    
+    
+    .swiper {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+    
+        /* Center slide text vertically */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .swiper-slide {
+        width: 80%;
+    }
+    
+    .swiper-slide:nth-child(2n) {
+        width: 60%;
+    }
+                .swiper-slide:nth-child(3n) {
+                    width: 40%;
+                }
