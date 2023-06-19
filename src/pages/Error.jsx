@@ -2,10 +2,12 @@ import React from 'react'
 
 const Error = () => {
     return (
-        <div className='flex items-center justify-center h-[90vh] text-richblack-5'>
-            <p className='text-2xl font-bold '>
-                Error   <span className='animate-ping'>404</span>  : Page not found
-            </p>
+        <div className='flex items-center  text-center text-[3rem] md:text-[5rem] lg:text-[6rem] justify-center h-[90vh]  content'>
+
+            <h2 className='mx-auto '>ERROR: 404</h2>
+            <h2 className='mx-auto'>ERROR: 404</h2>
+            {/* <div className=''>Page not found</div>   */}
+
         </div>
     )
 }

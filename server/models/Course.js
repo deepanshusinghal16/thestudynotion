@@ -24,6 +24,10 @@ const courseSchema = new mongoose.Schema({
             ref: "Section",
         }
     ],
+    createdAt: {
+        type: Date,
+        default: Date.now,
+    },
     ratingAndReviews: [
         {
             type: mongoose.Schema.Types.ObjectId,

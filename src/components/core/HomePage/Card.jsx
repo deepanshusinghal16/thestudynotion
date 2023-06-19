@@ -10,9 +10,9 @@ const Card = ({ course, currentCard, setCurrentCard, index }) => {
     const lessionNumber = course.lessionNumber;
 
     return (
-        <div className={`flex flex-col gap-[1px] md:gap-4   justify-between px-1 md:px-6  rounded-2xl py-2 md:py-8 border-2 border-richblack-500 
+        <div className={` w-[200px] md:w-[300px] lg:w-[400px] flex flex-col gap-[1px] md:gap-4   justify-between px-1 md:px-6  rounded-2xl py-2 md:py-8 border-2 border-richblack-500 
         ${currentCard === heading ? `bg-white border-richblack-400 border-2 text-black hover:shadow-black`
-                : `text-white bg-black hover:shadow-white`} transition-all duration-200 hover:shadow-white shadow-inner w-full`}
+                : `text-white bg-black hover:shadow-white`} transition-all duration-200 hover:shadow-white shadow-inner`}
             onClick={() => setCurrentCard(heading)}
             key={index}>
             <h2 className='text-md font-semibold '>

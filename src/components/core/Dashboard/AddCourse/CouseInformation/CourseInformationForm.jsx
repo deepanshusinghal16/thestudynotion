@@ -214,7 +214,7 @@ const CourseInformationForm = () => {
                     type='number'
                     id='coursePrice'
                     placeholder='Enter Course Price'
-                    {...register("coursePrice", { required: true, valueAsNumber: true })}
+                    {...register("coursePrice", { required: true, })}
                     style={{
                         boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
                     }}

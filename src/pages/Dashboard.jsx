@@ -17,11 +17,11 @@ const Dashboard = () => {
 
     return (
         <div className='flex  relative  min-h-[calc(100vh-3.5rem)] w-full'>
-            <div className='hidden lg:block  lg:w-[250px] border-r-[1px] border-richblack-500'>
+            <div className='absolute z-[10] top-0 left-0  h-full bg-black'>
                 <Sidebar />
             </div>
 
-            <div className='max-h-[calc(100vh-3.5rem)]  overflow-auto w-full  '>
+            <div className='max-h-[calc(100vh-3.5rem)]  overflow-auto  w-full mx-auto '>
                 <div className='mx-auto '>
                     <Outlet />
 

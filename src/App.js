@@ -25,6 +25,7 @@ import EditCourse from "./components/core/Dashboard/EditCourse/EditCourse";
 import { useEffect } from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Catalog from "./pages/Catalog";
 
 function App() {
   AOS.init()
@@ -34,6 +35,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="catalog/:catalogName" element={<Catalog />} />
         <Route path="signup" element={
           <OpenRoute>
             <Signup />
