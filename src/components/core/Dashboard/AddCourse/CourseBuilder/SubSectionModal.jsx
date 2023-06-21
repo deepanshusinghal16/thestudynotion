@@ -103,18 +103,18 @@ const SubSectionModal = ({
     }
 
     return (
-        <div className='absolute w-[100vw] mx-auto inset-y-0 left-0 right-0 h-[100%] flex justify-center items-center top-0 backdrop-blur-[4px] z-[10]'>
+        <div className='absolute w-[100vw] mx-auto inset-y-0 left-0 right-0  flex justify-center items-center top-0 backdrop-blur-[4px] z-[10]'>
 
 
-            <div className='my-6 bg-richblack-500 py-6 px-4 rounded-xl'>
-
-                <div className='flex justify-between'>
-                    <header>
+            <div className='my-6 bg-richblack-500  rounded-xl'>
+                <div className='flex justify-between bg-richblack-600 px-4 py-2 rounded-xl'>
+                    <header className='font-mono'>
                         {view && "Viewing "}
                         {add && "Adding "}
                         {edit && "Editing "}
                         Lecture
                     </header>
+
 
                     <button
                         onClick={() => (!loading && setModalData(null))}>
@@ -123,7 +123,7 @@ const SubSectionModal = ({
                 </div>
 
 
-                <form onSubmit={handleSubmit(onSubmit)} className='my-2 flex flex-col  gap-y-4'>
+                <form onSubmit={handleSubmit(onSubmit)} className='my-2 flex flex-col  gap-y-4 py-4 px-4'>
                     <Upload
                         // disabled={view}
                         name="lectureVideo"

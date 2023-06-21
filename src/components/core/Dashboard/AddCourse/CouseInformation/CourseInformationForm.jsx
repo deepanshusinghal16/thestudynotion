@@ -31,10 +31,6 @@ const CourseInformationForm = () => {
         formState: { errors },
     } = useForm();
 
-    const location = useLocation();
-    const matchRoute = (route) => {
-        return matchPath({ path: route }, location.pathname);
-    }
     const { course, editCourse } = useSelector((state) => state.course);
     const [loading, setLoading] = useState(false);
     const [courseCategories, setCourseCategories] = useState([]);
@@ -50,22 +46,15 @@ const CourseInformationForm = () => {
             setLoading(false);
         }
 
-        console.log(location.pathname)
-
-        if (matchRoute(`/dashboard/add-course`)) {
-            dispatch(setEditCourse(false));
-        }
-
-
-        else if (editCourse) {
+        if (editCourse) {
             setValue("courseTitle", course.courseName)
             setValue("courseShortDesc", course.courseDescription)
             setValue("coursePrice", course.price)
             setValue("courseCategory", course.category)
-            setValue("courseRequirements", course.instructions)
+            setValue("courseRequirements", course.instructions.toString())
             setValue("courseImage", course.thumbnail)
             setValue("courseBenefits", course.whatYouWillLearn)
-            setValue("courseTags", course.tag)
+            setValue("courseTags", course.tag.toString())
         }
         getCategories()
     }, []);
@@ -162,7 +151,7 @@ const CourseInformationForm = () => {
     return (
         <form
             onSubmit={handleSubmit(onSubmit)}
-            className=' py-4 px-2 space-y-4'
+            className=' py-4 sm:px-2 space-y-4'
         >
 
             {/* CourseTitle */}
@@ -311,12 +300,12 @@ const CourseInformationForm = () => {
                 getValues={getValues}
             />
 
-            <div className='flex flex-row  justify-end gap-2'>
+            <div className='flex flex-row  items-center justify-end gap-2 text-xs sm:text-md md:text-md lg:text-lg'>
                 {
                     editCourse && (
                         <button
                             onClick={() => dispatch(setStep(2))}
-                            className='py-1 px-4 font-semibold bg-richblack-700 rounded-md'
+                            className='py-1 px-1 sm:px-4 font-semibold bg-richblack-700 rounded-md'
                         >
                             Continue without saving
                         </button>

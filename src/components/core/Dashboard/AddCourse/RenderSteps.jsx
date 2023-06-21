@@ -34,9 +34,9 @@ const RenderSteps = () => {
                     steps.map((item) => (
                         <>
                             <div className='flex flex-col relative gap-2'>
-                                <div className={`${step === item.id ? "bg-yellow-500 border-yellow-5" : "border-richblack-700 bg-richblack-800 text-richblack-300"} w-fit p-2 rounded-full aspect-square flex item justify-center mx-auto z-[10]`} key={item.id} >
+                                <div className={`${step === item.id ? "text-yellow-50 border-yellow-50 border-2  " : step <= item.id ? "border-richblack-700 bg-richblack-800 text-richblack-300" : "border-yellow-50 border-2"} w-fit p-2 rounded-full  backdrop-blur-2xl aspect-square flex item justify-center mx-auto z-[1]`} key={item.id} >
                                     {
-                                        step > item.id ? (<FaCheck className='text-xl' />) : (item.id)
+                                        step > item.id ? (<FaCheck className='text-xl text-yellow-5  ' />) : (item.id)
                                     }
                                 </div>
                                 <div>
@@ -47,7 +47,7 @@ const RenderSteps = () => {
                                 <div className='absolute top-[30%] right-[10%] translate-x-[100%]'>
                                     {
                                         item.id !== steps.length && (
-                                            <div className={`w-28 h-[1px]  border-dashed border-[1px] 
+                                            <div className={`w-28  h-[1px]  border-dashed border-[1px] 
                                             ${item.id < step ? "border-yellow-25 " : "border-richblack-25"}`}></div>
                                         )
                                     }
@@ -63,7 +63,7 @@ const RenderSteps = () => {
 
 
             {/* here start the course form */}
-            <div className='mx-auto my-4 px-3 rounded-lg bg-richblack-800 w-full'>
+            <div className='mx-auto my-4 px-1 sm:px-3 rounded-lg bg-richblack-800 w-full'>
                 {step === 1 && <CourseInformationForm />}
                 {step === 2 && <CourseBuilderForm />}
                 {step === 3 && <PublishCourseForm />}

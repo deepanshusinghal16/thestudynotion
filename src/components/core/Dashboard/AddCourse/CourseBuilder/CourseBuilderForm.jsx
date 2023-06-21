@@ -85,7 +85,7 @@ const CourseBuilderForm = () => {
 
 
     return (
-        <div className='py-4 px-6 space-y-4'>
+        <div className='py-4 sm:px-6 space-y-4'>
             <h2 className='font-semibold text-lg'>Course Build</h2>
 
             <form className='flex flex-col gap-y-4' onSubmit={handleSubmit(onSubmit)}>
@@ -137,12 +137,12 @@ const CourseBuilderForm = () => {
 
             <div className='flex gap-2 justify-end'>
                 <button
-                    className=' flex gap-1 items-center py-1 px-4 text-md text-richblack-200 bg-richblack-500 border-[1px] rounded-lg '
+                    className=' flex gap-1 items-center py-1 px-4 text-md text-richblack-5 bg-richblack-500 border-[1px] rounded-lg '
                     onClick={() => goBack()}>
                     Back
                 </button>
                 <button
-                    className='flex gap-1 items-center py-1 px-4 text-md text-yellow-200 border-yellow-5 border-[1px] rounded-lg '
+                    className='flex gap-1 items-center py-1 px-4 text-md bg-yellow-50 text-richblack-900 border-yellow-5 border-[1px] rounded-lg '
                     onClick={() => goToNext()}
                 >
                     Next

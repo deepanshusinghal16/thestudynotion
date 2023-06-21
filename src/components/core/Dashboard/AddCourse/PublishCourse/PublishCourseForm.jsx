@@ -58,8 +58,8 @@ const PublishCourseForm = () => {
 
 
     return (
-        <div className='py-10 mx-10 '>
-            <header className='text-xl'>Publish Settings</header>
+        <div className='py-4 px-2 sm:py-10 sm:mx-10 '>
+            <header className='text-lg'>Publish Settings</header>
             <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col px-2'>
                 <div className='flex gap-2 py-6 items-center'>
                     <input
@@ -74,7 +74,7 @@ const PublishCourseForm = () => {
                     <label htmlFor="public">Make this course Public</label>
                 </div>
 
-                <div className='flex justify-end items-center gap-4'>
+                <div className='flex justify-end items-center gap-2 sm:gap-4'>
                     <button
                         className='text-richblack-5 bg-richblack-600 px-4 py-1 rounded-lg '
                         disabled={loading}
