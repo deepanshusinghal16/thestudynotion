@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { IoIosArrowDropdownCircle } from "react-icons/io";
+import { RiArrowDropDownLine } from "react-icons/ri";
+import { CgDetailsMore } from "react-icons/cg";
 import { FiEdit2 } from "react-icons/fi";
 import ConfirmationModal from "../../../../common/ConfirmationModal";
 import { MdDeleteForever } from "react-icons/md";
@@ -44,14 +45,14 @@ const NestedView = ({ handleChangeEditSectionName }) => {
     }
 
     return (
-        <div>
-            <div className='mt-10 rounded-lg bg-richblack-600 py-10 px-6'>
+        <div className='z-[1000]'>
+            <div className='mt-10 rounded-lg bg-richblack-600  py-4 sm:py-10 px-1 sm:px-6'>
                 {
                     course?.courseContent.map((section) => (
-                        <details key={section._id} open>
+                        <details key={section._id} open className='py-2'>
                             <summary className='flex justify-between  border-y-[1px] py-2 '>
                                 <div className='flex items-center gap-x-1'>
-                                    <IoIosArrowDropdownCircle />
+                                    <CgDetailsMore />
                                     <p>{section.sectionName}</p>
                                 </div>
                                 <div className='flex items-center gap-2'>
@@ -78,7 +79,7 @@ const NestedView = ({ handleChangeEditSectionName }) => {
 
                             </summary>
 
-                            <div className='mx-6 w-[80%] '>
+                            <div className='mx-6 w-[80%] mt-4 '>
                                 {
                                     section?.subSection.map((data) => (
                                         <div key={data._id}
@@ -86,8 +87,8 @@ const NestedView = ({ handleChangeEditSectionName }) => {
                                             className='flex items-center justify-between '>
 
 
-                                            <div className='flex items-center gap-x-1'>
-                                                <IoIosArrowDropdownCircle />
+                                            <div className='flex items-center gap-x-1 cursor-pointer    '>
+                                                <RiArrowDropDownLine className='text-lg' />
                                                 <p>{data.title}</p>
                                             </div>
 
@@ -116,7 +117,7 @@ const NestedView = ({ handleChangeEditSectionName }) => {
                                 }
                                 {/* Add Lecture */}
                                 <button
-                                    className='flex gap-4 mx-10 text-yellow-5 items-center text-lg'
+                                    className='flex gap-4  text-yellow-5 items-center text-md'
                                     onClick={() => setAddSubSection(section._id)}>
                                     <TiPlus />
                                     <p>Add Lecture</p>
