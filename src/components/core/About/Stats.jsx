@@ -17,7 +17,7 @@ const Stats = () => {
                         <div key={index} className='flex flex-col  items-center justify-center py-4 px-4 '>
 
                             <h2 className='text-2xl font-semibold'>{data.count}</h2>
-                            <p className='text-lg '>{data.label}</p>
+                            <p className='text-lg  text-center'>{data.label}</p>
 
                         </div>
                     )

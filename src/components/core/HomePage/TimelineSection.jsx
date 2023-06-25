@@ -9,22 +9,22 @@ const timeLine = [
     {
         logo: Logo1,
         heading: "Leadership",
-        description: "Fully committed to the success company",
+        description: " Guiding educational innovation forward",
     },
     {
         logo: Logo2,
-        heading: "Leadership",
-        description: "Fully committed to the success company",
+        heading: "Expertise",
+        description: "Experienced instructors, exceptional knowledge.",
     },
     {
         logo: Logo3,
-        heading: "Leadership",
-        description: "Fully committed to the success company",
+        heading: "Engagement",
+        description: "Interactive, immersive, and participatory",
     },
     {
         logo: Logo4,
-        heading: "Leadership",
-        description: "Fully committed to the success company",
+        heading: "Accessibility",
+        description: "Education for all, anytime, anywhere",
     },
 ]
 const TimelineSection = () => {

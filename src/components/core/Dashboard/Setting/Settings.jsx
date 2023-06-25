@@ -14,10 +14,10 @@ const Settings = () => {
 
 
     return (
-        <div className='text-white  flex flex-col gap-4 px-2 md:w-10/12 mx-auto'>
+        <div className='text-white  flex flex-col gap-4 px-2 py-2 md:w-10/12 mx-auto'>
 
-            <header className='my-4'>
-                <h2 className='text-3xl text-center  '>Edit Profile</h2>
+            <header className='py-2'>
+                <h2 className='text-xl text-center  '>Edit Profile</h2>
             </header>
 
             <UpdateProfileImage />

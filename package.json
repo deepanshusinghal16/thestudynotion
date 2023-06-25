@@ -9,6 +9,7 @@
     "axios": "^1.4.0",
     "browser-router": "^0.2.0",
     "concurrently": "^8.0.1",
+    "copy-to-clipboard": "^3.3.3",
     "hamburger-react": "^2.5.0",
     "i": "^0.3.7",
     "npm": "^9.6.7",

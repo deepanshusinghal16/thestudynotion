@@ -40,7 +40,6 @@ export default function Upload({
     })
 
     const previewFile = (file) => {
-        // console.log(file)
         const reader = new FileReader()
         reader.readAsDataURL(file)
         reader.onloadend = () => {
@@ -58,20 +57,20 @@ export default function Upload({
 
     return (
         <div className="flex flex-col space-y-2">
-            <label className="text-sm text-richblack-5" htmlFor={name}>
+            <label className="text-sm text-richblack-100 px-1" htmlFor={name}>
                 {label} {!viewData && <sup className="text-pink-200">*</sup>}
             </label>
             <div
                 className={`${isDragActive ? "bg-richblack-600" : "bg-richblack-700"
-                    } flex min-h-[250px] cursor-pointer items-center justify-center rounded-md border-2 border-dotted border-richblack-500`}
+                    } flex sm:min-h-[250px] cursor-pointer items-center justify-center rounded-md border-2 border-dotted border-richblack-500`}
             >
                 {previewSource ? (
-                    <div className="flex w-full flex-col p-6">
+                    <div className="flex w-full flex-col px-6 py-2 sm:py-4">
                         {!video ? (
                             <img
                                 src={previewSource}
                                 alt="Preview"
-                                className="h-full w-full rounded-md object-cover"
+                                className=" aspect-video w-full rounded-md object-cover"
                             />
                         ) : (
                             <Player aspectRatio="16:9" playsInline src={previewSource} />
@@ -97,7 +96,7 @@ export default function Upload({
                         {...getRootProps()}
                     >
                         <input {...getInputProps()} ref={inputRef} />
-                        <div className="grid aspect-square w-14 place-items-center rounded-full bg-pure-greys-800">
+                            <div className="grid aspect-square w-16 place-items-center rounded-full bg-pure-greys-800">
                             <FiUploadCloud className="text-2xl text-yellow-50" />
                         </div>
                         <p className="mt-2 max-w-[200px] text-center text-sm text-richblack-200">

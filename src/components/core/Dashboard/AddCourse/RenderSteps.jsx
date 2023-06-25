@@ -17,7 +17,7 @@ const RenderSteps = () => {
     return (
         <div className='w-full px-2'>
 
-            <div className='mx-auto my-4 pb-6 px-1 sm:px-3 rounded-lg  w-full'>
+            <div className='mx-auto my-4 pb-6 px-4 rounded-lg  w-full'>
                 <StepProgressBar />
             </div>
 

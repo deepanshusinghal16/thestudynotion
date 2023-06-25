@@ -59,7 +59,7 @@ const PublishCourseForm = () => {
 
     return (
         <div className='py-4 px-2 sm:py-10 sm:mx-10 '>
-            <header className='text-lg'>Publish Settings</header>
+            <header className='text-md'>Publish Settings</header>
             <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col px-2'>
                 <div className='flex gap-2 py-6 items-center'>
                     <input
@@ -71,18 +71,18 @@ const PublishCourseForm = () => {
                         }}
                         className='rounded-2xl h-4 w-4'
                     />
-                    <label htmlFor="public">Make this course Public</label>
+                    <label htmlFor="public" className='text-sm'>Make this course Public</label>
                 </div>
 
                 <div className='flex justify-end items-center gap-2 sm:gap-4'>
                     <button
-                        className='text-richblack-5 bg-richblack-600 px-4 py-1 rounded-lg '
+                        className='text-richblack-5 bg-richblack-600 px-4 py-1 rounded-lg text-sm '
                         disabled={loading}
                         onClick={() => goBack()}>
                         Back
                     </button>
                     <button
-                        className='text-black bg-yellow-50 px-4 py-1 rounded-lg '
+                        className='text-black bg-yellow-50 px-4 py-1 rounded-lg text-sm'
                         disabled={loading}
                         type='submit' >
                         {loading ? "Saving..." : "Save Changes"}

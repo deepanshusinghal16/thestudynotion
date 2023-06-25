@@ -56,12 +56,12 @@ export default function ChangeProfilePicture() {
     }, [imageFile])
     return (
         <>
-            <div className="flex items-center justify-between rounded-md border-[1px]  border-richblack-700 bg-richblack-800 py-8 px-4   md:px-12 text-richblack-5">
+            <div className="flex items-center justify-between rounded-md border-[1px]  border-richblack-700 bg-richblack-800 py-6 px-4   md:px-12 text-richblack-5">
                 <div className="flex  items-center gap-4">
                     <img
                         src={previewSource || user?.image}
                         alt={`profile-${user?.firstName}`}
-                        className="aspect-square w-[78px] rounded-full object-cover"
+                        className="aspect-square w-12 sm:w-16 rounded-full object-cover"
                     />
                     <div className="space-y-2 space-x-2 flex flex-col justify-center items-center">
                         <p>Change Profile Picture</p>
@@ -76,18 +76,18 @@ export default function ChangeProfilePicture() {
                             <button
                                 onClick={handleClick}
                                 disabled={loading}
-                                className="cursor-pointer rounded-lg bg-richblack-700 py-1 px-4 text-richblack-50"
+                                className="cursor-pointer rounded-lg bg-richblack-700 py-1 px-4 text-sm text-richblack-50"
                             >
                                 Select
                             </button>
                             <IconBtn
                                 text={loading ? "Uploading..." : "Upload"}
                                 onClickFxn={handleFileUpload}
-                                customClasses={"flex gap-2 items-center bg-yellow-25 rounded-lg py-1 px-2 text-richblack-700"}
+                                customClasses={"flex gap-2 items-center bg-yellow-25  text-sm rounded-lg py-1 px-2 text-richblack-700"}
 
                             >
                                 {!loading && (
-                                    <FiUpload className="text-lg text-richblack-900" />
+                                    <FiUpload className="text-md text-richblack-900" />
                                 )}
                             </IconBtn>
                         </div>

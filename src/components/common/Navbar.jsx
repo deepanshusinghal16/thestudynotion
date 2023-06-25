@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import BigLogo from '../../assets/Logo/Logo-Full-Light.png';
+import SmallLogo from "../../assets/Logo/Logo-Small-Light.png";
 import { Link, matchPath } from 'react-router-dom';
 import { NavbarLinks } from '../.././data/navbar-links';
 import { useLocation } from 'react-router-dom';
@@ -7,8 +8,6 @@ import { useSelector } from 'react-redux';
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import CTAButton from '../core/HomePage/CTAButton';
 import ProfileDropDown from '../core/Auth/ProfileDropDown';
-import { apiConnector } from '../../services/apiConnector';
-import { categories } from '../../services/api';
 import { ACCOUNT_TYPE } from '../../utils/constants';
 import Hamburger from '../core/Dashboard/SideBar/Hamburger';
 import { HiOutlineUserCircle } from "react-icons/hi";
@@ -60,7 +59,8 @@ const Navbar = () => {
 
 
                 <Link to={"/"}   >
-                    <img src={BigLogo} alt="StudyNotion" className='my-2 object-cover w-[80%] lg:w-[50%] md:mx-2' loading='lazy' />
+                    <img src={BigLogo} alt="StudyNotion" className='hidden sm:block my-2 object-cover w-[80%] lg:w-[50%] md:mx-2' loading='lazy' />
+                    <img src={SmallLogo} alt="StudyNotion" className='sm:hidden my-2 object-cover w-[80%] lg:w-[50%] md:mx-2' loading='lazy' />
                 </Link>
 
 
@@ -78,13 +78,13 @@ const Navbar = () => {
                                                         className=''>
                                                         {
                                                             link.title === "Catalog" ? (
-                                                                <div key={index} className='text-richblack-25 text-lg font-semibold flex items-center gap-1 hover relative group z-[10]'>
-                                                                    <p>{link.title}</p>
+                                                                <div key={index} className='text-richblack-25 text-sm font-semibold flex items-center gap-1 hover relative group z-[10]'>
+                                                                    <div>{link.title}</div>
                                                                     <IoIosArrowDown />
 
 
 
-                                                                    <div className='invisible  absolute left-[50%] py-2 translate-x-[-50%] translate-y-[20px] top-[50%] items-center flex flex-col gap-1 rounded-md bg-richblack-5   text-richblack-900 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 lg:w-[200px]'>
+                                                                    <div className='invisible  absolute left-[50%] py-2 translate-x-[-52%] translate-y-[25px] top-[50%] items-center flex flex-col gap-1 rounded-md bg-richblack-5   text-richblack-900 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 lg:w-[200px]'>
                                                                         <div className='absolute left-[50%] top-0  translate-x-[80%] translate-y-[-45%] h-6 w-6   rotate-45 rounded bg-richblack-5 z-[-1]'>
                                                                         </div>
 
@@ -94,13 +94,21 @@ const Navbar = () => {
                                                                                     <Link to={`/catalog/${subLink.name.split(" ").join("-").toLowerCase()}`} key={index} className='group/edit w-full flex items-center justify-center hover:bg-richblack-200  rounded-lg
                                                                                      transition-all duration-300'>
 
-                                                                                        <p className='pt-2 text-sm flex flex-col w-max  text-center font-normal     max-w-maxContent '>{subLink.name}
+                                                                                        <div className='pt-1 text-xs flex flex-col w-max  text-center font-normal     max-w-maxContent '>{subLink.name}
                                                                                             <div className=' w-[150%]  h-[2px]    opacity-0 translate-x-[100%] group-hover/edit:opacity-100 group-hover/edit:translate-x-[-15%]  bg-pink-300 transition-all duration-500    ' > </div>
-                                                                                        </p>
+                                                                                        </div>
 
                                                                                     </Link>
                                                                                 ))
-                                                                            ) : (<div className='pt-2 text-sm flex flex-col w-max  text-center font-normal     max-w-maxContent'>Loading...</div>)
+                                                                            ) : (
+                                                                                <div className='group/edit w-full flex items-center justify-center hover:bg-richblack-200  rounded-lg
+                                                                                transition-all duration-300'>
+
+                                                                                    <div className='pt-2 text-sm flex flex-col w-max  text-center font-normal     max-w-maxContent '>Loading...
+                                                                                        <div className=' w-[150%]  h-[2px]    opacity-0 translate-x-[100%] group-hover/edit:opacity-100 group-hover/edit:translate-x-[-15%]  bg-pink-300 transition-all duration-500    ' > </div>
+                                                                                    </div>
+
+                                                                                </div>)
                                                                         }
 
                                                                     </div>
@@ -110,10 +118,10 @@ const Navbar = () => {
                                                                 </div>
                                                             ) : (
                                                                 <Link to={link.path}>
-                                                                    <p className={`${matchRoute(link.path) ? `text-yellow-25` : `text-richblack-25`}
-                                                    text-lg font-semibold `} >
+                                                                        <div className={`${matchRoute(link.path) ? `text-yellow-25` : `text-richblack-25`}
+                                                    text-sm font-semibold `} >
                                                                         {link.title}
-                                                                    </p>
+                                                                        </div>
                                                                 </Link>
                                                             )
                                                         }
@@ -136,13 +144,13 @@ const Navbar = () => {
 
                                             {
                                                 NavbarLinks.map((link, index) => (
-                                                    <p key={index}
+                                                    <div key={index}
 
                                                         className=''>
                                                         {
                                                             link.title === "Catalog" ? (
                                                                 <div key={index} className='text-richblack-25 text-lg font-semibold flex items-center gap-1 hover relative group z-[10] mx-auto'>
-                                                                    <p>{link.title}</p>
+                                                                    <div>{link.title}</div>
                                                                     <IoIosArrowDown />
 
 
@@ -155,7 +163,7 @@ const Navbar = () => {
                                                                                 subLinks.map((subLink, index) => (
                                                                                     <Link to={`/catalog/${subLink.name.split(" ").join("-").toLowerCase()}`} key={index} className='group/edit w-full flex items-center justify-center hover:bg-richblack-200  rounded-lg
                                                                                     transition-all duration-300 ' onClick={toggleMenu}>
-                                                                                        <p className='text-center font-normal text-black w-[150px] group-hover/edit'>{subLink.name}</p>
+                                                                                        <div className='text-center font-normal text-black w-[150px] group-hover/edit'>{subLink.name}</div>
                                                                                     </Link>
                                                                                 ))
                                                                             ) : (<div></div>)
@@ -168,15 +176,15 @@ const Navbar = () => {
                                                                 </div>
                                                             ) : (
                                                                     <Link to={link.path} onClick={toggleMenu}>
-                                                                    <p className={`${matchRoute(link.path) ? `text-yellow-25` : `text-richblack-25`}
+                                                                        <div className={`${matchRoute(link.path) ? `text-yellow-25` : `text-richblack-25`}
                                                     text-lg font-semibold `} >
                                                                         {link.title}
-                                                                    </p>
+                                                                        </div>
                                                                 </Link>
                                                             )
                                                         }
 
-                                                    </p>
+                                                    </div>
                                                 )
                                                 )
                                             }
@@ -195,9 +203,9 @@ const Navbar = () => {
                         {
                             token === null && (
                                 <CTAButton active={false} linkto={"/login"} >
-                                    <p className='px-6 py-1 font-edu-sa text-lg text-richblack-200 tracking-wider hidden lg:block'>
+                                    <div className='px-6 py-1 font-edu-sa text-sm text-richblack-200 tracking-wider hidden lg:block'>
                                         LogIn
-                                    </p>
+                                    </div>
                                     <HiOutlineUserCircle className='text-[32px] block lg:hidden' />
 
                                 </CTAButton>
@@ -207,23 +215,23 @@ const Navbar = () => {
                             token === null && (
                                 <div className='hidden lg:block'>
                                     <CTAButton active={false} linkto={"/signup"} >
-                                        <p className='px-6 py-1 font-edu-sa text-lg text-richblack-200 tracking-wider'>
+                                        <div className='px-6 py-1 font-edu-sa text-sm text-richblack-200 tracking-wider'>
                                             SignUp
-                                        </p>
+                                        </div>
                                     </CTAButton>
                                 </div>
                             )
                         }
 
-                        <div className='flex gap-4  items-center justify-between'>
+                        <div className='flex gap-1  items-center justify-between text-xs'>
                             {
                                 user && user.accountType === ACCOUNT_TYPE.STUDENT && (
                                     <Link to={"/dashboard/cart"} className='relative' >
-                                        <AiOutlineShoppingCart size={26} className='text-white' />
+                                        <AiOutlineShoppingCart className='text-white text-xl mr-1' />
                                         {
                                             totalItems > 0 && (
                                                 <span className='absolute -top-4 -right-4  bg-richblack-500 rounded-full p-1 aspect-square h-6 flex items-center justify-center'>
-                                                    <p className='text-richblack-5 font-semibold '>
+                                                    <div className='text-richblack-5 font-semibold '>
                                                         {
                                                             totalItems <= 9 ? (<span>
                                                                 {totalItems}
@@ -231,7 +239,7 @@ const Navbar = () => {
                                                                 9+
                                                             </span>)
                                                         }
-                                                    </p>
+                                                    </div>
                                                 </span>
                                             )
                                         }

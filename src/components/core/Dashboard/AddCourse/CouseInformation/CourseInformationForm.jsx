@@ -156,7 +156,7 @@ const CourseInformationForm = () => {
 
             {/* CourseTitle */}
             <div className='px-1 space-y-1'>
-                <label htmlFor='courseTitle' >Course Title <sup className='text-pink-500'>*</sup></label>
+                <label htmlFor='courseTitle ' className="text-sm text-richblack-100">Course Title <sup className='text-pink-500'>*</sup></label>
                 <input
                     type="text"
                     id='courseTitle'
@@ -177,7 +177,7 @@ const CourseInformationForm = () => {
 
             {/* Description */}
             <div className='px-1 space-y-1'>
-                <label htmlFor='courseShortDesc' >Course Description <sup className='text-pink-500'>*</sup></label>
+                <label htmlFor='courseShortDesc' className="text-sm text-richblack-100" >Course Description <sup className='text-pink-500'>*</sup></label>
                 <textarea
                     id='courseShortDesc'
                     placeholder='Enter Course Description'
@@ -197,7 +197,7 @@ const CourseInformationForm = () => {
 
             {/* Course Price */}
             <div className='px-1 space-y-1 relative'>
-                <label htmlFor='coursePrice' >Course Price <sup className='text-pink-500'>*</sup></label>
+                <label htmlFor='coursePrice' className="text-sm text-richblack-100">Course Price <sup className='text-pink-500'>*</sup></label>
                 <HiOutlineCurrencyRupee className='absolute top-[45%] left-3 text-richblack-300 text-2xl ' />
                 <input
                     type='number'
@@ -218,7 +218,7 @@ const CourseInformationForm = () => {
 
             {/*Course Categories */}
             <div className='px-1 space-y-1'>
-                <label htmlFor='courseCategory'> Course Categories <sup className='text-pink-500'>*</sup></label>
+                <label htmlFor='courseCategory' className="text-sm text-richblack-100"> Course Categories <sup className='text-pink-500'>*</sup></label>
                 <select
                     id='courseCategory'
                     defaultValue={""}
@@ -261,7 +261,7 @@ const CourseInformationForm = () => {
             />
 
             <Upload
-                label="thumbnail"
+                label="Thumbnail"
                 id="courseImage"
                 name="courseImage"
                 register={register}
@@ -272,7 +272,7 @@ const CourseInformationForm = () => {
 
             {/* Benifits of the course */}
             <div className='px-1 space-y-1'>
-                <label htmlFor='courseBenefits' >Course Description <sup className='text-pink-500'>*</sup></label>
+                <label htmlFor='courseBenefits' className="text-sm text-richblack-100" >Course Benefits <sup className='text-pink-500'>*</sup></label>
                 <textarea
                     id='courseBenefits'
                     placeholder='Enter Course Benifits'
@@ -305,14 +305,14 @@ const CourseInformationForm = () => {
                     editCourse && (
                         <button
                             onClick={() => dispatch(setStep(2))}
-                            className='py-1 px-1 sm:px-4 font-semibold bg-richblack-700 rounded-md'
+                            className='py-1 px-1 sm:px-4 font-semibold bg-richblack-700 rounded-md text-[0.7rem]'
                         >
                             Continue without saving
                         </button>
                     )
                 }
 
-                <button type='submit' className='flex gap-2 py-1 px-4 font-semibold bg-yellow-25 text-richblack-700 rounded-md'>
+                <button type='submit' className='flex gap-2 py-1 px-4 font-semibold bg-yellow-25 text-richblack-700 rounded-md text-[0.7rem]'>
                     {
                         !editCourse ? "Next" : "Save Changes"
                     }

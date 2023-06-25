@@ -1,30 +1,33 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import IconBtn from '../../../common/IconBtn';
+import { buyCourse } from '../../../../services/operations/studentFeaturesAPI';
+import { useNavigate } from 'react-router-dom';
 
 const RenderTotalAmount = () => {
 
     const { total, cart } = useSelector((state) => state.cart);
+    const { token } = useSelector((state) => state.auth);
+    const { user } = useSelector((state) => state.profile);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const handleBuyCourse = () => {
-        const courses = cart.map((course, index) => course._id);
-        console.log("Buying courses", courses);
-
-        //Payment gateway integrate krna h iske baad
+        const courses = cart.map((course) => course._id);
+        buyCourse(token, courses, user, navigate, dispatch)
     }
 
     return (
-        <div className='py-2 px-4 bg-richblack-700'>
-            <p className='text-sm'>Total</p>
-            <div className='text-lg'>Rs {total}</div>
-            <div className='text-md  line-through'>Rs{total * 0.75}</div>
-            {/* <Link className="bg-yellow-25 text-lg text-richblack-700 px-4 py-1 rounded-2xl" to={"/dashboard/enrolled-courses"}>
-                Buy Now
-            </Link> */}
+        <div className='py-6 px-4  w-fit  rounded-md bg-richblack-700 flex flex-col gap-2 mx-auto'>
+            <p className='px-6 text-sm text-yellow-25'>Total</p>
+            <div className='flex items-baseline flex-row justify-start'>
+                <div className='px-6 text-md flex gap-1'> Rs {total * 0.9}</div>
+                <div className=' text-sm  text-richblack-200 line-through'>Rs{total}</div>
+            </div>
             <IconBtn
                 text={"Buy Now"}
-                customClasses={"bg-yellow-25 text-lg text-richblack-700  py-1 rounded-2xl w-full text-center"}
-                onClickFxn={handleBuyCourse}
+                customClasses={"bg-yellow-25 text-sm text-richblack-700  py-1 rounded-2xl w-full text-center"}
+                onClickFxn={() => handleBuyCourse()}
             />
 
         </div>

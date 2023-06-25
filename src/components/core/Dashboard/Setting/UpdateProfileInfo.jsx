@@ -65,13 +65,13 @@ const UpdateProfileInfo = () => {
 
 
     return (
-        <section className='my-4 flex flex-col gap-y-4  w-full bg-richblack-800 py-4 px-5 md:px-10 rounded-lg'>
+        <section className='my-4 flex flex-col gap-y-4  w-full bg-richblack-800 py-4 px-3 md:px-10 rounded-lg'>
             <h2 className='text-sm'>Profile Information</h2>
 
             <form className=' grid grid-cols-1 md:grid-cols-2 gap-4'>
 
                 <label className="w-full">
-                    <p className="mx-2 mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
+                    <p className="mx-2 mb-1 text-[0.775rem] leading-[1.375rem] text-richblack-5">
                         First Name <sup className="text-pink-200">*</sup>
                     </p>
                     <input
@@ -90,7 +90,7 @@ const UpdateProfileInfo = () => {
                 </label>
 
                 <label className="w-full">
-                    <p className="mb-1 mx-2 text-[0.875rem] leading-[1.375rem] text-richblack-5">
+                    <p className="mb-1 mx-2 text-[0.775rem] leading-[1.375rem] text-richblack-5">
                         Last Name <sup className="text-pink-200">*</sup>
                     </p>
                     <input
@@ -109,7 +109,7 @@ const UpdateProfileInfo = () => {
                 </label>
 
                 <label className="w-full">
-                    <p className="mb-1 mx-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
+                    <p className="mb-1 mx-1 text-[0.775rem] leading-[1.375rem] text-richblack-5">
                         Date Of Birth <sup className="text-pink-200">*</sup>
                     </p>
                     <input
@@ -126,7 +126,7 @@ const UpdateProfileInfo = () => {
                 </label>
 
                 <label className="w-full">
-                    <p className="mb-1 mx-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
+                    <p className="mb-1 mx-1 text-[0.775rem] leading-[1.375rem] text-richblack-5">
                         Gender  <sup className="text-pink-200">*</sup>
                     </p>
                     <select
@@ -147,7 +147,7 @@ const UpdateProfileInfo = () => {
                 </label>
 
                 <label className="w-full relative">
-                    <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
+                    <p className="mb-1 text-[0.775rem] leading-[1.375rem] text-richblack-5">
                         Contact Number <sup className="text-pink-200">*</sup>
                     </p>
                     <input
@@ -166,7 +166,7 @@ const UpdateProfileInfo = () => {
                 </label>
 
                 <label className="w-full">
-                    <p className="mb-1 mx-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
+                    <p className="mb-1 mx-1 text-[0.775rem] leading-[1.375rem] text-richblack-5">
                         About <sup className="text-pink-200">*</sup>
                     </p>
                     <input
@@ -178,21 +178,21 @@ const UpdateProfileInfo = () => {
                         style={{
                             boxShadow: "inset 0px -1px 2px rgba(255, 255, 255, 0.18)",
                         }}
-                        className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5"
+                        className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5 "
                     />
                 </label>
-
             </form>
 
             <div className='flex gap-4 items-center justify-end'>
                 <button
                     onClick={() => resetData()}
-                    className='text-lg bg-richblack-600 text-richblack-25 px-4 py-1 rounded-2xl '>
+                    className='text-sm bg-richblack-600 text-richblack-25 px-4 py-1 rounded-2xl '>
                     Cancel
                 </button>
                 <button
+                    type='submit'
                     onClick={() => handleOnSubmit()}
-                    className='text-lg bg-yellow-25 px-4 py-1 rounded-2xl text-richblack-800'>
+                    className='text-sm bg-yellow-25 px-4 py-1 rounded-2xl  text-richblack-800'>
                     Update
                 </button>
             </div>
