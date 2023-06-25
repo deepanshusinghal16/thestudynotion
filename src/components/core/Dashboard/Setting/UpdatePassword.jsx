@@ -38,13 +38,13 @@ const UpdatePassword = () => {
 
     return (
 
-        <section className='my-4 flex flex-col gap-y-4  w-full bg-richblack-800 py-4 px-4 md:px-10 rounded-lg'>
+        <section className='my-4 flex flex-col gap-y-2  w-full bg-richblack-800 py-4 px-4 md:px-10 rounded-lg'>
             <h2 className='text-sm px-2'>Password</h2>
 
             <div className=' grid grid-cols-1 gap-4'>
 
                 <label className="w-full relative ">
-                    <p className="mx-2 mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
+                    <p className="mx-2 mb-1 text-[0.775rem] leading-[1.375rem] text-richblack-5">
                         Old Password<sup className="text-pink-200">*</sup>
                     </p>
                     <input
@@ -76,7 +76,7 @@ const UpdatePassword = () => {
                 <div className=' grid grid-cols-1 lg:grid-cols-2 gap-4'>
 
                     <label className="w-full relative">
-                        <p className="mx-2 mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
+                        <p className="mx-2 mb-1 text-[0.775rem] leading-[1.375rem] text-richblack-5">
                             New Password<sup className="text-pink-200">*</sup>
                         </p>
                         <input
@@ -107,7 +107,7 @@ const UpdatePassword = () => {
 
 
                     <label className="w-full relative">
-                        <p className="mb-1 mx-2 text-[0.875rem] leading-[1.375rem] text-richblack-5">
+                        <p className="mb-1 mx-2 text-[0.775rem] leading-[1.375rem] text-richblack-5">
                             Confirm Password <sup className="text-pink-200">*</sup>
                         </p>
                         <input

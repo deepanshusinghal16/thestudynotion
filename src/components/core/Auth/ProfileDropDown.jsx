@@ -26,11 +26,11 @@ const ProfileDropDown = () => {
     <>
       <button className=' relative ' onClick={() => setOpen(!open)}>
 
-        <div className="flex items-center gap-x-1">
+        <div className="flex items-center">
           <img src={user?.image} alt={`profile-${user?.firstName}`}
-            className="aspect-square w-[30px] rounded-full object-cover"
+            className="aspect-square w-6 rounded-full object-cover"
           />
-          <AiOutlineCaretDown className="text-sm text-richblack-100" />
+          <AiOutlineCaretDown className="text-xs text-richblack-100 ml-1" />
         </div>
 
         {open && (

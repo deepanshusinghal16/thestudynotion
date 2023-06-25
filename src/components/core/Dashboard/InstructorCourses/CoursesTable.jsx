@@ -21,7 +21,7 @@ const CoursesTable = ({ courses, setCourses }) => {
     const [loading, setLoading] = useState(false);
     const [confirmationModal, setConfirmationModal] = useState(null);
     const { token } = useSelector((state) => state.auth)
-    const TRUNCATE_LENGTH = 30
+    const TRUNCATE_LENGTH = 10
 
     const handleCourseDelete = async (courseId) => {
         setLoading(true);
@@ -38,7 +38,7 @@ const CoursesTable = ({ courses, setCourses }) => {
         <>
             <Table className="rounded-xl border border-richblack-800 ">
                 <Thead>
-                    <Tr className="flex gap-x-10 rounded-t-md border-b border-b-richblack-800 px-6 py-2">
+                    <Tr className="flex items-center justify-center gap-x-10 rounded-t-md border-b border-b-richblack-800 px-6 py-2">
                         <Th className="flex-1 text-left text-sm font-medium uppercase text-richblack-100 mt-2">
                             Courses
                         </Th>
@@ -66,19 +66,19 @@ const CoursesTable = ({ courses, setCourses }) => {
                             <>
                                 <Tr
                                     key={course._id}
-                                    className="flex gap-x-10 border-b border-richblack-800 px-6 py-8"
+                                    className="flex  gap-x-10 border-b border-richblack-800 px-6 py-8"
                                 >
-                                    <Td className="flex flex-2 gap-x-4">
+                                    <Td className="flex flex-col lg:flex-row flex-1 gap-4  ">
                                         <img
                                             src={course?.thumbnail}
                                             alt={course?.courseName}
-                                            className="h-[148px] w-[220px] rounded-lg object-cover"
+                                            className=" aspect-video w-full sm:h-[148px] sm:w-[220px] rounded-lg object-cover"
                                         />
-                                        <div className="flex flex-col justify-between">
-                                            <p className="text-lg font-semibold text-richblack-5">
+                                        <div className="flex flex-col justify-between gap-y-1">
+                                            <p className="text-sm sm:text-lg font-semibold text-richblack-5">
                                                 {course.courseName}
                                             </p>
-                                            <p className="text-xs text-richblack-300">
+                                            <p className="text-[10px] sm:text-xs text-richblack-300">
                                                 {course.courseDescription.split(" ").length >
                                                     TRUNCATE_LENGTH
                                                     ? course.courseDescription
@@ -87,11 +87,11 @@ const CoursesTable = ({ courses, setCourses }) => {
                                                         .join(" ") + "..."
                                                     : course.courseDescription}
                                             </p>
-                                            <p className="text-[12px] text-white">
+                                            <p className="text-[10px] sm:text-[12px] text-white">
                                                 Created: {formatDate(course.createdAt)}
                                             </p>
                                             {course.status === COURSE_STATUS.DRAFT ? (
-                                                <p className="flex w-fit flex-row items-center gap-2 rounded-full bg-richblack-700 px-2 py-[2px] text-[12px] font-medium text-pink-100">
+                                                <p className="flex w-fit flex-row items-center gap-2 rounded-full bg-richblack-700 px-2 py-[2px] text-[10px] sm:text-[12px] font-medium text-pink-100">
                                                     <HiClock size={14} />
                                                     Drafted
                                                 </p>
@@ -105,22 +105,22 @@ const CoursesTable = ({ courses, setCourses }) => {
                                             )}
                                         </div>
                                     </Td>
-                                    <Td className="text-sm font-medium text-richblack-100">
+                                    <Td className="my-1 text-[12px] sm:text-sm font-medium text-richblack-100 ">
                                         2hr 30min
                                     </Td>
-                                    <Td className="text-sm font-medium text-richblack-100">
+                                    <Td className="my-1 text-[12px] sm:text-sm font-medium text-richblack-100 ">
                                         ₹{course.price}
                                     </Td>
-                                    <Td className="text-sm font-medium text-richblack-100 ">
+                                    <Td className="my-1 text-[12px] sm:text-[20px] font-medium text-richblack-100  ">
                                         <button
                                             disabled={loading}
                                             onClick={() => {
                                                 navigate(`/dashboard/edit-course/${course._id}`)
                                             }}
                                             title="Edit"
-                                            className="px-2 transition-all duration-200 hover:scale-110 hover:text-caribbeangreen-300"
+                                            className=" text-[16px] px-2 transition-all duration-200 hover:scale-110 hover:text-caribbeangreen-300"
                                         >
-                                            <FiEdit2 size={20} />
+                                            <FiEdit2 />
                                         </button>
                                         <button
                                             disabled={loading}
@@ -140,9 +140,9 @@ const CoursesTable = ({ courses, setCourses }) => {
                                                 })
                                             }}
                                             title="Delete"
-                                            className="px-1 transition-all duration-200 hover:scale-110 hover:text-[#ff0000]"
+                                            className="text-[16px] px-1 transition-all duration-200 hover:scale-110 hover:text-[#ff0000]"
                                         >
-                                            <RiDeleteBin6Line size={20} />
+                                            <RiDeleteBin6Line />
                                         </button>
                                     </Td>
                                 </Tr>

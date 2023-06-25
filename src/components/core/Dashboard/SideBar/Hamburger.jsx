@@ -28,7 +28,7 @@ const Hamburger = () => {
     return (
         <>
             <div className="block lg:hidden">
-                <Fade color="white" toggled={show} onToggle={toggle} />
+                <Fade color="white" toggled={show} onToggle={toggle} size={20} />
             </div>
 
             <div

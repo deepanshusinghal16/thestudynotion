@@ -24,7 +24,7 @@ const Home = () => {
                     <div
                         className='mt-16 p-1 mx-auto rounded-full bg-richblack-800 font-bold text-richblack-200 transition-all 
                                     duration-300 hover:scale-95 w-fit group  '>
-                        <div className='flex flex-row items-center gap-4 rounded-full  px-5  py-2 transition-all 
+                        <div className='flex flex-row items-center gap-4 rounded-full  px-5  py-1 transition-all 
                                     duration-300 group-hover:bg-richblack-900 group-hover:shadow-white shadow-inner '>
                             <p>Become An Instructor</p>
                             <HiOutlineArrowNarrowRight />
@@ -32,25 +32,25 @@ const Home = () => {
                     </div>
                 </Link>
 
-                <div className=' text-3xl font-semibold text-center'>
+                <div className=' text-lg sm:text-lg md:text-2xl font-semibold text-center'>
                     <h1>Empower Your Future With <HighlightText text={"Coding Skills"} /> </h1>
 
                 </div>
 
-                <div className='mb-2  text-sm  text-richblack-500   text-justify'>
+                <div className='mb-2  text-xs sm:text-sm  text-richblack-500   text-justify sm:text-center'>
                     StudyNotion: Personalized, adaptive learning. Innovative tools, interactive classrooms. Empower yourself with dynamic lessons. Join our global community for education anytime, anywhere.
                 </div>
 
                 <div className='flex gap-4 flex-row'>
                     <CTAButton
                         active={true} linkto={"/signup"}>
-                        <h2 className='text-lg md:text-xl lg:text-2xl py-2 px-5  font-semibold'>
+                        <h2 className='text-md sm:text-lg md:text-lg lg:text-lg py-2 px-3 '>
                             Learn More
 
                         </h2>
                     </CTAButton>
                     <CTAButton active={false} linkto={"/login"}>
-                        <h2 className='text-lg md:text-xl lg:text-2xl py-2 px-5  font-semibold'>
+                        <h2 className='text-md sm:text-lg md:text-lg lg:text-lg py-2 px-3  '>
                             Book a Demo
                         </h2>
                     </CTAButton >
@@ -73,7 +73,7 @@ const Home = () => {
                     <div className='w-full'>
                         <CodeBlocks
                             reverse={false}
-                            heading={<div className='text-3xl font-semibold'>
+                            heading={<div className='text-xl sm:text-2xl font-semibold'>
                                 Unlock your <HighlightText text={"coding potential"} />  with our online courses
                             </div>}
                             subHeading={
@@ -112,8 +112,8 @@ const Home = () => {
                     <div className=''>
                         <CodeBlocks
                             reverse={true}
-                            heading={<div className='text-3xl font-semibold'>
-                                Start <HighlightText text={"coding in"} /> <br /><HighlightText text={"Seconds "} />
+                            heading={<div className='text-2xl sm:text-2xl font-semibold'>
+                                Start <HighlightText text={"coding in"} /> <HighlightText text={"Seconds "} />
                             </div>}
                             subHeading={
                                 "Ignite Your Coding Passion: Dive into the World of Programming and Start Coding Today!"
@@ -132,17 +132,17 @@ const Home = () => {
                                     linkto: "/login",
                                 }
                             }
-                            codeblock={`<!DOCTYPE html>
-                        <html>
-                           <head>
-                          <title>Learn With StudyNotion</title>
-                        </head>
-                        <body>
-                          <h1>Welcome to StudyNotion</h1>
-                        </body>
-                        </html>
-                        `}
-                            codeColor={"text-blue-25"}
+                            codeblock={
+                                `const express = require('express')
+                                const app = express()
+                                const dotenv = require("dotenv")
+                                dotenv.config()
+                                const PORT = process.env.PORT || 4000
+                                dbConnect();
+                                app.listen(PORT, () => {
+                                    console.log("Server running on port " + PORT)
+                                })`}
+                            codeColor={"text-pink-500"}
                         />
                     </div>
                 </div>
@@ -151,27 +151,27 @@ const Home = () => {
 
             </section>
             <div className='w-full px-2 md:px-4 lg:w-10/12 mb-20 mx-auto '>
-                    <ExploreMore />
-                </div>
+                <ExploreMore />
+            </div>
 
             {/****Section 2******** */}
             <section className='bg-pure-greys-5 text-richblack-700 flex flex-col gap-6'>
 
                 <div className='homepage_bg h-[200px] md:h-[300px]  flex  items-center '>
 
-                    <div className='md:w-10/12 px-2 lg:max-w-[800px]   flex items-center  gap-4 mx-auto'>
+                    <div className='md:w-10/12 px-2 lg:max-w-[800px]   flex items-center  gap-2 sm:gap-4 mx-auto'>
 
-                        <div className='grid grid-cols-2 gap-2  text-white my-5 mx-auto justify-between items-center w-full'>
+                        <div className='grid grid-cols-2 gap-1 sm:gap-2  text-white sm:my-5 mx-auto justify-between items-center w-full'>
 
                             <CTAButton active={true} linkto={"/signup"} length={true} >
-                                <div className='text-md py-3  w-full px-1   flex gap-1 items-center justify-center'>
-                                    <h4>Explore Catalog</h4>
+                                <div className='text-[15px] sm:text-lg py-1 sm:py-2  w-full px-1   flex sm:gap-1 items-center justify-between'>
+                                    <h4 className='text-[0.8rem]  sm:text-lg'>Explore Catalog</h4>
                                     <HiOutlineArrowNarrowRight />
                                 </div>
                             </CTAButton>
 
                             <CTAButton active={false} linkto={"/signup"} length={true}>
-                                <h4 className='text-md  w-full  py-3 px-1  text-center justify-center'>Learn More</h4>
+                                <h4 className='text-[0.8rem]  sm:text-lg  w-full  py-1 sm:py-2 px-1  text-center justify-center'>Learn More</h4>
                             </CTAButton>
 
                         </div>

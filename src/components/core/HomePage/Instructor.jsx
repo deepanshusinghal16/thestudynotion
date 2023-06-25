@@ -14,17 +14,19 @@ const Instructor = () => {
 
             <div className='flex flex-col gap-4 items-center md:items-start'>
 
-                <h2 className='font-semibold text-3xl  '>Become an 
+                <h2 className='font-semibold text-xl sm:text-3xl '>Become an
                     <HighlightText text={" Instructor"} />
                 </h2>
 
-                <p className=' opacity-70 text-md '>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae asperiores nostrum incidunt soluta itaque! Quia, commodi! Natus magnam minima earum eius error, soluta itaque .
+                <p className=' opacity-70 font-extralight text-xs sm:text-md '>
+                    As an instructor, empower learners through expert guidance. Share knowledge, inspire students, and guide aspiring
+                    minds towards success. Create a transformative learning experience, shaping the minds of tomorrow. Cultivate a love
+                    for learning, lead the way in education, and foster growth through effective instruction.
                 </p>
 
                 <CTAButton active={true} linkto={"/"}>
                     <div className='text-md md:text-md lg:text-2xl py-2 px-6  font-semibold flex gap-2 items-center'>
-                        <h2 className='text-xl '>Start Teaching Today</h2>
+                        <h2 className='text-md sm:text-lg xl:text-xl '>Start Teaching Today</h2>
                         <HiOutlineArrowNarrowRight />
                     </div>
                 </CTAButton>

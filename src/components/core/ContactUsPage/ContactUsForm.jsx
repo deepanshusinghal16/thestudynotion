@@ -44,10 +44,10 @@ const ContactUsForm = () => {
         <form onSubmit={handleSubmit(submitContactForm)} className='flex flex-col gap-8 px-2 my-10 mr-2 w-fit'>
 
             {/* name input */}
-            <div className='flex justify-between items-center  gap-4 md:gap-10'>
+            <div className='flex  flex-col sm:flex-row justify-between items-center  gap-4 md:gap-10'>
 
                 {/* firstName */}
-                <div className='relative'>
+                <div className='relative w-full'>
                     <label htmlFor='firstName' >First Name<sup className='text-pink-100'>*</sup> </label>
                     <input
                         type="text"
@@ -68,7 +68,7 @@ const ContactUsForm = () => {
                 </div>
 
                 {/* lastName */}
-                <div>
+                <div className='w-full'>
                     <label htmlFor='lastName'>Last Name<sup className='text-pink-100'>*</sup></label>
                     <input
                         type="text"
@@ -120,6 +120,7 @@ const ContactUsForm = () => {
                             style={{
                                 boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
                             }}
+                            placeholder='+91'
                             className="w-full rounded-[0.5rem] bg-richblack-800 px-2 py-2 text-richblack-5"
                         >
                             {
@@ -188,7 +189,9 @@ const ContactUsForm = () => {
             {/* submit button */}
             <button type="submit" className='w-full  bg-yellow-50 my-2 text-black hover:shadow-yellow-200 shadow-md  transition-all duration-200     rounded-md hover:scale-105'>
                 <p className=' py-2  text-lg text-center font-bold tracking-wide'>
-                    Send Message
+                    {
+                        loading ? "Loading..." : "Send Message"
+                    }
                 </p>
             </button>
 

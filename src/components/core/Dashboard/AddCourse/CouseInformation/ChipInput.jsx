@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 
 import { MdClose } from "react-icons/md"
 import { useSelector } from "react-redux"
@@ -29,7 +29,7 @@ export default function ChipInput({
         }
         register(name, { required: true, validate: (value) => value.length > 0 })
 
-    }, [])
+    }, [editCourse, course?.tag, name, register])
 
     useEffect(() => {
         setValue(name, chips)
@@ -64,7 +64,7 @@ export default function ChipInput({
     return (
         <div className="flex flex-col space-y-2">
 
-            <label className="text-sm text-richblack-5" htmlFor={name}>
+            <label className="text-sm text-richblack-100 px-1" htmlFor={name}>
                 {label} <sup className="text-pink-200">*</sup>
             </label>
 

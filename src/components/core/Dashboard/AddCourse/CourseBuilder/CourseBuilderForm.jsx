@@ -119,7 +119,7 @@ const CourseBuilderForm = () => {
                         className=' flex gap-1 items-center py-1 px-4 text-md text-yellow-200 border-yellow-5 border-[1px] rounded-lg '
                     >
                         {
-                            editSectionName ? "Edit Section " : "Create Section "
+                            loading ? "Loading..." : editSectionName ? "Edit Section " : "Create Section "
                         }
                         <AiOutlinePlusCircle className='text-xl' />
 
@@ -137,12 +137,12 @@ const CourseBuilderForm = () => {
 
             <div className='flex gap-2 justify-end'>
                 <button
-                    className=' flex gap-1 items-center py-1 px-4 text-md text-richblack-5 bg-richblack-500 border-[1px] rounded-lg '
+                    className=' flex gap-1 items-center py-1 px-4 text-sm text-richblack-5 bg-richblack-500 border-[1px] rounded-lg '
                     onClick={() => goBack()}>
                     Back
                 </button>
                 <button
-                    className='flex gap-1 items-center py-1 px-4 text-md bg-yellow-50 text-richblack-900 border-yellow-5 border-[1px] rounded-lg '
+                    className='flex gap-1 items-center py-1 px-4 text-sm bg-yellow-50 text-richblack-900 border-yellow-5 border-[1px] rounded-lg '
                     onClick={() => goToNext()}
                 >
                     Next

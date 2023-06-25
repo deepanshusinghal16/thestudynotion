@@ -26,7 +26,7 @@ const Sidebar = () => {
 
     }
     return (
-        <div className={`hidden lg:block ${isOpen ? "w-[200px]" : "w-[50px] "}  transition-all duration-300 overflow-hidden text-white border-r-2 border-richblack-400 z-[10000]`}>
+        <div className={`hidden lg:block ${isOpen ? "w-[200px]" : "w-[50px] "}  transition-all duration-300  text-white border-r-2 border-richblack-400 z-[10000]`}>
 
             <Hamburger toggled={isOpen} toggle={toggle} />
 
@@ -55,13 +55,25 @@ const Sidebar = () => {
                             btn1Handler: () => dispatch(logout(navigate)),
                             btn2Handler: () => setComformationModal(null),
                         })}
-                        className='text-richblack-300 ml-2 px-1'
+                        className='text-richblack-300 ml-2 px-2'
                     >
 
-                        <div className='flex gap-4 items-center text-richblack-5   my-4  '>
-                            <VscSignOut className='text-2xl' />
-                            <span className={`text-lg ${isOpen ? "block" : "hidden"} transition-all duration-300 `}>LogOut</span>
+                        <div className='flex gap-4 items-center text-richblack-5   my-4  relative'>
+                            <div className='flex items-center gap-4 relative group/option '>
+                                <VscSignOut className='text-2xl -translate-x-1 ml-1 overflow-visible' />
 
+                                {
+                                    !isOpen && (
+                                        <span className=' left-[120%] font-edu-sa -translate-y-2 w-[120px] opacity-0 group-hover/option:opacity-100  transition-all duration-300 rounded-2xl bg-richblack-500 text-richblack-5 py-1 px-4  rounded-bl-none '>
+                                            LogOut
+                                        </span>
+                                    )
+                                }
+                                <span className={`  w-[200px]   text-lg ${isOpen ? "-translate-x-[1.5rem]" : "opacity-0 -translate-x-[100px]"} transition-all duration-300 `}>
+                                    LogOut
+                                </span>
+
+                            </div>
                         </div>
 
                     </button>

@@ -29,22 +29,22 @@ const ExploreMore = () => {
     return (
         <div className=' flex flex-col gap-4 mx-auto items-center my-10  w-full'>
 
-            <h2 className='text-2xl font-semibold  text-center'>
+            <h2 className='text-xl sm:text-2xl font-semibold  text-center text-white'>
                 Unlock the
                 <HighlightText text={" Power of Code"} />
             </h2>
 
-            <p className='text-md  text-justify text-richblack-300'>
+            <p className='text-sm sm:text-md  text-justify text-richblack-300'>
                 Learn to build anything you can imagine
             </p>
 
-            <div className='bg-richblack-800 flex flex-row justify-between py-2 px-2 md:py-2 rounded-full shadow-richblack-500 shadow-sm items-center mx-auto max-w-maxContent text-white  md:px-3 gap-4'>
+            <div className='bg-richblack-800 flex flex-row justify-between py-2 px-2 md:py-2 rounded-full shadow-richblack-500 shadow-sm items-center mx-auto max-w-maxContent text-white  md:px-3 gap1 sm:gap-4'>
                 {
                     tabs.map((tab, index) => {
                         return (
-                            <div className={`text-sm text-center ${tab === currentTab ? `bg-richblack-900 text-richblack-5 font-medium shadow-richblack-400 shadow-inner`
+                            <div className={`text-xs sm:text-md text-center ${tab === currentTab ? `bg-richblack-900 text-richblack-5 font-medium shadow-richblack-400 shadow-inner`
                                 : `text-richblack-200`} rounded-full transition-all duration-200 cursor-pointer
-                                 hover:bg-richblack-900 hover:text-richblack-5 px-3 md:px-4 py-1 hover:shadow-richblack-400 hover:shadow-inner`
+                                 hover:bg-richblack-900 hover:text-richblack-5 px-2 sm:px-2 md:px-2 py-1 hover:shadow-richblack-400 hover:shadow-inner`
                             }
                                 key={index}
                                 onClick={() => setMycard(tab)}
@@ -58,7 +58,7 @@ const ExploreMore = () => {
 
 
 
-            <div className=' flex justify-center   gap-x-[6px] md:gap-4 w-full my-10 lg:max-w-[1000px]  '>
+            <div className=' flex justify-center flex-col sm:flex-row items-center    gap-[6px] md:gap-4 w-full my-10 lg:max-w-[1000px]  '>
                 {
                     courses.map((course, index) => {
                         return (

@@ -22,13 +22,11 @@ import { useSelector } from "react-redux";
 import AddCourse from "./components/core/Dashboard/AddCourse";
 import MyCourses from "./components/core/Dashboard/MyCourses";
 import EditCourse from "./components/core/Dashboard/EditCourse/EditCourse";
-import { useEffect } from "react";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 import Catalog from "./pages/Catalog";
+import CourseDetails from "./pages/CourseDetails";
 
 function App() {
-  AOS.init()
+
   const { user } = useSelector((state) => state.profile)
   return (
     <div className=" w-screen min-h-screen bg-richblack-900 flex flex-col font-inter scroll-smooth  overflow-hidden">
@@ -36,6 +34,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="catalog/:catalogName" element={<Catalog />} />
+        <Route path="courses/:courseId" element={<CourseDetails />} />
         <Route path="signup" element={
           <OpenRoute>
             <Signup />

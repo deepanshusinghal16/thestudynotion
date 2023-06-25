@@ -22,7 +22,7 @@ const Catalog = () => {
         const getCategories = async () => {
             setLoading(true);
             const result = await apiConnector("GET", categories.CATEGORIES_API);
-            const category_id = result?.data?.data?.filter((ct) => ct.name.split(" ").join("-").toLowerCase() === catalogName)[0]._id;
+            const category_id = result?.data?.data?.filter((ct) => ct.name.split(" ").join("-").toLowerCase() === catalogName)[0]?._id;
             setCategoryId(category_id)
             setLoading(false)
         }
@@ -69,10 +69,10 @@ const Catalog = () => {
             </section>
 
             {/* Section 1 */}
-            <section className='w-full md:w-10/12 px-4 py-10 mx-auto flex flex-col gap-y-4'>
+            <section className='w-full md:w-10/12 px-4 pt-6 mx-auto flex flex-col gap-y-4'>
                 <header className='text-lg font-bold'>Course to get you Started....</header>
                 <div>
-                    <div className='flex gap-x-6 px-4'>
+                    <div className='flex gap-x-6 px-4 '>
                         <p onClick={() => setActive(true)}
                             className={`${active ? "text-yellow-5 underline-offset-4 underline " : "text-richblack-5"} text-md`} > Most Popular</p>
                         <p onClick={() => setActive(false)}
@@ -81,7 +81,7 @@ const Catalog = () => {
                     <hr className='w-[100%] text-richblack-400' />
                 </div>
 
-                <div>
+                <div className='w-full '>
                     <CourseSlider Courses={catalogPageData?.data?.selectedCategory?.courses} />
                 </div>
 
@@ -90,7 +90,7 @@ const Catalog = () => {
             <hr className='w-[100%] text-richblack-400' />
 
             {/* Section 2 */}
-            <section className='w-full md:w-10/12 px-4 py-10 mx-auto flex flex-col gap-y-4'>
+            <section className='w-full md:w-10/12 px-4 py-6 mx-auto flex flex-col gap-y-4'>
                 <header className='text-lg font-bold'>Top Courses
                 </header>
                 <div>
@@ -104,7 +104,7 @@ const Catalog = () => {
                 <header className='text-lg font-bold'>Frequently Bought Courses</header>
 
                 <div className='py-8'>
-                    <div className='grid grid-cols-1 gap-6 lg:grid-cols-2'>
+                    <div className='grid grid-cols-2 place-items-center place-content-center gap-10 mx-auto '>
                         {
                             catalogPageData?.data?.mostSellingCourses?.slice(0, 4).map((course, index) => (
                                 <CourseCard key={index} course={course} Height={"h-[200px] md:h-[300px]"} />

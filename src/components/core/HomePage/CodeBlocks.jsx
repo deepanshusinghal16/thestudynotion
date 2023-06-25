@@ -14,7 +14,7 @@ const CodeBlocks = ({
                 {heading}
 
                 <div
-                    className='text-richblack-300 text-md'
+                    className='text-richblack-300 text-sm sm:text-md'
                 >{subHeading}
                 </div>
 
@@ -69,18 +69,21 @@ const CodeBlocks = ({
                     <p className='text-richblack-200 opacity-65 px-2 text-md '>11</p>
                 </div>
 
-                <div className={`w-[100%] flex flex-col gap-2 font-bold font-mono ${codeColor} lg:pr-2 `}>
+                <div className={`w-[100%] flex flex-col gap-2 font-bold font-mono ${codeColor} lg:pr-2  text-xs`}>
                     <div className='w-[100%] '>
                         <TypeAnimation
                             sequence={[codeblock, 1000, ""]}
                             repeat={Infinity}
                             cursor={true}
                             omitDeletionAnimation={true}
-                            style={
-                                {
-                                    whiteSpace: "pre-line"
-                                }
-                            }
+                            wrapper="span"
+                            speed={50}
+                            style={{
+                                whiteSpace: "pre-line",
+                                display: 'inline-block',
+                                fontSize: "1rem",
+
+                            }}
                         />
                     </div>
                 </div>
@@ -99,7 +102,7 @@ const CodeBlocks = ({
                 {heading}
 
                 <div
-                    className='text-richblack-300 text-md'
+                    className='text-richblack-300 text-sm'
                 >{subHeading}
                 </div>
 
@@ -109,7 +112,7 @@ const CodeBlocks = ({
                         linkto={ctabtn1.linkto}
                     >
 
-                        <div className='text-center text-md md:text-md lg:text-2xl py-2 px-2  font-semibold flex gap-2 items-center'>
+                        <div className='text-center text-md md:text-md lg:text:lg py-2 px-2   flex gap-2 items-center'>
                             {ctabtn1.btnText}
                             <HiOutlineArrowNarrowRight />
 
@@ -120,7 +123,7 @@ const CodeBlocks = ({
                         active={ctabtn2.active}
                         linkto={ctabtn2.linkto}
                     >
-                        <div className='text-md md:text-md lg:text-2xl py-2 px-2 font-mono font-semibold'>
+                        <div className='text-md md:text-md lg:text-lg py-2 px-2 mx-auto font-mono '>
                             {ctabtn2.btnText}
                         </div>
 
@@ -159,11 +162,13 @@ const CodeBlocks = ({
                             repeat={Infinity}
                             cursor={true}
                             omitDeletionAnimation={true}
-                            style={
-                                {
-                                    whiteSpace: "pre-line"
-                                }
-                            }
+                            wrapper="span"
+                            speed={50}
+                            style={{
+                                whiteSpace: "pre-line",
+                                display: 'inline-block',
+                                fontSize: "1rem"
+                            }}
                         />
                     </div>
                 </div>
