@@ -21,7 +21,7 @@ const Dashboard = () => {
                 <Sidebar />
             </div>
 
-            <div className='max-h-[calc(100vh-3.5rem)]  overflow-auto  w-full mx-auto '>
+            <div className='max-h-[calc(100vh-3.5rem)] ml-12  overflow-auto  w-full mx-auto '>
                 <div className='mx-auto '>
                     <Outlet />
 

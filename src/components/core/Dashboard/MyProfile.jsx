@@ -38,7 +38,7 @@ const MyProfile = () => {
                         <p className='text-[0.6rem] text-richblack-300 '>{user?.email}</p>
                     </div>
                 </div>
-                <div className="">
+                {/* <div className="">
                     <button
                         onClick={() => navigate("/dashboard/settings")}
                         className='bg-yellow-25 px-4 py-1 rounded-2xl text-richblack-800'>
@@ -47,7 +47,7 @@ const MyProfile = () => {
                             <BiEdit />
                         </div>
                     </button>
-                </div>
+                </div> */}
             </div>
 
 
@@ -97,14 +97,14 @@ const MyProfile = () => {
                         </p>
                     </div>
 
-                    <div className='flex flex-col gap-1'>
+                    <div className='flex flex-col gap-1 col-span-2'>
                         <p className='text-xs text-richblack-500'>Phone Number</p>
                         <p className='text-sm'>
                             {user?.additionalDetails?.contactNumber ? user?.additionalDetails?.contactNumber : "Add Contact Number"}
                         </p>
                     </div>
 
-                    <div className='flex flex-col gap-1'>
+                    <div className='flex flex-col gap-1 col-span-2 '>
                         <p className='text-xs text-richblack-500'>Gender</p>
                         <p className='text-sm'>
                             {user?.additionalDetails?.gender ? capitalize(user?.additionalDetails?.gender) : "Add Gender"}

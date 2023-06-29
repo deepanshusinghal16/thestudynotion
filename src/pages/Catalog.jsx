@@ -104,7 +104,7 @@ const Catalog = () => {
                 <header className='text-lg font-bold'>Frequently Bought Courses</header>
 
                 <div className='py-8'>
-                    <div className='grid grid-cols-2 place-items-center place-content-center gap-10 mx-auto '>
+                    <div className='grid grid-cols-1 md:grid-cols-2 place-items-center place-content-center gap-x-4 md:gap-x-10 mx-auto '>
                         {
                             catalogPageData?.data?.mostSellingCourses?.slice(0, 4).map((course, index) => (
                                 <CourseCard key={index} course={course} Height={"h-[200px] md:h-[300px]"} />

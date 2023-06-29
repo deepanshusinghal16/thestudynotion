@@ -10,22 +10,22 @@ const RenderCartCourses = () => {
     const dispatch = useDispatch();
 
     return (
-        <div className="flex flex-col flex-wrap gap-4 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1  gap-4 ">
             {
                 cart.map((course, index) => (
-                    <div key={index} className='flex flex-col lg:flex-row gap-4 bg-richblack-700 px-2 py-4 rounded-md'>
+                    <div key={index} className='flex flex-col md:flex-row gap-4 bg-richblack-700 px-3 py-4 rounded-md '>
 
                         {/* /thumbnail */}
                         <div className='w-full'>
-                            <img src={course?.thumbnail} className='w-[350px] rounded-2xl aspect-video' alt='Loading...' />
+                            <img src={course?.thumbnail} className='w-[240px] sm:w-[270px] lg:w-[350px] rounded-2xl aspect-video' alt='Loading...' />
                         </div>
 
                         {/* Description */}
-                        <div className='flex flex-col gap-2 justify-center '>
+                        <div className='flex flex-col gap-2 justify-center'>
                             <h2 className='text-sm'>{course?.courseName}</h2>
                             <p className='text-xs'>{course?.category?.name}</p>
 
-                            <div className='flex gap-2 w-max text-xs'>
+                            <div className='flex gap-2 w-max text-xs items-center'>
                                 <span>4.5</span>
                                 <RatingStars Review_Count={4.5} Star_Size={24} />
                                 <span>{course?.ratingAndReviews?.length} Ratings</span>
@@ -42,7 +42,7 @@ const RenderCartCourses = () => {
                                 <RiDeleteBin6Line />
                                 <span>Remove</span>
                             </button>
-                            <p>Rs. {course.price}</p>
+                            <p>₹ {course.price}</p>
                         </div>
 
                     </div>
