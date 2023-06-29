@@ -26,13 +26,15 @@ const Sidebar = () => {
 
     }
     return (
-        <div className={`hidden lg:block ${isOpen ? "w-[200px]" : "w-[50px] "}  transition-all duration-300  text-white border-r-2 border-richblack-400 z-[10000]`}>
+        <div className={`${isOpen ? "w-40" : "w-10"}  transition-all duration-300  text-white border-r-2 border-richblack-400 z-[1000]`}>
 
-            <Hamburger toggled={isOpen} toggle={toggle} />
+            <div className="mx-auto overflow-hidden" >
+                <Hamburger toggled={isOpen} size={22} toggle={toggle} />
+            </div>
 
-            <div className={` flex flex-col gap-4  border-r-[1px] border-richblack-700 min-h-[calc(100vh-3.5rem)] `}>
+            <div className={`flex flex-col  gap-4  border-r-[1px] border-richblack-700 min-h-[calc(100vh-3.5rem)] `}>
 
-                <div className='flex flex-col gap-y-6 my-4 '>
+                <div className='flex flex-col gap-3 mt-6   w-full'>
                     {
                         sidebarLinks.map((link) => {
                             if (link.type && link.type !== user?.accountType) return null;
@@ -55,23 +57,18 @@ const Sidebar = () => {
                             btn1Handler: () => dispatch(logout(navigate)),
                             btn2Handler: () => setComformationModal(null),
                         })}
-                        className='text-richblack-300 ml-2 px-2'
+                        className='text-richblack-300  px-2'
                     >
 
                         <div className='flex gap-4 items-center text-richblack-5   my-4  relative'>
-                            <div className='flex items-center gap-4 relative group/option '>
-                                <VscSignOut className='text-2xl -translate-x-1 ml-1 overflow-visible' />
+                            <div className='flex items-center  relative group/option '>
 
-                                {
-                                    !isOpen && (
-                                        <span className=' left-[120%] font-edu-sa -translate-y-2 w-[120px] opacity-0 group-hover/option:opacity-100  transition-all duration-300 rounded-2xl bg-richblack-500 text-richblack-5 py-1 px-4  rounded-bl-none '>
-                                            LogOut
-                                        </span>
-                                    )
-                                }
-                                <span className={`  w-[200px]   text-lg ${isOpen ? "-translate-x-[1.5rem]" : "opacity-0 -translate-x-[100px]"} transition-all duration-300 `}>
-                                    LogOut
-                                </span>
+                                <div className='relative'>
+                                    <VscSignOut size={22} className="  overflow-visible" />
+                                    <span className={`-right-2 inset-y-0 translate-x-[100%] absolute text-xs ${isOpen ? " " : "opacity-0"} transition-[height] w-max  duration-300`}>
+                                        Logout
+                                    </span>
+                                </div>
 
                             </div>
                         </div>

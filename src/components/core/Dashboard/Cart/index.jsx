@@ -9,14 +9,14 @@ export default function Cart() {
 
 
     return (
-        <div className='flex flex-col gap-4 px-2 md:w-10/12 mx-auto text-white my-4'>
+        <div className='flex flex-col gap-4 px-2 md:w-11/12 mx-auto text-white my-4 overflow-x-hidden'>
             <h2 className='text-xl text-center'>Your Cart</h2>
 
             {
                 total > 0 ? (
                     <div className="mx-auto w-max">
                         <p className="text-md text-left">{totalItems} Courses in Cart</p>
-                        <div className="flex flex-col flex-wrap lg:flex-row gap-6 items-start justify-between py-4">
+                        <div className="flex flex-col flex-wrap xl:flex-row gap-6 items-start justify-between py-4">
                             <RenderCartCourses />
                             <RenderTotalAmount />
                         </div>

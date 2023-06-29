@@ -21,8 +21,8 @@ const RenderTotalAmount = () => {
         <div className='py-6 px-4  w-fit  rounded-md bg-richblack-700 flex flex-col gap-2 mx-auto'>
             <p className='px-6 text-sm text-yellow-25'>Total</p>
             <div className='flex items-baseline flex-row justify-start'>
-                <div className='px-6 text-md flex gap-1'> Rs {total * 0.9}</div>
-                <div className=' text-sm  text-richblack-200 line-through'>Rs{total}</div>
+                <div className='px-6 text-md flex gap-1'> ₹ {total * 0.9}</div>
+                <div className=' text-xs  text-richblack-200 line-through'>Rs{total}</div>
             </div>
             <IconBtn
                 text={"Buy Now"}

@@ -137,10 +137,35 @@ exports.getEnrolledCourses = async (req, res) => {
         path: "courses",
         populate: [
           { path: "category", model: "Category" },
-          { path: "instructor", model: "User" }
+          { path: "instructor", model: "User" },
+          { path: 'courseContent', model: "Section", populate: { path: "subSection", model: 'SubSection' } }
         ]
       })
       .exec();
+    // const userDetails = await User.findOne({ _id: userId })
+    //   .populate({
+    //     path: 'courses',
+    //     populate: {
+    //       path: 'instructor',
+    //       model: 'User'
+    //     }
+    //   })
+    //   .populate({
+    //     path: 'courses',
+    //     populate: {
+    //       path: 'category',
+    //       model: 'Category'
+    //     }
+    //   })
+    //   .populate({
+    //     path: 'courses',
+    //     populate: {
+    //       path: 'section.subsection',
+    //       model: 'Subsection'
+    //     }
+    //   })
+    //   .exec();
+
     if (!userDetails) {
       return res.status(400).json({
         success: false,

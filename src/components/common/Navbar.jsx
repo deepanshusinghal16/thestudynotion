@@ -9,7 +9,6 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import CTAButton from '../core/HomePage/CTAButton';
 import ProfileDropDown from '../core/Auth/ProfileDropDown';
 import { ACCOUNT_TYPE } from '../../utils/constants';
-import Hamburger from '../core/Dashboard/SideBar/Hamburger';
 import { HiOutlineUserCircle } from "react-icons/hi";
 import { IoIosArrowDown } from "react-icons/io";
 import { Fade } from 'hamburger-react';
@@ -59,12 +58,12 @@ const Navbar = () => {
 
 
                 <Link to={"/"}   >
-                    <img src={BigLogo} alt="StudyNotion" className='hidden sm:block my-2 object-cover w-[80%] lg:w-[50%] md:mx-2' loading='lazy' />
-                    <img src={SmallLogo} alt="StudyNotion" className='sm:hidden my-2 object-cover w-[80%] lg:w-[50%] md:mx-2' loading='lazy' />
+                    <img src={BigLogo} alt="StudyNotion" className=' my-2 object-cover w-[80%] lg:w-[50%] md:mx-2' loading='lazy' />
+                    {/* <img src={SmallLogo} alt="StudyNotion" className='sm:hidden my-2 object-cover w-[80%] lg:w-[50%] md:mx-2' loading='lazy' /> */}
                 </Link>
 
 
-                <div className='flex gap-4 flex-row-reverse  xl:flex-row items-center justify-center xl:justify-between xl:col-span-2 '>
+                <div className='flex gap-1 flex-row-reverse  xl:flex-row items-center justify-center xl:justify-between xl:col-span-2 '>
 
                     <div>
                         {
@@ -134,66 +133,69 @@ const Navbar = () => {
                                         </ul>
                                     </div>
 
-                                    {token === null && <div className='block xl:hidden'>
-                                        <Fade color="white" classList="hamburger-menu" toggled={showMenu} onToggle={toggleMenu} />
+                                    <div className='block xl:hidden'>
+                                        <Fade color="white" classList="hamburger-menu" size={20} toggled={showMenu} onToggle={toggleMenu} />
 
                                         <div
-                                            className={`bg-gradient-to-tr from-richblack-900 to-richblack-00 transition-all duration-200 absolute top-[3.5rem] w-screen h-[calc(100vh-3.5rem)] bg-transparent z-[1000] backdrop-blur-[10px] text-richblack-25 text-xl flex flex-col items-center gap-6 justify-center backdrop-opacity-100
-                                        ${showMenu ? ' right-0 left-0 inset-y-0' : ' -translate-y-[100%]   hidden'}
+                                            className={`bg-gradient-to-tr from-richblack-900  transition-all duration-200 absolute top-[3.5rem] w-screen h-[calc(100vh-3.5rem)] bg-transparent z-[1000] backdrop-blur-[10px] text-richblack-25 text-lg  backdrop-opacity-100
+                                        ${showMenu ? ' right-0 left-0 inset-y-10' : ' -translate-y-[100%]   hidden'}
                 `}>
 
-                                            {
-                                                NavbarLinks.map((link, index) => (
-                                                    <div key={index}
+                                            <div className='flex flex-col items-center gap-6 justify-center mt-20'>
+                                                {
+                                                    NavbarLinks.map((link, index) => (
+                                                        <div key={index}
 
-                                                        className=''>
-                                                        {
-                                                            link.title === "Catalog" ? (
-                                                                <div key={index} className='text-richblack-25 text-lg font-semibold flex items-center gap-1 hover relative group z-[10] mx-auto'>
-                                                                    <div>{link.title}</div>
-                                                                    <IoIosArrowDown />
-
-
-
-                                                                    <div className='invisible absolute left-[50%] translate-x-[-50%] translate-y-[30%] top-[50%] flex flex-col rounded-md bg-richblack-5 p-4 text-richblack-900 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 lg:w-[200px]'>
+                                                            className=''>
+                                                            {
+                                                                link.title === "Catalog" ? (
+                                                                    <div key={index} className='text-richblack-25 text-lg font-semibold flex items-center gap-1 hover relative group z-[10] mx-auto'>
+                                                                        <div>{link.title}</div>
+                                                                        <IoIosArrowDown />
 
 
-                                                                        {
-                                                                            subLinks.length ? (
-                                                                                subLinks.map((subLink, index) => (
-                                                                                    <Link to={`/catalog/${subLink.name.split(" ").join("-").toLowerCase()}`} key={index} className='group/edit w-full flex items-center justify-center hover:bg-richblack-200  rounded-lg
+
+                                                                        <div className='invisible absolute left-[50%] translate-x-[-50%] translate-y-[30%] top-[50%] flex flex-col rounded-md bg-richblack-5 p-4 text-richblack-900 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 lg:w-[200px]'>
+
+
+                                                                            {
+                                                                                !loading &&
+                                                                                    subLinks.length ? (
+                                                                                    subLinks.map((subLink, index) => (
+                                                                                        <Link to={`/catalog/${subLink.name.split(" ").join("-").toLowerCase()}`} key={index} className='group/edit w-full flex items-center justify-center hover:bg-richblack-200  rounded-lg
                                                                                     transition-all duration-300 ' onClick={toggleMenu}>
-                                                                                        <div className='text-center font-normal text-black w-[150px] group-hover/edit'>{subLink.name}</div>
-                                                                                    </Link>
-                                                                                ))
-                                                                            ) : (<div></div>)
-                                                                        }
+                                                                                            <div className='text-center font-normal text-black w-[150px] group-hover/edit'>{subLink.name}</div>
+                                                                                        </Link>
+                                                                                    ))
+                                                                                ) : (<div>Loading...</div>)
+                                                                            }
+
+                                                                        </div>
+
+
 
                                                                     </div>
-
-
-
-                                                                </div>
-                                                            ) : (
+                                                                ) : (
                                                                     <Link to={link.path} onClick={toggleMenu}>
                                                                         <div className={`${matchRoute(link.path) ? `text-yellow-25` : `text-richblack-25`}
                                                     text-lg font-semibold `} >
-                                                                        {link.title}
+                                                                                {link.title}
                                                                         </div>
-                                                                </Link>
-                                                            )
-                                                        }
+                                                                    </Link>
+                                                                )
+                                                            }
 
-                                                    </div>
-                                                )
-                                                )
-                                            }
+                                                        </div>
+                                                    )
+                                                    )
+                                                }
+                                            </div>
 
 
 
                                         </div>
 
-                                    </div>}
+                                    </div>
                                 </nav>
                             )
                         }
@@ -227,11 +229,11 @@ const Navbar = () => {
                             {
                                 user && user.accountType === ACCOUNT_TYPE.STUDENT && (
                                     <Link to={"/dashboard/cart"} className='relative' >
-                                        <AiOutlineShoppingCart className='text-white text-xl mr-1' />
+                                        <AiOutlineShoppingCart className='text-xl text-white  mr-1' />
                                         {
                                             totalItems > 0 && (
-                                                <span className='absolute -top-4 -right-4  bg-richblack-500 rounded-full p-1 aspect-square h-6 flex items-center justify-center'>
-                                                    <div className='text-richblack-5 font-semibold '>
+                                                <span className='absolute -top-2 -right-0  bg-richblack-500 rounded-full p-1 aspect-square w-4 h-4 flex items-center justify-center'>
+                                                    <div className='text-richblack-5 font-semibold text-xs'>
                                                         {
                                                             totalItems <= 9 ? (<span>
                                                                 {totalItems}
@@ -250,10 +252,6 @@ const Navbar = () => {
                                 token !== null && <ProfileDropDown />
                             }
 
-
-                            {
-                                token !== null && <Hamburger />
-                            }
                         </div>
 
                     </div>
