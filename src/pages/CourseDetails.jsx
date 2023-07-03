@@ -37,7 +37,7 @@ const CourseDetails = () => {
                 ////console.log(courseData);
 
             } catch (e) {
-               //console.log("Unable to fetch data of the course", e);
+                //console.log("Unable to fetch data of the course", e);
             }
         }
         if (courseId)
@@ -191,14 +191,14 @@ const CourseDetails = () => {
                         {
                             courseContent?.map((content) => (
                                 <div key={content._id}
-                                    className='flex flex-col gap-2  px-2 text-sm'>
+                                    className='flex flex-col gap-2  px-2 text-sm text-white'>
                                     <div
                                         onClick={() => handleActive(content._id)}
                                         className='cursor-pointer flex justify-between items-center bg-richblack-600 rounded-md px-2 w-full py-2 '>
-                                        <div className='flex gap-1 items-center '>
+                                        <div className='flex gap-1 items-center text-white '>
                                             <button
                                             >
-                                                <MdOutlineArrowDropDown className={`${isActive.includes(content._id) && "rotate-180"} transition-all duration-300`} />
+                                                <MdOutlineArrowDropDown className={`${isActive.includes(content._id) && "rotate-180"} transition-all duration-300 text-white`} />
                                             </button>
                                             {content.sectionName}
                                         </div>
@@ -212,8 +212,8 @@ const CourseDetails = () => {
                                             isActive.includes(content._id) &&
                                             content?.subSection.map((lecture) => (
                                                 <div key={lecture._id}
-                                                    className='flex items-center gap-1 pl-6 text-xs py-2  w-full border-b-[2px] border-richblack-500'>
-                                                    <IoIosVideocam />
+                                                    className='flex items-center gap-1 pl-6 text-xs py-2  w-full border-b-[2px] border-richblack-500 text-white'>
+                                                    <IoIosVideocam className='text-white' />
                                                     {lecture.title}
                                                 </div>
                                             ))
