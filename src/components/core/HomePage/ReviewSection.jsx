@@ -29,7 +29,7 @@ const ReviewSection = () => {
 
 
     return (
-        <div className='text-white w-full'>
+        <div className='text-white w-full h-maxContent pb-4'>
             <div className='h-[190px] w-maxContent'>
                 <Swiper
                     breakpoints={{
@@ -57,9 +57,9 @@ const ReviewSection = () => {
                         reviews.map((review, index) => (
                             <SwiperSlide key={index}
 
-                                className=' bg-richblack-800 px-2 rounded-lg py-2 flex items-center justify-center'>
+                                className=' bg-richblack-800 px-2 rounded-lg w-maxContent flex items-center  h-[200px]'>
 
-                                <div className='mx-auto '>
+                                <div className='mx-auto'>
                                     <div className='flex text-sm  gap-4 font-normal w-maxContent'>
                                         <img
                                             src={review?.user?.image
@@ -74,12 +74,12 @@ const ReviewSection = () => {
                                         </div>
                                     </div>
 
-                                    <p className=' font-normal w-maxContent'>
-                                        <p className='text-md'>{review?.course?.courseName.length > 15 ? review?.course?.courseName.substring(0, 15) + `....` : review?.course?.courseName}</p>
-                                        <p className='text-sm font-semibold w-maxContent'>{review?.review}</p>
+                                    <p className=' font-normal w-maxContent mt-1'>
+                                        <p className='text-sm'>{review?.course?.courseName.length > 15 ? review?.course?.courseName.substring(0, 15) + `....` : review?.course?.courseName}</p>
+                                        <p className='text-xs  w-maxContent'>{review?.review}</p>
                                     </p>
 
-                                    <div className='flex gap-2  items-center'>
+                                    <div className='flex gap-2  items-center text-sm'>
                                         <p>{review?.rating.toFixed(1)}</p>
                                         <ReactStars
                                             count={5}
