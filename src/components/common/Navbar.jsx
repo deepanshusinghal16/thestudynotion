@@ -13,6 +13,8 @@ import { HiOutlineUserCircle } from "react-icons/hi";
 import { IoIosArrowDown } from "react-icons/io";
 import { Fade } from 'hamburger-react';
 import { fetchCourseCategories } from '../../services/operations/courseDetailsAPI';
+import { CgMenuGridO } from "react-icons/cg";
+import { RxCross1 } from "react-icons/rx"
 
 
 const Navbar = () => {
@@ -24,7 +26,10 @@ const Navbar = () => {
     // This is all for the hambuger without login
     // ********************************
     const [showMenu, setShowMenu] = useState(false);
-    const toggleMenu = () => setShowMenu(!showMenu);
+    const toggleMenu = () => {
+        !showMenu ? setNavIcon(RxCross1) : setNavIcon(CgMenuGridO)
+        setShowMenu(!showMenu)
+    };
     // ********************************
 
 
@@ -44,7 +49,7 @@ const Navbar = () => {
     useEffect(() => {
         fetchSubLinks();
     }, []);
-
+    const [navIcon, setNavIcon] = useState(CgMenuGridO);
 
     const location = useLocation();
     const matchRoute = (route) => {
@@ -61,6 +66,7 @@ const Navbar = () => {
                     <img src={BigLogo} alt="StudyNotion" className=' my-2 object-cover w-[80%] lg:w-[50%] md:mx-2' loading='lazy' />
                     {/* <img src={SmallLogo} alt="StudyNotion" className='sm:hidden my-2 object-cover w-[80%] lg:w-[50%] md:mx-2' loading='lazy' /> */}
                 </Link>
+
 
 
                 <div className='flex gap-1 flex-row-reverse  xl:flex-row items-center justify-center xl:justify-between xl:col-span-2 '>
@@ -134,7 +140,9 @@ const Navbar = () => {
                                     </div>
 
                                     <div className='block xl:hidden'>
-                                        <Fade color="white" classList="hamburger-menu" size={20} toggled={showMenu} onToggle={toggleMenu} />
+                                        <button color="white" className='text-2xl flex items-center' onClick={() => toggleMenu()}   >
+                                            {navIcon}
+                                        </button>
 
                                         <div
                                             className={`bg-gradient-to-tr from-richblack-900  transition-all duration-200 absolute top-[3.5rem] w-screen h-[calc(100vh-3.5rem)] bg-transparent z-[1000] backdrop-blur-[10px] text-richblack-25 text-lg  backdrop-opacity-100

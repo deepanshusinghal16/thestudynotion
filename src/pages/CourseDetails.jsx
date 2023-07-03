@@ -170,12 +170,12 @@ const CourseDetails = () => {
                         <div className='flex justify-between  text-xs'>
                             <div className='flex flex-col px-2 lg:flex-row gap-1 justify-start '>
                                 <div className='flex flex-row gap-1 items-center text-white'>
-                                    <span>{courseContent.length} Section(s) </span>
-                                    <span>{totalNumberofLecture} Lecture(s)</span>
+                                    <span className='text-white'>{courseContent.length} Section(s) </span>
+                                    <span className='text-white'>{totalNumberofLecture} Lecture(s)</span>
                                 </div>
 
                                 <div className='flex flex-row gap-1'>
-                                    <span>{courseData?.data?.totalDuration} Total Length</span>
+                                    <span className='text-white'>{courseData?.data?.totalDuration} Total Length</span>
                                 </div>
                             </div>
 
