@@ -45,9 +45,7 @@ const EnrolledCourses = () => {
                                     enrolledCourses.map((course, index) => (
                                         <div className='max-w-[300px] lg:px-6 lg:max-w-full w-full mx-auto flex flex-col lg:flex-row justify-between items-center my-4 gap-4 py-4 px-2 rounded-xl bg-richblack-700 cursor-pointer' key={index}
                                             onClick={() => {
-                                               //console.log(course)
                                                 navigate(`/view-course/${course._id}/section/${course.courseContent?.[0]?._id}/sub-section/${course.courseContent?.[0]?.subSection?.[0]?._id}`)
-                                               //console.log(`/view-course/${course._id}/section /${course.courseContent?.[0]?._id}/sub-section / ${course.courseContent?.[0]?.subSection?.[0]?._id}`)
                                             }}>
 
                                             <div className='flex flex-col lg:flex-row gap-4 items-center w-full' >

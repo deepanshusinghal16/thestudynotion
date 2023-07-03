@@ -13,7 +13,7 @@ import Footer from '../components/common/Footer';
 
 const AboutUs = () => {
     return (
-        <div className=' mx-auto flex flex-col gap-4 text-white'>
+        <div className=' mx-auto flex flex-col gap-4 text-white w-full'>
 
             <section className='md:w-10/12  mx-auto flex flex-col gap-4 items-center px-2'>
                 <header className='text-richblack-5 text-2xl  text-center mt-10  font-bold  lg:max-w-[800px] ' >
@@ -27,10 +27,19 @@ const AboutUs = () => {
             </section>
 
             <div className='bg-richblack-800 w-full py-4'>
-                <div className='grid grid-cols-3 gap-2 px-2 py-2 md:w-10/12 mx-auto '>
-                    <img src={BannerImg1} alt="Image" className='shadow-md shadow-richblack-500 object-contain hover:scale-95 transition-all duration-200 hover:shadow-lg  hover:shadow-white' />
-                    <img src={BannerImg2} alt="Image" className='shadow-md shadow-richblack-500 object-contain hover:scale-95 transition-all duration-200 hover:shadow-lg  hover:shadow-white' />
-                    <img src={BannerImg3} alt="Image" className='shadow-md shadow-richblack-500 object-contain hover:scale-95 transition-all duration-200 hover:shadow-lg  hover:shadow-white' />
+                <div className='flex flex-row justify-around px-2 py-2 md:w-10/12 mx-auto '>
+                    {/* <div className='w-full'> */}
+                    <img src={BannerImg1} alt="Image" className='w-20 md:w-[150px] lg:w-[350px] shadow-md shadow-richblack-500 object-contain hover:scale-95 transition-all duration-200 hover:shadow-lg  hover:shadow-white' />
+                    {/* </div> */}
+
+                    {/* <div className='w-full'> */}
+                    <img src={BannerImg2} alt="Image" className='w-20  md:w-[150px] lg:w-[350px] shadow-md shadow-richblack-500 object-contain hover:scale-95 transition-all duration-200 hover:shadow-lg  hover:shadow-white' />
+                    {/* </div> */}
+
+                    {/* <div className='w-full'> */}
+                    <img src={BannerImg3} alt="Image" className='w-20 md:w-[150px] lg:w-[350px] shadow-md shadow-richblack-500 object-contain hover:scale-95 transition-all duration-200 hover:shadow-lg  hover:shadow-white' />
+                    {/* </div> */}
+
                 </div>
             </div>
 
@@ -93,7 +102,7 @@ const AboutUs = () => {
                 <ContactFormSection />
             </section>
 
-            <section className='px-2 md:w-10/12 mx-auto max-w-maxContent bg-richblack-900 text-white flex flex-col gap-6 items-center font-semibold'>
+            <section className='w-10/12 px-2 mx-auto max-w-maxContent bg-richblack-900 text-white flex flex-col gap-6 items-center font-semibold'>
                 <h2 className='text-xl lg:text-2xl px-4'>Reviews From Other Learners</h2>
                 <ReviewSection />
             </section>

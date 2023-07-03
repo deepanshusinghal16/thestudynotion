@@ -14,7 +14,7 @@ const MyProfile = () => {
             'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
         ];
 
-        const parts = dateString.split('.');
+        const parts = dateString.split('-');
         const year = parts[0];
         const month = months[parseInt(parts[1], 10) - 1];
         const day = parts[2];
@@ -38,16 +38,6 @@ const MyProfile = () => {
                         <p className='text-[0.6rem] text-richblack-300 '>{user?.email}</p>
                     </div>
                 </div>
-                {/* <div className="">
-                    <button
-                        onClick={() => navigate("/dashboard/settings")}
-                        className='bg-yellow-25 px-4 py-1 rounded-2xl text-richblack-800'>
-                        <div className='flex gap-2 items-center justify-center text-sm '>
-                            <p>Edit</p>
-                            <BiEdit />
-                        </div>
-                    </button>
-                </div> */}
             </div>
 
 

@@ -46,7 +46,7 @@ const VideoDetailsSidebar = ({ setReviewModal }) => {
                         {/* Back Btn */}
                         <button
                             onClick={() => navigate("/dashboard/enrolled-courses")}>
-                            <IoMdArrowBack className='text-md' />
+                            <IoMdArrowBack className='text-md text-white' />
                         </button>
 
                         {/* Btn add review */}
@@ -57,8 +57,8 @@ const VideoDetailsSidebar = ({ setReviewModal }) => {
                     </div>
 
                     {/* heading */}
-                    <div className='text-[0.6235rem] flex flex-row items-center justify-between px-1 '>
-                        <p>{courseEntireData?.courseName}</p>
+                    <div className='text-[0.6235rem] flex flex-row items-center justify-between px-1 text-richblack-5 '>
+                        <p >{courseEntireData?.courseName}</p>
                         <p>{completedLectures.length} / {totalNoOfLectures} </p>
                     </div>
                 </div>
@@ -71,12 +71,12 @@ const VideoDetailsSidebar = ({ setReviewModal }) => {
                                 key={index}>
 
                                 <div className='flex flex-row items-center justify-between gap-2 text-sm '>
-                                    <div>
+                                    <div className='text-richblack-5 uppercase'>
                                         {section?.sectionName}
                                     </div>
                                     <div
                                         className={`${activeSection === section?._id && "rotate-180"}  transition-all duration-300`}>
-                                        <IoIosArrowUp />
+                                        <IoIosArrowUp className='text-white' />
                                     </div>
 
                                 </div>
@@ -91,8 +91,8 @@ const VideoDetailsSidebar = ({ setReviewModal }) => {
                                                         <div
                                                             className={`${videobarActive === topic._id ?
                                                                 "bg-yellow-25 text-richblack-900" :
-                                                                "bg-richblack-900 text-richblack-5"}
-                                                                text-xs flex gap-2 px-2`}
+                                                                "bg-richblack-900 text-richblack-25"}
+                                                                text-xs flex gap-2 px-2 `}
                                                             key={index}
                                                             onClick={() => {
                                                                 setVideobarActive(topic?._id);
