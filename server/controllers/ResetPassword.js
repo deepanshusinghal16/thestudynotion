@@ -33,7 +33,7 @@ exports.resetPasswordToken = async (req, res) => {
             { new: true });
 
 
-        const url = `https://localhost:3000/update-password/${token}`;
+        const url = `https://studynotion-frontend.onrender.com/update-password/${token}`;
 
         await mailSender(email, "Password Reset link", `This reset link is valid for 5 minutes only: ${url}`)
 
