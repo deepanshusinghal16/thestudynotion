@@ -151,7 +151,7 @@ const enrollStudents = async (courses, userId, res) => {
             const emailResponse = await mailSender(
                 enrolledStudent.email,
                 `Successfully Enrolled in ${enrolledCourse.courseName}`,
-                courseEnrollmentEmail(enrolledCourse.courseName, `${enrolledStudent.firstName} " " ${enrolledStudent.lastName} `)
+                courseEnrollmentEmail(enrolledCourse.courseName, `${enrolledStudent.firstName}  ${enrolledStudent.lastName} `)
             )
             //console.log("Email sent successfully");
 
