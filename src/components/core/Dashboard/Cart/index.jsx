@@ -1,13 +1,13 @@
 import { useSelector } from "react-redux"
 import RenderCartCourses from "./RenderCartCourses";
 import RenderTotalAmount from "./RenderTotalAmount";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 import { fetchCourseCategories } from "../../../../services/operations/courseDetailsAPI";
 
 export default function Cart() {
-
+    const navigate = useNavigate();
     const { total, totalItems } = useSelector((state) => state.cart);
     const [goTo, setGoTo] = useState("/dashboard/catalog/mern");
 
@@ -17,8 +17,10 @@ export default function Cart() {
 
             try {
                 const result = await fetchCourseCategories();
-                let ran = Math.floor((Math.random() * 10 * result.length) / result.length)
-                setGoTo(`/dashboard/catalog/${ran}`);
+                console.log(result)
+                let idx = Math.floor((Math.random() * 10 * result.length) / result.length)
+                let val = result[idx]?.name || 'mern'
+                setGoTo(val);
             }
             catch (error) {
                 //console.log("Can't fetch the categories at this moment");
@@ -43,8 +45,8 @@ export default function Cart() {
                     </div>
                 ) : (<div className="text-lg flex flex-col gap-4 items-center justify-center h-[50vh]">
                     <p> Your Cart is Empty.</p>
-                        <Link className="bg-yellow-25 text-richblack-700 px-4 py-1 rounded-2xl" to={goTo} >
-                            Buy Now </Link>
+                        <button className="bg-yellow-25 text-richblack-700 px-4 py-1 rounded-2xl" onClick={() => navigate(`/catalog/${goTo.split(" ").join("-").toLowerCase()}`)}>
+                            Buy Now </button>
                     </div>
                     )
             }
