@@ -140,7 +140,7 @@ const Navbar = () => {
                                     </div>
 
                                     <div className='block xl:hidden'>
-                                        <button color="white" className='text-2xl flex items-center' onClick={() => toggleMenu()}   >
+                                        <button className='text-2xl flex items-center text-white' onClick={() => toggleMenu()}   >
                                             {navIcon}
                                         </button>
 
