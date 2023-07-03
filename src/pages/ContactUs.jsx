@@ -61,10 +61,8 @@ const ContactUs = () => {
                 </div>
             </section>
 
-            <section className='w-full flex flex-col gap-4 justify-center items-center'>
-                <h2 className='text-2xl text-center text-white font-bold'>
-                    Review From Other Learners
-                </h2>
+            <section className='px-2 md:w-10/12 mx-auto max-w-maxContent bg-richblack-900 text-white flex flex-col gap-6 items-center font-semibold'>
+                <h2 className='text-xl lg:text-2xl px-4'>Reviews From Other Learners</h2>
                 <ReviewSection />
             </section>
 

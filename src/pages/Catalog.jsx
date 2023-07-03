@@ -34,7 +34,6 @@ const Catalog = () => {
         const getCategoriesDetails = async () => {
             try {
                 const result = await getCatalogPageData(categoryId);
-                console.log(result)
                 setCatalogPageData(result);
             }
             catch (error) {

@@ -16,7 +16,7 @@ exports.sendOTP = async (req, res) => {
 
         const checkUserPresent = await User.findOne({ email });
         if (checkUserPresent) {
-            console.log("Email already registered");
+            //console.log("Email already registered");
             return res.status(401).json({
                 success: false,
                 message: 'Email already registered',
@@ -98,9 +98,9 @@ exports.signUp = async (req, res) => {
 
 
 
-        console.log(response);
+        //console.log(response);
         if (otp !== response[0].otp) {
-            console.log("OTP not marxh")
+            //console.log("OTP not marxh")
             return res.status(400).json({
                 success: false,
                 message: 'Invalid OTP',
@@ -240,7 +240,7 @@ exports.changePassword = async (req, res) => {
                 )
             );
 
-            console.log("Email sent successfully:", emailResponse.response);
+            //console.log("Email sent successfully:", emailResponse.response);
             return res.status(200).json({
                 success: true,
                 message: "Password updated successfully",

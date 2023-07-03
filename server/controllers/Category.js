@@ -17,7 +17,7 @@ exports.createCategory = async (req, res) => {
             name: name,
             description: description,
         });
-        console.log(CategorysDetails);
+        ////console.log(CategorysDetails);
         return res.status(200).json({
             success: true,
             message: "Categorys Created Successfully",
@@ -52,7 +52,7 @@ exports.showAllCategories = async (req, res) => {
 exports.categoryPageDetails = async (req, res) => {
     try {
         const { categoryId } = req.body
-        console.log("PRINTING CATEGORY ID: ", categoryId);
+        ////console.log("PRINTING CATEGORY ID: ", categoryId);
 
         const selectedCategory = await Category.findById(categoryId)
             .populate({
@@ -62,17 +62,17 @@ exports.categoryPageDetails = async (req, res) => {
             })
             .exec()
 
-        console.log("SELECTED COURSE", selectedCategory)
+        ////console.log("SELECTED COURSE", selectedCategory)
 
         if (!selectedCategory) {
-            console.log("Category not found.")
+            ////console.log("Category not found.")
             return res
                 .status(404)
                 .json({ success: false, message: "Category not found" })
         }
 
         // if (selectedCategory.courses.length === 0) {
-        //     console.log("No courses found for the selected category.")
+        //     ////console.log("No courses found for the selected category.")
         //     return res.status(404).json({
         //         success: false,
         //         message: "No courses found for the selected category.",
@@ -97,7 +97,7 @@ exports.categoryPageDetails = async (req, res) => {
                 })
                 .exec();
         } while (!differentCategory.courses.length);
-        console.log("Different COURSE", differentCategory)
+        ////console.log("Different COURSE", differentCategory)
         // Get top-selling courses across all categories
         const allCategories = await Category.find()
             .populate({
@@ -112,7 +112,7 @@ exports.categoryPageDetails = async (req, res) => {
         const mostSellingCourses = allCourses
             .sort((a, b) => b.sold - a.sold)
             .slice(0, 10)
-        console.log("mostSellingCourses COURSE", mostSellingCourses)
+        ////console.log("mostSellingCourses COURSE", mostSellingCourses)
         res.status(200).json({
             success: true,
             data: {

@@ -45,7 +45,7 @@ export default function ChangeProfilePicture() {
                 setLoading(false)
             })
         } catch (error) {
-            console.log("Error occured ", error)
+           //console.log("Error occured ", error)
         }
     }
 

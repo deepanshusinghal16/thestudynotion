@@ -6,7 +6,7 @@ const SubSection = require('../models/Subsection');
 exports.createSection = async (req, res) => {
     try {
         const { sectionName, courseId } = req.body;
-        console.log("Inside AAPI of createSection", sectionName, courseId);
+        //console.log("Inside AAPI of createSection", sectionName, courseId);
         if (!sectionName || !courseId) {
             return res.status(400).json({
                 success: false,

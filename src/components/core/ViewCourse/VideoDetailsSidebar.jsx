@@ -1,10 +1,7 @@
-import React from 'react'
-import { useEffect } from 'react';
-import { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { IoMdArrowBack, IoIosArrowUp } from "react-icons/io";
-import IconBtn from '../../common/IconBtn';
 
 const VideoDetailsSidebar = ({ setReviewModal }) => {
 
@@ -16,52 +13,69 @@ const VideoDetailsSidebar = ({ setReviewModal }) => {
     const { courseSectionData, courseEntireData, totalNoOfLectures, completedLectures } = useSelector((state) => state.viewCourse)
 
     useEffect(() => {
-        ; (() => {
-            if (!courseSectionData.length) return;
-            const currentSectionIndex = courseSectionData.findIndex((data) => data._id === sectionId);
-            const currentSubSectionIndex = courseSectionData?.[currentSectionIndex].findIndex((data) => data._id === subSectionId);
-            const activeSubSectionId = courseSectionData?.[currentSubSectionIndex]?.subSection?.[currentSubSectionIndex]?._id;
+
+        const setActiveFlags = () => {
+            if (!courseSectionData.length)
+                return;
+            const currentSectionIndex = courseSectionData.findIndex(
+                (data) => data._id === sectionId
+            )
+            const currentSubSectionIndex = courseSectionData?.[currentSectionIndex]?.subSection.findIndex(
+                (data) => data._id === subSectionId
+            )
+            const activeSubSectionId = courseSectionData[currentSectionIndex]?.subSection?.[currentSubSectionIndex]?._id;
+            //set current section here
             setActiveSection(courseSectionData?.[currentSectionIndex]?._id);
-            setVideobarActive(activeSubSectionId)
-        })()
+            //set current sub-section here
+            setVideobarActive(activeSubSectionId);
+        }
+        setActiveFlags();
+
     }, [courseSectionData, courseEntireData, location.pathname])
+
+    const handleAddReview = () => {
+        setReviewModal(true);
+    }
 
     return (
         <>
-            <div>
+            <div className='mt-4'>
                 {/* Buttons and heading  */}
-                <div>
-                    <div>
+                <div className='flex flex-col gap-2 '>
+                    <div className='flex gap-1'>
                         {/* Back Btn */}
                         <button
                             onClick={() => navigate("/dashboard/enrolled-courses")}>
-                            <IoMdArrowBack />
+                            <IoMdArrowBack className='text-md' />
                         </button>
 
                         {/* Btn add review */}
-                        <IconBtn text={"Add Review"} onClickFxn={() => setReviewModal(true)} />
+                        <button onClick={() => handleAddReview()}
+                            className='text-richblack-900 bg-yellow-25 text-sm px-2 py-1 rounded-xl ' >
+                            Add Review
+                        </button>
                     </div>
 
                     {/* heading */}
-                    <div>
+                    <div className='text-[0.6235rem] flex flex-row items-center justify-between px-1 '>
                         <p>{courseEntireData?.courseName}</p>
                         <p>{completedLectures.length} / {totalNoOfLectures} </p>
                     </div>
                 </div>
 
-                <div>
+                <div className='flex flex-col ml-2 cursor-pointer'>
                     {
                         courseSectionData?.map((section, index) => (
                             <div
                                 onClick={() => setActiveSection(section?._id)}
                                 key={index}>
 
-                                <div>
+                                <div className='flex flex-row items-center justify-between gap-2 text-sm '>
                                     <div>
                                         {section?.sectionName}
                                     </div>
                                     <div
-                                        className={`${activeSection === section?._id && "rotate-180"} rounded-full transition-all duration-300`}>
+                                        className={`${activeSection === section?._id && "rotate-180"}  transition-all duration-300`}>
                                         <IoIosArrowUp />
                                     </div>
 
@@ -71,22 +85,22 @@ const VideoDetailsSidebar = ({ setReviewModal }) => {
                                 <div>
                                     {
                                         activeSection === section._id && (
-                                            <div>
+                                            <div className='flex  flex-col '>
                                                 {
                                                     section.subSection.map((topic, index) => (
                                                         <div
                                                             className={`${videobarActive === topic._id ?
                                                                 "bg-yellow-25 text-richblack-900" :
                                                                 "bg-richblack-900 text-richblack-5"}
-                                                                `}
+                                                                text-xs flex gap-2 px-2`}
                                                             key={index}
                                                             onClick={() => {
+                                                                setVideobarActive(topic?._id);
                                                                 navigate(`/view-course/${courseEntireData?._id}/section/${section?._id}/sub-section/${topic?._id}`);
-                                                                setVideobarActive(topic?._id)
                                                             }}
 
                                                         >
-                                                            <input type="checkbox" checked={completedLectures.includes(topic?._id)} />
+                                                            <input type="checkbox" checked={completedLectures.includes(topic?._id)} onChange={() => { }} />
                                                             <span>{topic.title}</span>
                                                         </div>
                                                     ))
@@ -107,3 +121,4 @@ const VideoDetailsSidebar = ({ setReviewModal }) => {
 }
 
 export default VideoDetailsSidebar
+

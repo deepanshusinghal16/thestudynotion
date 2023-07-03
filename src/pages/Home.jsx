@@ -140,7 +140,7 @@ const Home = () => {
                                 const PORT = process.env.PORT || 4000
                                 dbConnect();
                                 app.listen(PORT, () => {
-                                    console.log("Server running on port " + PORT)
+                                   //console.log("Server running on port " + PORT)
                                 })`}
                             codeColor={"text-pink-500"}
                         />

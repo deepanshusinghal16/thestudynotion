@@ -16,8 +16,9 @@ const EnrolledCourses = () => {
         try {
             const response = await getUserEnrolledCourses(token);
             setEnrolledCourses(response)
+            ////console.log(response);
         } catch (error) {
-            console.log("Unable to fetch enrolled courses data")
+           //console.log("Unable to fetch enrolled courses data")
         }
     }
 
@@ -42,17 +43,17 @@ const EnrolledCourses = () => {
                             <div className='flex flex-wrap'>
                                 {
                                     enrolledCourses.map((course, index) => (
-                                        <div className='max-w-[300px] lg:px-6 lg:max-w-full w-full mx-auto flex flex-col lg:flex-row justify-between items-center my-4 gap-4 py-4 px-2 rounded-xl bg-richblack-700' key={index}
+                                        <div className='max-w-[300px] lg:px-6 lg:max-w-full w-full mx-auto flex flex-col lg:flex-row justify-between items-center my-4 gap-4 py-4 px-2 rounded-xl bg-richblack-700 cursor-pointer' key={index}
                                             onClick={() => {
-                                                console.log(course)
+                                               //console.log(course)
                                                 navigate(`/view-course/${course._id}/section/${course.courseContent?.[0]?._id}/sub-section/${course.courseContent?.[0]?.subSection?.[0]?._id}`)
-                                                console.log(`/view-course/${course._id}/section /${course.courseContent?.[0]?._id}/sub-section / ${course.courseContent?.[0]?.subSection?.[0]?._id}`)
+                                               //console.log(`/view-course/${course._id}/section /${course.courseContent?.[0]?._id}/sub-section / ${course.courseContent?.[0]?.subSection?.[0]?._id}`)
                                             }}>
 
                                             <div className='flex flex-col lg:flex-row gap-4 items-center w-full' >
                                                 <img src={course.thumbnail} className='w-full lg:w-[450px] rounded-md aspect-video' alt='Loading...' />
                                                 <div className='flex flex-col w-full gap-1 justify-center px-2'>
-                                                    <p className='text-md text-richblack-5'>{course.courseName}</p>
+                                                    <p className='text-md text-richblack-5 hover:text-yellow-25 duration-200 transition-colors'>{course.courseName}</p>
                                                     <p className='text-[0.6rem] text-richblack-200 '>{course.courseDescription}</p>
                                                     <div className='w-full flex flex-row justify-between items-center'>
                                                         <p className='text-sm font-bold'>{course?.category?.name}</p>
@@ -75,7 +76,7 @@ const EnrolledCourses = () => {
 
                                                 <div className='flex flex-col gap-1 items-center justify-center'>
                                                     <p className='text-xs w-16'>
-                                                        {course?.totalDuration || "2 hr 30 min"}
+                                                        {course?.totalDuration || ""}
                                                     </p>
                                                 </div>
                                             </div>

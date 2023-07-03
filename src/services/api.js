@@ -11,7 +11,7 @@ export const catalogData = {
 export const contactusEndpoint = {
     CONTACT_US_API: BASE_URL + "/reach/contact",
 };
- 
+
 export const endpoints = {
     SENDOTP_API: BASE_URL + "/auth/sendotp",
     SIGNUP_API: BASE_URL + "/auth/signup",
@@ -23,6 +23,7 @@ export const endpoints = {
 export const profileEndpoints = {
     GET_USER_DETAILS_API: BASE_URL + "/profile/getUserDetails",
     GET_USER_ENROLLED_COURSES_API: BASE_URL + "/profile/getEnrolledCourses",
+    GET_INSTRUCTOR_DATA_API: BASE_URL + "/profile/instructorDashboard",
 };
 
 export const studentEndpoints = {

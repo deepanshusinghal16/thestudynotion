@@ -39,14 +39,14 @@ const Sidebar = () => {
                         sidebarLinks.map((link) => {
                             if (link.type && link.type !== user?.accountType) return null;
                             return (
-                                <SidebarLink link={link} iconName={link.icon} key={link.id} isOpen={isOpen} />
+                                <SidebarLink link={link} iconName={link.icon} key={link.id} isOpen={isOpen} toggle={toggle} />
                             )
                         })
                     }
                 </div>
                 <hr className='my-2  bg-richblack-500 ' />
                 <div className='flex flex-col  '>
-                    <SidebarLink link={{ name: "Settings", path: "dashboard/settings" }} iconName="VscSettingsGear" isOpen={isOpen} />
+                    <SidebarLink link={{ name: "Settings", path: "dashboard/settings" }} iconName="VscSettingsGear" isOpen={isOpen} toggle={toggle} />
 
                     <button
                         onClick={() => setComformationModal({

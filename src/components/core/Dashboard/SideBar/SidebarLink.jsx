@@ -2,7 +2,7 @@ import React from 'react'
 import * as Icons from "react-icons/vsc";
 import { NavLink, matchPath, useLocation } from 'react-router-dom';
 
-const SidebarLink = ({ link, iconName, isOpen }) => {
+const SidebarLink = ({ link, iconName, isOpen, toggle }) => {
     const Icon = Icons[iconName];
     const location = useLocation();
 
@@ -13,7 +13,8 @@ const SidebarLink = ({ link, iconName, isOpen }) => {
     return (
         <NavLink
             to={link.path}
-            className={`  ${matchRoute(link.path) ? "text-yellow-200  scale-100" : " bg-opacity-0"} rounded-xl ml-2${!isOpen ? " " : " "}
+            onClick={() => { isOpen && toggle() }}
+            className={`  ${matchRoute(link.path) ? "text-yellow-200  scale-100" : " bg-opacity-0"} rounded-xl ml-2
                          transition-all duration-500 group relative `}
         >
 

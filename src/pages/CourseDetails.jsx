@@ -22,7 +22,7 @@ const CourseDetails = () => {
     const { token } = useSelector((state) => state.auth);
     const { user } = useSelector((state) => state.profile);
     const { loading } = useSelector((state) => state.profile);
-    const { paymentLoading } = useSelector((state) => state.course);
+    // const { paymentLoading } = useSelector((state) => state.course);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { courseId } = useParams();
@@ -34,10 +34,10 @@ const CourseDetails = () => {
             try {
                 const response = await fetchCourseDetails(courseId);
                 setCourseData(response);
-                console.log(courseData);
+                ////console.log(courseData);
 
             } catch (e) {
-                console.log("Unable to fetch data of the course", e);
+               //console.log("Unable to fetch data of the course", e);
             }
         }
         if (courseId)
@@ -230,7 +230,7 @@ const CourseDetails = () => {
                 <div className='md:w-10/12 px-2 py-6 w-full mx-auto flex flex-col gap-2'>
                     <p className='font-bold text-[1.2rem]'>Author</p>
                     <div className='flex gap-x-4 items-center'>
-                        <img src={instructor?.image} alt="Author" className='w-12 h-12 aspect-square rounded-full' />
+                        <img src={instructor?.image} alt="Author" className='  w-12 h-12 aspect-square rounded-full' />
                         <p className='text-sm'>{instructor?.firstName} {instructor?.lastName}</p>
                     </div>
                     <p className='text-[0.625rem] px-2'>{instructor?.additionalDetails?.about}</p>

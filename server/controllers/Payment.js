@@ -6,6 +6,7 @@ const { courseEnrollmentEmail } = require('../mail/templates/courseEnrollmentEma
 const { default: mongoose } = require('mongoose');
 const { paymentSuccessEmail } = require('../mail/templates/paymentSuccessEmail');
 const crypto = require('crypto');
+const CourseProgress = require('../models/CourseProgress');
 
 // capture the payment and iniitalatie the rayzorpay payment
 exports.capturePayment = async (req, res) => {
@@ -42,7 +43,7 @@ exports.capturePayment = async (req, res) => {
             totalAmount += course.price;
         }
         catch (error) {
-            console.log(error);
+            //console.log(error);
             return res.status(500).json({
                 success: false,
                 message: error.message,
@@ -58,14 +59,14 @@ exports.capturePayment = async (req, res) => {
 
     try {
         const paymentResponse = await instance.orders.create(options);
-        console.log("paymentResponse", paymentResponse)
+        //console.log("paymentResponse", paymentResponse)
         return res.json({
             success: true,
             message: paymentResponse
         })
     }
     catch (error) {
-        console.log("ERROR AAYI GYI", error);
+        //console.log("ERROR AAYI GYI", error);
         return res.status(500).json({
             success: false,
             message: error.message
@@ -80,7 +81,7 @@ exports.verifyPayment = async (req, res) => {
     const razorpay_signature = req.body?.razorpay_signature;
     const courses = req.body?.courses;
     const userId = req.user.id;
-    console.log(razorpay_order_id, razorpay_payment_id, razorpay_signature, courses, userId);
+    //console.log(razorpay_order_id, razorpay_payment_id, razorpay_signature, courses, userId);
     if (!razorpay_payment_id || !razorpay_signature || !razorpay_order_id) {
         return res.status(200).json({
             success: false,
@@ -131,10 +132,17 @@ const enrollStudents = async (courses, userId, res) => {
                 })
             }
 
+            const courseProgess = await CourseProgress.create({
+                courseId: courseId,
+                userId: userId,
+                completedVideos: []
+            })
+
             const enrolledStudent = await User.findByIdAndUpdate(userId,
                 {
                     $push: {
-                        courses: courseId
+                        courses: courseId,
+                        courseProgess: courseProgess._id,
                     }
                 },
                 { new: true });
@@ -145,7 +153,7 @@ const enrollStudents = async (courses, userId, res) => {
                 `Successfully Enrolled in ${enrolledCourse.courseName}`,
                 courseEnrollmentEmail(enrolledCourse.courseName, `${enrolledStudent.firstName} " " ${enrolledStudent.lastName} `)
             )
-            console.log("Email sent successfully");
+            //console.log("Email sent successfully");
 
         }
         catch (error) {
@@ -171,11 +179,11 @@ exports.sendPaymentSuccessEmail = async (req, res) => {
         await mailSender(
             enrollStudent.email,
             'Payment Recieved',
-            paymentSuccessEmail(`${enrollStudent.firstName} {" "} ${enrollStudent.lastName}`, amount / 100, orderId, paymentId)
+            paymentSuccessEmail(`${enrollStudent.firstName}  ${enrollStudent.lastName}`, amount / 100, orderId, paymentId)
         )
     }
     catch (err) {
-        console.log("Error in sending payment recived mail");
+        //console.log("Error in sending payment recived mail");
         return res.status(500).json({ success: false, message: "Could not send payment recived mail" })
     }
 

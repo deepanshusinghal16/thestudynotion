@@ -42,7 +42,7 @@ const AboutUs = () => {
 
 
             <section className='md:w-10/12 px-2  grid grid-cols-1 lg:grid-cols-2  my-10   place-items-center mx-auto gap-4  md:gap-20'>
-               
+
                 <div className='flex flex-col gap-4 items-center  w-full bg-richblack-800 min-h-[250px] md:h-[100%] rounded-lg justify-center mx-auto px-4 py-4'>
                     <h2 className='text-lg md:text-xl lg:text-2xl font-semibold'>
                         <HighlightText text={"Our Founding Story"} />
@@ -56,7 +56,7 @@ const AboutUs = () => {
                 </div>
                 <div className=''>
                     <img src={FoundingStory} alt="FoundingStory" />
-                </div>             
+                </div>
                 <div className='flex flex-col gap-4 items-center lg:pb-10 min-h-[200px] justify-center mx-auto px-4 py-4'>
                     <h2 className='text-lg md:text-xl lg:text-2xl font-semibold'>
                         <HighlightText text={"Our Vision"} />
@@ -73,7 +73,7 @@ const AboutUs = () => {
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi similique aspernatur eius ratione, minima corrupti omnis quibusdam maxime, tempore minus ad nihil amet optio molestias perferendis culpa. Unde ipsum velit placeat alias ipsa error impedit. Pariatur quo nesciunt assumenda asperiores.
                     </p>
                 </div>
-               
+
 
             </section>
 
@@ -93,7 +93,8 @@ const AboutUs = () => {
                 <ContactFormSection />
             </section>
 
-            <section>
+            <section className='px-2 md:w-10/12 mx-auto max-w-maxContent bg-richblack-900 text-white flex flex-col gap-6 items-center font-semibold'>
+                <h2 className='text-xl lg:text-2xl px-4'>Reviews From Other Learners</h2>
                 <ReviewSection />
             </section>
 

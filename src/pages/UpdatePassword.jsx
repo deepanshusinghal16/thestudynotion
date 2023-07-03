@@ -36,16 +36,16 @@ const UpdatePassword = () => {
         <div className='px-2 md:w-10/12 mx-auto flex items-center justify-center h-[90vh] text-richblack-5'>
             {
                 loading ? (<Spinner />) : (
-                    <div className='flex flex-col gap-5 md:w-[350px] '>
-                        <h2 className='text-2xl font-bold '>Choose a New Password</h2>
-                        <p className=' text-lg'>Almost done. Enter your new password</p>
+                    <div className='flex flex-col gap-5 md:w-[450px] lg:max-w-[700px] '>
+                        <h2 className='text-xl font-bold text-center '>Choose a New Password</h2>
+                        <p className=' text-md text-center'>Almost done. Enter your new password</p>
 
                         <form onSubmit={handleOnSubmit} className='flex flex-col gap-4 '>
 
                             <label htmlFor="password" className='relative '>
-                                <p>New Password*</p>
+                                <p className='text-sm'>New Password*</p>
                                 <input
-                                    type={!showNewPassword ? "text" : "password"}
+                                    type={showNewPassword ? "text" : "password"}
                                     required
                                     placeholder='Enter your new password here'
                                     name='password'
@@ -55,15 +55,15 @@ const UpdatePassword = () => {
                                 />
                                 <div className='absolute z-[10]  bottom-[15%] right-2 text-2xl ' onClick={() => setShowNewPassword(!showNewPassword)}>
                                     {
-                                        showNewPassword ? < AiOutlineEye /> : <AiOutlineEyeInvisible />
+                                        !showNewPassword ? < AiOutlineEye /> : <AiOutlineEyeInvisible />
                                     }
                                 </div>
                             </label>
 
                             <label htmlFor="confirmPassword" className='relative'>
-                                <p>Confirm New Password*</p>
+                                <p className='text-sm'>Confirm New Password*</p>
                                 <input
-                                    type={!showConfirmPassword ? "text" : "password"}
+                                    type={showConfirmPassword ? "text" : "password"}
                                     required
                                     placeholder='Enter your Confirm password here'
                                     name='confirmPassword'
@@ -73,14 +73,14 @@ const UpdatePassword = () => {
                                 />
                                 <div className='absolute z-[10] bottom-[15%] right-2 text-2xl ' onClickCapture={() => setShowConfirmPassword(!showConfirmPassword)}>
                                     {
-                                        showConfirmPassword ? < AiOutlineEye /> : <AiOutlineEyeInvisible />
+                                        !showConfirmPassword ? < AiOutlineEye /> : <AiOutlineEyeInvisible />
                                     }
                                 </div>
                             </label>
 
 
                             <button type="submit" className='w-[100%]'>
-                                <p className=' rounded-md bg-yellow-50 text-black hover:shadow-yellow-200 shadow-md   px-6 py-2 text-lg my-2 hover:scale-95 transition-all duration-200 '>
+                                <p className=' rounded-md bg-yellow-50 text-black hover:shadow-yellow-200 shadow-md   px-6 py-1 text-md  my-1 hover:scale-95 transition-all duration-200 '>
                                     Reset Password
                                 </p>
                             </button>
@@ -88,7 +88,7 @@ const UpdatePassword = () => {
                         </form>
 
                         <div className=' w-[100%]'>
-                            <button className=' rounded-md text-white bg-richblack-800 hover:shadow-white shadow-md w-[100%]  px-6 py-2 text-lg mb-2 hover:scale-95 transition-all duration-200 ' >
+                            <button className=' rounded-md text-white bg-richblack-800 hover:shadow-white shadow-md w-[100%]  px-6 py-1 text-md mb-2 hover:scale-95 transition-all duration-200 ' >
                                 <Link to={"/login"}>
                                     Back to login
                                 </Link>

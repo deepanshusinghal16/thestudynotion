@@ -25,7 +25,7 @@ export default function Cart() {
                     <p> Your Cart is Empty.</p>
 
                     <Link className="bg-yellow-25 text-richblack-700 px-4 py-1 rounded-2xl" to={"/dashboard/enrolled-courses"}>
-                        Enroll Now
+                            Buy Now
                     </Link>
                 </div>)
             }

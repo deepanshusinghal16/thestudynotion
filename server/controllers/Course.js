@@ -72,7 +72,7 @@ exports.createCourse = async (req, res) => {
 			thumbnail,
 			process.env.FOLDER_NAME
 		);
-		console.log(thumbnailImage);
+		////console.log(thumbnailImage);
 		//Create a new course with the given details
 		const newCourse = await Course.create({
 			courseName,
@@ -117,7 +117,7 @@ exports.createCourse = async (req, res) => {
 		});
 	} catch (error) {
 		// Handle any errors that occur during the creation of the course
-		console.error(error);
+		////console.error(error);
 		res.status(500).json({
 			success: false,
 			message: "Failed to create course",
@@ -146,7 +146,7 @@ exports.getAllCourses = async (req, res) => {
 			data: allCourses,
 		});
 	} catch (error) {
-		console.log(error);
+		////console.log(error);
 		return res.status(404).json({
 			success: false,
 			message: `Can't Fetch Course Data`,
@@ -186,12 +186,6 @@ exports.getCourseDetails = async (req, res) => {
 			})
 		}
 
-		// if (courseDetails.status === "Draft") {
-		//   return res.status(403).json({
-		//     success: false,
-		//     message: `Accessing a draft course is forbidden`,
-		//   });
-		// }
 
 		let totalDurationInSeconds = 0
 		courseDetails.courseContent.forEach((content) => {
@@ -230,7 +224,7 @@ exports.editCourse = async (req, res) => {
 
 		// If Thumbnail Image is found, update it
 		if (req.files) {
-			console.log("thumbnail update")
+			////console.log("thumbnail update")
 			const thumbnail = req.files.thumbnailImage
 			const thumbnailImage = await uploadImageToCloudinary(
 				thumbnail,
@@ -277,7 +271,7 @@ exports.editCourse = async (req, res) => {
 			data: updatedCourse,
 		})
 	} catch (error) {
-		console.error(error)
+		////console.error(error)
 		res.status(500).json({
 			success: false,
 			message: "Internal server error",
@@ -310,11 +304,11 @@ exports.getFullCourseDetails = async (req, res) => {
 			.exec()
 
 		let courseProgressCount = await CourseProgress.findOne({
-			courseID: courseId,
+			courseId: courseId,
 			userId: userId,
 		})
 
-		console.log("courseProgressCount : ", courseProgressCount)
+		////console.log("courseProgressCount : ", courseProgressCount)
 
 		if (!courseDetails) {
 			return res.status(400).json({
@@ -367,15 +361,27 @@ exports.getInstructorCourses = async (req, res) => {
 		// Find all courses belonging to the instructor
 		const instructorCourses = await Course.find({
 			instructor: instructorId,
-		}).sort({ createdAt: -1 })
+		})
+			.sort({ createdAt: -1 })
+			.populate({
+				path: "courseContent",
+				populate: {
+					path: "subSection",
+					select: "-videoUrl",
+				},
+			})
+			.exec()
+
+
 
 		// Return the instructor's courses
 		res.status(200).json({
 			success: true,
 			data: instructorCourses,
+
 		})
 	} catch (error) {
-		console.error(error)
+		////console.error(error)
 		res.status(500).json({
 			success: false,
 			message: "Failed to retrieve instructor courses",
@@ -426,7 +432,7 @@ exports.deleteCourse = async (req, res) => {
 			message: "Course deleted successfully",
 		})
 	} catch (error) {
-		console.error(error)
+		////console.error(error)
 		return res.status(500).json({
 			success: false,
 			message: "Server error",

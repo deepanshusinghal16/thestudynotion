@@ -33,7 +33,7 @@ export async function buyCourse(token, courses, userDetails, navigate, dispatch)
 
         const orderResponse = await apiConnector("POST", COURSE_PAYMENT_API, { courses }, { Authorization: `Bearer ${token}` });
 
-        console.log(orderResponse)
+     //console.log(orderResponse)
         if (!orderResponse.data.success) {
             throw new Error(orderResponse.data.message);
         }
@@ -60,11 +60,11 @@ export async function buyCourse(token, courses, userDetails, navigate, dispatch)
         paymentObject.open()
         paymentObject.on("payment.failed", function (response) {
             toast.error("Oops..! Something went wrong")
-            console.log(response.error)
+         //console.log(response.error)
         })
     }
     catch (error) {
-        console.log("Error in payment processing", error);
+     //console.log("Error in payment processing", error);
         toast.error(error.message)
     }
     toast.dismiss(toastId);
@@ -72,7 +72,7 @@ export async function buyCourse(token, courses, userDetails, navigate, dispatch)
 
 async function sendPaymentSuccessEmail(response, amount, token) {
     try {
-        console.log("inside the send Payment Succes Emial Frontend", response)
+     //console.log("inside the send Payment Succes Emial Frontend", response)
         await apiConnector("POST", SEND_PAYMENT_SUCCESS_EMAIL_API, {
             orderId: response.razorpay_order_id,
             paymentId: response.razorpay_payment_id,
@@ -83,14 +83,14 @@ async function sendPaymentSuccessEmail(response, amount, token) {
             })
     }
     catch (error) {
-        console.log("payment success email error: " + error);
+     //console.log("payment success email error: " + error);
     }
 }
 
 async function verifyPayment(bodyData, token, navigate, dispatch) {
     const toastId = toast.loading("Verifing  payment");
     dispatch(setPaymentLoading(true));
-    console.log("Inside the verifyPayment Function", bodyData)
+ //console.log("Inside the verifyPayment Function", bodyData)
     try {
         const res = await apiConnector("POST", COURSE_VERIFY_API, bodyData,
             { Authorization: `Bearer ${token}` });
@@ -103,7 +103,7 @@ async function verifyPayment(bodyData, token, navigate, dispatch) {
         dispatch(resetCart())
     }
     catch (error) {
-        console.log("Payment Verification Error: " + error);
+     //console.log("Payment Verification Error: " + error);
         toast.error("Payment Verification Error");
     }
     toast.dismiss(toastId);
