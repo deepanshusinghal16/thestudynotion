@@ -16,7 +16,7 @@ const Dashboard = () => {
 
 
     return (
-        <div className='flex  relative  min-h-[calc(100vh-3.5rem)] w-full'>
+        <div className='flex  relative  min-h-[calc(100vh-3.5rem)] w-full text-richblack-5'>
             <div className='absolute z-[10] top-0 left-0  h-full bg-black'>
                 <Sidebar />
             </div>
