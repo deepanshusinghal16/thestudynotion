@@ -48,6 +48,7 @@ const EnrolledCourses = () => {
                                                 navigate(`/view-course/${course._id}/section/${course.courseContent?.[0]?._id}/sub-section/${course.courseContent?.[0]?.subSection?.[0]?._id}`)
                                             }}>
 
+                                            {console.log(course)}
                                             <div className='flex flex-col lg:flex-row gap-4 items-center w-full' >
                                                 <img src={course.thumbnail} className='w-full lg:w-[450px] rounded-md aspect-video' alt='Loading...' />
                                                 <div className='flex flex-col w-full gap-1 justify-center px-2'>
@@ -55,7 +56,7 @@ const EnrolledCourses = () => {
                                                     <p className='text-[0.6rem] text-richblack-200 '>{course.courseDescription}</p>
                                                     <div className='w-full flex flex-row justify-between items-center'>
                                                         <p className='text-sm font-bold'>{course?.category?.name}</p>
-                                                        <p className='italic text-[0.7rem] text-richblack-200 w-max'>~By {course?.instructor?.firstName}</p>
+                                                        {/* <p className='italic text-[0.7rem] text-richblack-200 w-max'>~By {course?.instructor?.firstName}</p> */}
                                                     </div>
                                                 </div>
                                             </div>
