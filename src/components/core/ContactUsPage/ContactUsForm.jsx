@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import CountryCode from '../../../data/countrycode.json'
+import { apiConnector } from "../../../services/apiConnector"
+import { contactusEndpoint } from "../../../services/api"
 import '../../../App.css';
 
 const ContactUsForm = () => {
@@ -14,19 +16,24 @@ const ContactUsForm = () => {
     } = useForm();
 
     const submitContactForm = async (data) => {
-        console.log("Form Data: ", data);
-        try {
-            setLoading(true);
-            // const response = await apiConnector("POST", contactusEndpoint.CONTACT_US_API, data);
-            const response = { status: "OK" };
-            console.log("Response of the API :", response);
-            setLoading(false);
-            toast.success("Message sent");
+        //console.log(data)
+        // try {
+        //     setLoading(true);
+        //     const res = await apiConnector(
+        //         "POST",
+        //         contactusEndpoint.CONTACT_US_API,
+        //         data
+        //     )
 
-        } catch (e) {
-            console.log("Error calling the API :", e);
-            toast.error("Not send the message");
-        }
+        //     const response = { status: "OK" };
+        //     //console.log("Response of the API :", response);
+        //     setLoading(false);
+        //     toast.success("Message sent");
+
+        // } catch (e) {
+        //     //console.log("Error calling the API :", e);
+        //     toast.error("Not send the message");
+        // }
     }
 
     useEffect(() => {

@@ -24,15 +24,6 @@ const UpdatePassword = () => {
 
 
     const handleOnSubmit = (e) => {
-        // if (!newPassword || !confirmNewPassword || !oldPassword) {
-        //     toast.error("Please enter all fields");
-        //     return;
-        // }
-        // if (newPassword !== confirmNewPassword) {
-        //     toast.error("New Password didn't matched")
-        //     return;
-        // }
-
         changePassword(token, { oldPassword, newPassword, confirmNewPassword })
     }
 
@@ -144,12 +135,12 @@ const UpdatePassword = () => {
             <div className='flex gap-4 items-center justify-end'>
                 <button
                     onClick={() => resetData()}
-                    className='text-lg bg-richblack-600 text-richblack-25 px-4 py-1 rounded-2xl '>
+                    className='text-sm bg-richblack-600 text-richblack-25 px-4 py-1 rounded-2xl '>
                     Cancel
                 </button>
                 <button
                     onClick={() => handleOnSubmit()}
-                    className='text-lg bg-yellow-25 px-4 py-1 rounded-2xl text-richblack-800'>
+                    className='text-sm bg-yellow-25 px-4 py-1 rounded-2xl text-richblack-800'>
                     Update
                 </button>
             </div>

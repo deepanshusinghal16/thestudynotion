@@ -42,7 +42,7 @@ const CourseDetailCard = ({ course, setModal, handleBuyNow, showDetail }) => {
 
     return (
         <div className='w-full flex flex-col gap-3'>
-            <img src={course?.thumbnail} alt="Thumbnail" className='w-full aspect-video rounded-2xl' />
+            <img src={course?.thumbnail} alt="Thumbnail" className='  object-cover w-full aspect-video rounded-2xl' />
             <div className='md:hidden px-3'>
                 {showDetail()}
             </div>

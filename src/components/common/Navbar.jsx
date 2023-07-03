@@ -36,7 +36,7 @@ const Navbar = () => {
             setSubLinks(result);
         }
         catch (error) {
-            console.log("Can't fetch the categories at this moment");
+            //console.log("Can't fetch the categories at this moment");
         }
         setLoading(false);
     }

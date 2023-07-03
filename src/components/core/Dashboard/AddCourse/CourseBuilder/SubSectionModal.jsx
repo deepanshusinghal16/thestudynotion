@@ -26,7 +26,7 @@ const SubSectionModal = ({
 
     useEffect(() => {
         if (view || edit) {
-            console.log(modalData)
+            //console.log(modalData)
             setValue("lectureTitle", modalData.title);
             setValue("lectureDesc", modalData.description);
             setValue("lectureVideo", modalData.videoUrl);
@@ -96,7 +96,7 @@ const SubSectionModal = ({
             const updatedCourseContent = course.courseContent.map((section) => section._id === modalData ? result : section);
             const updatedCourse = { ...course, courseContent: updatedCourseContent }
             dispatch(setCourse(updatedCourse));
-            console.log(course)
+            //console.log(course)
         }
         setModalData(null);
         setLoading(false);

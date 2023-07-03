@@ -12,6 +12,7 @@ const CourseCard = ({ course, Height }) => {
     useEffect(() => {
         const count = GetAvgRating(course?.ratingAndReviews);
         setAvgReviewCount(count);
+        //console.log(course)
     }, [course])
 
 
@@ -50,7 +51,7 @@ const CourseCard = ({ course, Height }) => {
 
                     <div className='flex items-center justify-between w-full text-xs px-2'>
                         <div className='flex w-max  flex-row items-center gap-4 justify-between '>
-                            <div className='flex flex-col gap-1  w-max justify-center '>
+                            <div className='flex  items-center gap-1  w-max justify-center '>
                                 <div className='flex gap-1 '>
                                     <span>{avgReviewCount || 0}</span>
                                     <RatingStars Review_Count={avgReviewCount} />
@@ -60,9 +61,9 @@ const CourseCard = ({ course, Height }) => {
                         </div>
 
                         <div className='flex flex-col gap-1 items-center justify-center px-2'>
-                            <p className='text-xs w-16'>
-                                {course?.totalDuration || "2 hr 30 min"}
-                            </p>
+                            {/* <p className='text-xs w-16'>
+                                {course?.totalDuration}
+                            </p> */}
                         </div>
                     </div>
                 </div>

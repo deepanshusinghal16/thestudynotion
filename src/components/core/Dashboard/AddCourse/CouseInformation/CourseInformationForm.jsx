@@ -75,14 +75,14 @@ const CourseInformationForm = () => {
     }
 
     const onSubmit = async (data) => {
-        console.log(data)
+        //console.log(data)
 
         if (editCourse) {
 
             if (isFormUpdated()) {
                 const currentValues = getValues()
                 const formData = new FormData()
-                // console.log(data)
+                // //console.log(data)
                 formData.append("courseId", course._id)
                 if (currentValues.courseTitle !== course.courseName) {
                     formData.append("courseName", data.courseTitle)
@@ -114,7 +114,7 @@ const CourseInformationForm = () => {
                 if (currentValues.courseImage !== course.thumbnail) {
                     formData.append("thumbnailImage", data.courseImage)
                 }
-                // console.log("Edit Form data: ", formData)
+                // //console.log("Edit Form data: ", formData)
                 setLoading(true)
                 const result = await editCourseDetails(formData, token)
                 setLoading(false)

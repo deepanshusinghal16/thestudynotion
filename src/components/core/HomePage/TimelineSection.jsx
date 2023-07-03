@@ -32,23 +32,24 @@ const TimelineSection = () => {
         <div className='w-10/12 mx-auto  mt-10 '>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-2   place-items-center place-content-center '>
 
-                <div className='flex flex-col  gap-3 lg:gap-6 my-4  mx-auto '>
+                <div className='flex flex-col  gap-3 lg:gap-y-6 my-4  mx-auto  justify-center items-start'>
                     {
                         timeLine.map((element, index) => {
                             return (
-                                <div className='flex flex-row justify-around  group w-[100%]' key={index}>
-                                    <div className='w-[50px] h-[50px]  bg-white  flex justify-center items-center  relative
-                                        group-hover:scale-125 transition-all duration-200'>
-                                        <img src={element.logo} />
-                                        {
-                                            index !== 0 ? <div className=' absolute h-[20px] w-[1px]  bg-richblack-500  bottom-[100%]'></div> : ""
-                                        }
-                                    </div>
+                                <div>
+                                    <div className='flex flex-row justify-around items-center  group w-[100%] w-maxContent ' key={index}>
+                                        <div className='w-12 aspect-square  bg-white  flex justify-center items-center  relative
+                                        group-hover:scale-105 transition-all duration-200'>
+                                            <img src={element.logo} />
+                                            {
+                                                index !== 0 ? <div className=' absolute h-[20px] w-[1px]  bg-richblack-500  bottom-[100%]'></div> : ""
+                                            }
+                                        </div>
 
-                                    <div className='flex flex-col '>
-                                        <div className='hoverEffect text-lg lg:text-xl font-semibold group-hover:scale-105 transition-all duration-200 
-                                        group-hover:text-sky-400/100'>{element.heading}</div>
-                                        <div className='text-sm group-hover:scale-105 transition-all duration-200 group-hover:opacity-70'>{element.description}</div>
+                                        <div className='flex flex-col '>
+                                            <div className='hoverEffect text-md lg:text-lg font-semibold group-hover:scale-105 transition-all duration-200 group-hover:text-sky-400'>{element.heading}</div>
+                                            <div className='text-xs group-hover:scale-105 transition-all duration-200 group-hover:opacity-70'>{element.description}</div>
+                                        </div>
                                     </div>
                                 </div>
                             )
