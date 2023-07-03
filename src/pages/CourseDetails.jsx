@@ -158,7 +158,7 @@ const CourseDetails = () => {
                 {/* what YouWillLern */}
                 <div className='md:w-10/12  px-2 py-6 flex flex-col justify-start gap-2 relative w-full mx-auto'>
                     <div className='border-[2px] border-richblack-600 py-4 px-2 flex flex-col gap-2 md:max-w-[calc(100%-350px)]  lg:px-6'>
-                        <p className='font-bold text-[1.2rem]'>What You Will Learn</p>
+                        <p className='font-bold text-[1.2rem] text-white'>What You Will Learn</p>
                         <p className='text-[0.825rem] text-richblack-100 px-3'>{whatYouWillLearn}</p>
                     </div>
                 </div>
@@ -166,10 +166,10 @@ const CourseDetails = () => {
                 {/* Section display section */}
                 <div className='md:w-10/12  px-2 py-6 flex flex-col justify-start gap-2 relative w-full mx-auto'>
                     <div className='flex flex-col gap-1 md:max-w-[calc(100%-350px)] '>
-                        <p className='font-bold text-[1.2rem]'>Course Content</p>
+                        <p className='font-bold text-[1.2rem] text-white'>Course Content</p>
                         <div className='flex justify-between  text-xs'>
                             <div className='flex flex-col px-2 lg:flex-row gap-1 justify-start '>
-                                <div className='flex flex-row gap-1 items-center'>
+                                <div className='flex flex-row gap-1 items-center text-white'>
                                     <span>{courseContent.length} Section(s) </span>
                                     <span>{totalNumberofLecture} Lecture(s)</span>
                                 </div>
@@ -228,12 +228,12 @@ const CourseDetails = () => {
                 </div>
 
                 <div className='md:w-10/12 px-2 py-6 w-full mx-auto flex flex-col gap-2'>
-                    <p className='font-bold text-[1.2rem]'>Author</p>
-                    <div className='flex gap-x-4 items-center'>
+                    <p className='font-bold text-[1.2rem] text-white'>Author</p>
+                    <div className='flex gap-x-4 items- text-white'>
                         <img src={instructor?.image} alt="Author" className='  w-12 h-12 aspect-square rounded-full' />
-                        <p className='text-sm'>{instructor?.firstName} {instructor?.lastName}</p>
+                        <p className='text-sm text-white'>{instructor?.firstName} {instructor?.lastName}</p>
                     </div>
-                    <p className='text-[0.625rem] px-2'>{instructor?.additionalDetails?.about}</p>
+                    <p className='text-[0.625rem] px-2 text-white'>{instructor?.additionalDetails?.about}</p>
                 </div>
 
             </section>
