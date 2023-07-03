@@ -38,7 +38,7 @@ const Instructor = () => {
     const totalStudents = instructorData?.reduce((acc, curr) => acc + curr.totalStudentsEnrolled, 0);
 
     return (
-        <div className=' px-2 md:w-2/3 mx-auto mt-3'>
+        <div className=' px-2 md:w-2/3 mx-auto pt-6'>
             <div className='text-white '>
                 <div className='mx-auto max-w-maxContent'>
                     <h1 className='flex w-maxContent items-center gap-1 '>Hi {user?.firstName}

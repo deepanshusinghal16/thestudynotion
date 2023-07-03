@@ -33,6 +33,9 @@ const ReviewSection = () => {
             <div className='h-[190px] w-maxContent'>
                 <Swiper
                     breakpoints={{
+                        300: {
+                            slidesPerView: 1,
+                        },
                         400: {
                             slidesPerView: 2,
                         },
@@ -56,7 +59,7 @@ const ReviewSection = () => {
 
                                 className=' bg-richblack-800 px-2 rounded-lg py-2 flex items-center justify-center'>
 
-                                <div className='mx-auto'>
+                                <div className='mx-auto '>
                                     <div className='flex text-sm  gap-4 font-normal w-maxContent'>
                                         <img
                                             src={review?.user?.image
@@ -71,8 +74,8 @@ const ReviewSection = () => {
                                         </div>
                                     </div>
 
-                                    <p className=' font-normal w-max'>
-                                        <p className='text-md'>{review?.course?.courseName}</p>
+                                    <p className=' font-normal w-maxContent'>
+                                        <p className='text-md'>{review?.course?.courseName.length > 15 ? review?.course?.courseName.substring(0, 15) + `....` : review?.course?.courseName}</p>
                                         <p className='text-sm font-semibold w-maxContent'>{review?.review}</p>
                                     </p>
 

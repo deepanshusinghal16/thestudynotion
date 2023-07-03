@@ -116,7 +116,7 @@ const VideoDetails = () => {
                             onEnded={() => setVideoEnded(true)}
                             src={videoData?.videoUrl}
                         >
-                            <FaPlay className='' />
+
 
                             {
                                 videoEnded && (
