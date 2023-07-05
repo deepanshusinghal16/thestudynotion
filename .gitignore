@@ -8,8 +8,9 @@
 # testing
 /coverage
 /Media
+./Media
 # production
-/build
+/build 
 
 # misc
 .DS_Store
