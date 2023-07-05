@@ -39,6 +39,6 @@ export const sidebarLinks = [
     name: "Cart",
     path: "/dashboard/cart",
     type: ACCOUNT_TYPE.STUDENT,
-    icon: "VscHistory",
+    icon: "AiOutlineShoppingCart",
   },
 ];

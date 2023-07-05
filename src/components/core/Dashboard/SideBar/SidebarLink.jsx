@@ -1,9 +1,10 @@
 import React from 'react'
 import * as Icons from "react-icons/vsc";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 import { NavLink, matchPath, useLocation } from 'react-router-dom';
 
 const SidebarLink = ({ link, iconName, isOpen, toggle }) => {
-    const Icon = Icons[iconName];
+    const Icon = iconName === 'AiOutlineShoppingCart' ? AiOutlineShoppingCart : Icons[iconName];
     const location = useLocation();
 
     const matchRoute = (route) => {

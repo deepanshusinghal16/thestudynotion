@@ -234,7 +234,7 @@ const Navbar = () => {
                         }
 
                         <div className='flex gap-1  items-center justify-between text-xs'>
-                            {
+                            {/* {
                                 user && user.accountType === ACCOUNT_TYPE.STUDENT && (
                                     <Link to={"/dashboard/cart"} className='relative' >
                                         <AiOutlineShoppingCart className='text-xl text-white  mr-1' />
@@ -255,7 +255,7 @@ const Navbar = () => {
                                         }
                                     </Link>
                                 )
-                            }
+                            } */}
                             {
                                 token !== null && <ProfileDropDown />
                             }

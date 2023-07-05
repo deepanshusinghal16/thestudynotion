@@ -6,6 +6,9 @@ module.exports = {
       inter: ["Inter", "sans-serif"],
       "edu-sa": ["Edu SA Beginner", "cursive"],
       mono: ["Roboto Mono", "monospace"],
+      review: ['Ysabeau Infant', 'sans-serif'],
+      title: ['Rajdhani'],
+      abel: ['Courgette']
     },
     colors: {
       white: "#fff",

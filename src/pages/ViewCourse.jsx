@@ -37,7 +37,7 @@ const ViewCourse = () => {
     return (
         <div className='my-4'>
             <div className='text-richblack-5'>Course Content</div>
-            <div className='flex gap-1 lg:h-[calc(100vh-3.5rem)] lg:flex-row flex-col-reverse'>
+            <div className='flex  gap-1 lg:h-[calc(100vh-3.5rem)] lg:flex-row flex-col-reverse'>
 
                 <div className='lg:w-[250px] lg:border-r-2 px-1'>
                     <VideoDetailsSidebar setReviewModal={setReviewModal} />

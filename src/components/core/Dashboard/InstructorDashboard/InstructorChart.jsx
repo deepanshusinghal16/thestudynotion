@@ -23,7 +23,7 @@ const InstructorChart = ({ courses }) => {
 
 
     const chartDataForStudents = {
-        labels: courses.map((course) => course.courseName),
+        labels: courses.map((course) => course.courseName.split(' ')[0]),
         datasets: [
             {
                 data: courses.map((course) => course.totalStudentsEnrolled),
@@ -35,13 +35,13 @@ const InstructorChart = ({ courses }) => {
 
 
     const chartDataForIncome = {
-        labels: courses.map((course) => course.courseName),
+        labels: courses.map((course) => course.courseName.split(' ')[0]),
         datasets: [
             {
                 data: courses.map((course) => course.totalAmountGenerated),
                 backgroundColor: getRandomColors(courses.length),
             }
-        ]
+        ],
     }
 
 
@@ -52,7 +52,7 @@ const InstructorChart = ({ courses }) => {
 
 
     return (
-        <div className='bg-richblack-800 px-2 py-4 rounded-xl w-max '>
+        <div className='bg-richblack-800 px-2 py-4 rounded-xl w-maxContent '>
             <p className='text-lg mb-2'>Visualise</p>
             <div className='flex gap-x-5 text-sm text-yellow-200 '>
                 <button
@@ -72,7 +72,10 @@ const InstructorChart = ({ courses }) => {
             <div>
                 <Pie
                     data={currChart === "students" ? chartDataForStudents : chartDataForIncome}
-                    options={options}
+                    options={{
+                        ...options,
+                        maintainAspectRatio: true,
+                    }}
                 />
             </div>
         </div>

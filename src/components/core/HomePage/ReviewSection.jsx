@@ -57,26 +57,26 @@ const ReviewSection = () => {
                         reviews.map((review, index) => (
                             <SwiperSlide key={index}
 
-                                className=' bg-richblack-800 px-2 rounded-lg w-maxContent flex items-center  h-[200px]'>
+                                className=' bg-richblack-800 px-3 rounded-lg  flex items-center  py-3  h-36 '>
 
                                 <div className='mx-auto'>
-                                    <div className='flex text-sm  gap-4 font-normal w-maxContent'>
+                                    <div className='flex text-sm  gap-4 font-normal w-maxContent '>
                                         <img
                                             src={review?.user?.image
                                                 ? review?.user?.image
                                                 : `https://api.dicebear.com/5.x/initials/svg?seed=${review?.user?.firstName} ${review?.user?.lastName}`}
                                             alt='Profile Pic'
-                                            className='h-9 w-9 object-cover rounded-full'
+                                            className='h-9 w-9 object-cover  rounded-full'
                                         />
-                                        <div className='flex flex-col text-xs '>
+                                        <div className='flex flex-wrap gap-x-2 text-xs  items-center'>
                                             <p>{review?.user?.firstName}</p>
                                             <p>{review?.user?.lastName}</p>
                                         </div>
                                     </div>
 
-                                    <p className=' font-normal w-maxContent mt-1'>
-                                        <p className='text-sm'>{review?.course?.courseName.length > 15 ? review?.course?.courseName.substring(0, 15) + `....` : review?.course?.courseName}</p>
-                                        <p className='text-xs  w-maxContent'>{review?.review}</p>
+                                    <p className='font-normal w-maxContent mt-1'>
+                                        <p className='text-sm font-title'>{review?.course?.courseName}</p>
+                                        <p className='text-xs  w-maxContent font-review'>{review?.review}</p>
                                     </p>
 
                                     <div className='flex gap-2  items-center text-sm'>

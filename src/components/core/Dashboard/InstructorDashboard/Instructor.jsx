@@ -58,7 +58,7 @@ const Instructor = () => {
                                         <InstructorChart courses={instructorData} />
                                     </div>
 
-                                    <div>
+                                    <div className='flex gap-4 flex-col'>
                                         <p className='text-sm text-richblack-100'>Statistics</p>
                                         <div className='flex flex-row md:flex-col gap-4'>
                                             <div>

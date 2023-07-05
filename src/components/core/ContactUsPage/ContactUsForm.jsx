@@ -16,34 +16,35 @@ const ContactUsForm = () => {
     } = useForm();
 
     const submitContactForm = async (data) => {
-        //console.log(data)
-        // try {
-        //     setLoading(true);
-        //     const res = await apiConnector(
-        //         "POST",
-        //         contactusEndpoint.CONTACT_US_API,
-        //         data
-        //     )
+        console.log(data)
+        try {
+            setLoading(true);
+            const res = await apiConnector(
+                "POST",
+                contactusEndpoint.CONTACT_US_API,
+                data
+            )
 
-        //     const response = { status: "OK" };
-        //     //console.log("Response of the API :", response);
-        //     setLoading(false);
-        //     toast.success("Message sent");
+            const response = { status: "OK" };
+            //console.log("Response of the API :", response);
+            setLoading(false);
+            toast.success("Message sent");
 
-        // } catch (e) {
-        //     //console.log("Error calling the API :", e);
-        //     toast.error("Not send the message");
-        // }
+        } catch (e) {
+            //console.log("Error calling the API :", e);
+            toast.error("Not send the message");
+        }
     }
 
     useEffect(() => {
         if (isSubmitSuccessful) {
             reset({
                 email: "",
-                firstName: "",
-                lastName: "",
+                firstname: "",
+                lastname: "",
                 message: "",
                 phoneNo: "",
+                countrycode: "",
             })
         }
     }, [isSubmitSuccessful, reset])
@@ -53,36 +54,36 @@ const ContactUsForm = () => {
             {/* name input */}
             <div className='flex  flex-col sm:flex-row justify-between items-center  gap-4 md:gap-10'>
 
-                {/* firstName */}
+                {/* firstname */}
                 <div className='relative w-full'>
-                    <label htmlFor='firstName' >First Name<sup className='text-pink-100'>*</sup> </label>
+                    <label htmlFor='firstname' >First Name<sup className='text-pink-100'>*</sup> </label>
                     <input
                         type="text"
-                        name="firstName"
+                        name="firstname"
                         placeholder='First Name'
-                        id='firstName'
-                        {...register("firstName", { required: true })}
+                        id='firstname'
+                        {...register("firstname", { required: true })}
                         style={{
                             boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
                         }}
                         className="w-full rounded-[0.5rem] bg-richblack-800 px-2 py-2 text-richblack-5"
                     />
                     {
-                        errors.firstName && (
+                        errors.firstname && (
                             <div className='text-xs w-full absolute bottom-0  translate-y-[120%] text-yellow-100 left-2'> Please enter your first name</div>
                         )
                     }
                 </div>
 
-                {/* lastName */}
+                {/* lastname */}
                 <div className='w-full'>
-                    <label htmlFor='lastName'>Last Name<sup className='text-pink-100'>*</sup></label>
+                    <label htmlFor='lastname'>Last Name<sup className='text-pink-100'>*</sup></label>
                     <input
                         type="text"
-                        name="lastName"
+                        name="lastname"
                         placeholder='Last Name'
-                        id='lastName'
-                        {...register("lastName")}
+                        id='lastname'
+                        {...register("lastname")}
                         style={{
                             boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
                         }}
@@ -123,7 +124,7 @@ const ContactUsForm = () => {
                         <select
                             name="dropdown"
                             id="dropdown"
-                            {...register("countryCode", { required: true })}
+                            {...register("countrycode", { required: true })}
                             style={{
                                 boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
                             }}
@@ -195,9 +196,9 @@ const ContactUsForm = () => {
 
             {/* submit button */}
             <button type="submit" className='w-full  bg-yellow-50 my-2 text-black hover:shadow-yellow-200 shadow-md  transition-all duration-200     rounded-md hover:scale-105'>
-                <p className=' py-2  text-lg text-center font-bold tracking-wide'>
+                <p className=' py-2  text-lg text-center  tracking-wide'>
                     {
-                        loading ? "Loading..." : "Send Message"
+                        loading ? "Sending..." : "Send Message"
                     }
                 </p>
             </button>
