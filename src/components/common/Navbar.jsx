@@ -123,10 +123,10 @@ const Navbar = () => {
                                                                 </div>
                                                             ) : (
                                                                 <Link to={link.path}>
-                                                                        <div className={`${matchRoute(link.path) ? `text-yellow-25` : `text-richblack-25`}
+                                                                    <div className={`${matchRoute(link.path) ? `text-yellow-25` : `text-richblack-25`}
                                                     text-sm font-semibold `} >
                                                                         {link.title}
-                                                                        </div>
+                                                                    </div>
                                                                 </Link>
                                                             )
                                                         }
@@ -187,7 +187,7 @@ const Navbar = () => {
                                                                     <Link to={link.path} onClick={toggleMenu}>
                                                                         <div className={`${matchRoute(link.path) ? `text-yellow-25` : `text-richblack-25`}
                                                     text-lg font-semibold `} >
-                                                                                {link.title}
+                                                                            {link.title}
                                                                         </div>
                                                                     </Link>
                                                                 )
