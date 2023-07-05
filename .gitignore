@@ -9,6 +9,9 @@
 /coverage
 # production
 /build 
+Media/StudentUIStudyNotionDeepanshu.mp4
+Media/InstructorViewStudyNotionDeepanshu.mp4
+Media/StudyNotionVideo.mp4
 
 # misc
 .DS_Store
