@@ -77,4 +77,6 @@ Once the project is set up and running, you can access the StudyNotion platform 
 ## Contributing
 Contributions to StudyNotion are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request. 
 
+## Contact
+For any questions or inquiries, please reach out to deepanshusinghal2003@gmail.com.
 
